@@ -1,0 +1,6 @@
+Maras Operating System Configuration
+
+------------------------------------
+
+Touch a /etc/nixos/system.nix after cloning and describe specific settings for
+each system there.
