@@ -30,41 +30,36 @@
   outputs =
     {
       nixpkgs,
-      darwin,
       home-manager,
+      darwin,
       deploy,
       rust,
       ...
     }@inputs:
 
     let
+      darwinModule = {
+        imports = [ ./darwin ];
+
+        nixpkgs.overlays = [
+          rust.overlays.default
+        ];
+
+        home-manager.users."mara.schulke" = {
+          imports = [ ./home ];
+          home.packages = [ deploy.packages.aarch64-darwin.default ];
+        };
+
+        home-manager.extraSpecialArgs = {
+          inherit inputs;
+          username = "mara.schulke";
+        };
+      };
+
       mac = darwin.lib.darwinSystem {
         modules = [
-          #./darwin/system.nix
-
           home-manager.darwinModules.home-manager
-
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = false;
-
-            home-manager.users."mara.schulke" = {
-              imports = [ ];
-              home.packages = [ deploy.packages.aarch64-darwin.default ];
-            };
-
-            nixpkgs = {
-              overlays = [
-                rust.overlays.default
-              ];
-              config.allowUnfree = true;
-            };
-
-            home-manager.extraSpecialArgs = {
-              inherit inputs;
-              username = "mara.schulke";
-            };
-          }
+          darwinModule
         ];
       };
 
@@ -77,6 +72,10 @@
 
       homeModules = {
         default = import ./home;
+      };
+
+      darwinModules = {
+        default = darwinModule;
       };
 
       checks.aarch64-darwin = {
