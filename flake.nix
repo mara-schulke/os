@@ -1,4 +1,3 @@
-
 {
   description = "Mara's Nix Configuration";
 
@@ -51,6 +50,7 @@
 
             home-manager.users."mara.schulke" = {
               imports = [ ];
+              home.packages = [ deploy.packages.aarch64-darwin.default ];
             };
 
             nixpkgs = {
@@ -73,6 +73,10 @@
       # nix run nix-darwin -- switch --flake .#mac
       darwinConfigurations = {
         inherit mac;
+      };
+
+      homeModules = {
+        default = import ./home;
       };
 
       checks.aarch64-darwin = {
