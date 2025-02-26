@@ -1,5 +1,8 @@
 { ... }:
 
 {
-  imports = [ ./linux.nix ];
+  imports = [
+    ./linux.nix
+    ./hemisphere.nix
+  ];
 }
