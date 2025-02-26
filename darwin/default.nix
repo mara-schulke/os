@@ -6,11 +6,10 @@
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = false;
 
-  nixpkgs.allowUnfree = true;
-
   security.pam.enableSudoTouchIdAuth = true;
 
   nixpkgs.hostPlatform = "aarch64-darwin";
+  nixpkgs.config.allowUnfree = true;
 
   nix.settings.trusted-users = [ "mara.schulke" ];
 
