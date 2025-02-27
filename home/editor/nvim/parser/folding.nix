@@ -45,7 +45,7 @@
         {
           inherit mode;
           key = "z.";
-          rction = "zr";
+          action = "zr";
           options.desc = "Increase Fold Level";
         }
       ];
