@@ -27,7 +27,7 @@
           { name = "luasnip"; }
         ];
 
-        mapping = {
+        settings.mapping = {
           "<CR>" = ''
             function(fallback)
               local luasnip = require('luasnip')
