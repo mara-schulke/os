@@ -138,6 +138,7 @@ in
       nix-shell = "nix-shell --command zsh";
 
       # nix darwin
+      nix-sync = "cd $DARWIN_FLAKE && nix flake \"lock\" --update-input os && cd -";
       nix-rebuild = "nix run nix-darwin -- switch --flake $DARWIN_FLAKE#helsing";
     };
 
