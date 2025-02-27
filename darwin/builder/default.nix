@@ -2,7 +2,7 @@
 
 {
   imports = [
-    #./linux.nix
+    ./linux.nix
     ./hemisphere.nix
   ];
 }
