@@ -38,13 +38,13 @@
         }
         {
           inherit mode;
-          key = "z,";
+          key = "zh";
           action = "zm";
           options.desc = "Decrease Fold Level";
         }
         {
           inherit mode;
-          key = "z.";
+          key = "zl";
           action = "zr";
           options.desc = "Increase Fold Level";
         }
