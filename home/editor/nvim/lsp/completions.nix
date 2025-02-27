@@ -8,7 +8,7 @@
       cmp-buffer.enable = true;
       cmp_luasnip.enable = true;
 
-      extraPlugins = with pkgs.vimPlugins; [ friendly-snippets ];
+      plugins = with pkgs.vimPlugins; [ friendly-snippets ];
 
       luasnip = {
         enable = true;
