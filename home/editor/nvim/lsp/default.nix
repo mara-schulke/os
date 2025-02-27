@@ -158,11 +158,11 @@
         key = "gh";
         action = "<cmd>lua vim.lsp.buf.hover()<CR>";
       }
-      {
-        mode = "n";
-        key = "<leader>g";
-        action = ":Lspsaga outline<cr>";
-      }
+      #{
+      #mode = "n";
+      #key = "g";
+      #action = ":Lspsaga outline<cr>";
+      #}
       {
         mode = "n";
         key = "g?";
@@ -198,53 +198,43 @@
       }
       {
         mode = "n";
-        key = "<leader>gi";
+        key = "gi";
         # action = "<cmd>lua require('telescope.builtin').lsp_implementations({})<cr>";
         action = ":Lspsaga finder imp<cr>";
       }
       {
         mode = "n";
-        key = "<leader>gt";
+        key = "gp";
         # action = "<cmd>lua require('telescope.builtin').lsp_type_definitions({})<cr>";
         # action = ":Lspsaga goto_type_definition<cr>";
         action = ":Lspsaga peek_type_definition<cr>";
       }
       {
         mode = "n";
-        key = "<leader>gr";
+        key = "gf";
         action = "<cmd>lua require('telescope.builtin').lsp_references({})<cr>";
       }
       {
         mode = "n";
-        key = "<leader>gr";
+        key = "ge";
         action = "<cmd>lua require('telescope.builtin').diagnostics({})<cr>";
       }
+      #{
+      #mode = "n";
+      #key = "<leader>so";
+      ## action = "<cmd>lua require('telescope.builtin').lsp_outgoing_calls({})<cr>";
+      #action = ":Lspsaga outgoing_calls<cr>";
+      #}
+      #{
+      #mode = "n";
+      #key = "gii";
+      ## action = "<cmd>lua require('telescope.builtin').lsp_incoming_calls({})<cr>";
+      #action = ":Lspsaga incoming_calls<cr>";
+      #}
       {
         mode = "n";
-        key = "<leader>so";
-        # action = "<cmd>lua require('telescope.builtin').lsp_outgoing_calls({})<cr>";
-        action = ":Lspsaga outgoing_calls<cr>";
-      }
-      {
-        mode = "n";
-        key = "<leader>si";
-        # action = "<cmd>lua require('telescope.builtin').lsp_incoming_calls({})<cr>";
-        action = ":Lspsaga incoming_calls<cr>";
-      }
-      {
-        mode = "n";
-        key = "<leader>sn";
+        key = "gr";
         action = "<cmd>lua vim.lsp.buf.rename()<cr>";
-      }
-      {
-        mode = "n";
-        key = "<leader>sj";
-        action = "<cmd>lua vim.diagnostic.goto_next()<cr>";
-      }
-      {
-        mode = "n";
-        key = "<leader>sk";
-        action = "<cmd>lua vim.diagnostic.goto_prev()<cr>";
       }
     ];
   };
