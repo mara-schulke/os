@@ -2,10 +2,10 @@
 
 {
   imports = [
-    #./editor
-    #./terminal
-    #./shell
-    #./programs
+    ./editor
+    ./terminal
+    ./shell
+    ./programs
   ];
 
   programs.home-manager.enable = true;
