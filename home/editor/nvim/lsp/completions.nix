@@ -2,13 +2,12 @@
 
 {
   programs.nixvim = {
+    extraPlugins = with pkgs.vimPlugins; [ friendly-snippets ];
     plugins = {
       cmp-nvim-lsp.enable = true;
       cmp-path.enable = true;
       cmp-buffer.enable = true;
       cmp_luasnip.enable = true;
-
-      plugins = with pkgs.vimPlugins; [ friendly-snippets ];
 
       luasnip = {
         enable = true;
