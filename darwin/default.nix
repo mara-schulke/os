@@ -6,7 +6,7 @@
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = false;
 
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   nixpkgs.hostPlatform = "aarch64-darwin";
   nixpkgs.config.allowUnfree = true;

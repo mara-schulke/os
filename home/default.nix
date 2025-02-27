@@ -46,31 +46,4 @@
     username = "mara.schulke";
     homeDirectory = "/Users/mara.schulke";
   };
-
-  services.postgresql = {
-    enable = true;
-    enableTCPIP = true;
-    enableJIT = true;
-
-    ensureDatabases = [ "mara.schulke" ];
-    ensureUsers = [
-      {
-        name = "mara.schulke";
-        ensureClauses = {
-          superuser = true;
-        };
-      }
-    ];
-
-    extraPlugins = with pkgs.postgresql16Packages; [
-      pgvector
-      postgis
-      (timescaledb.override { postgresql = pkgs.postgresql_16; })
-      (pkgs.set_user.override { postgresql = pkgs.postgresql_16; })
-      (pkgs.pg_duckdb.override { postgresql = pkgs.postgresql_16; })
-    ];
-    settings = {
-      shared_preload_libraries = "timescaledb,pg_duckdb";
-    };
-  };
 }
