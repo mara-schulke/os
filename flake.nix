@@ -2,7 +2,7 @@
   description = "Mara's Nix Configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/release-24.11";
 
     darwin = {
       url = "github:lnl7/nix-darwin";
