@@ -5,6 +5,8 @@
 }:
 
 {
+  imports = [ ./diagnostics.nix ];
+
   programs.nixvim = {
     plugins = {
       cmp = {
