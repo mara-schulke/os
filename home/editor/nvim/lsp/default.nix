@@ -5,7 +5,10 @@
 }:
 
 {
-  imports = [ ./diagnostics.nix ];
+  imports = [
+    ./completions.nix
+    ./diagnostics.nix
+  ];
 
   programs.nixvim = {
     plugins = {
