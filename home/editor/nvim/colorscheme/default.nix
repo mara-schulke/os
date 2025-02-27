@@ -155,12 +155,13 @@ in
         let base16colorspace=256
         hi Normal ctermbg=NONE
         colorscheme base16-nixos
-        call Base16hi("CursorColumn",  "", g:base16_gui01, "", g:base16_cterm01, "", "")
-        call Base16hi("CursorLine",  "", g:base16_gui01, "", g:base16_cterm01, "", "")
-        call Base16hi("Comment",     g:base16_gui09, "", g:base16_cterm09, "", "", "")
-        call Base16hi("CocHintSign", g:base16_gui03, "", g:base16_cterm03, "", "", "")
-        call Base16hi("NonText",     g:base16_gui01, "", g:base16_cterm01, "", "", "")
-        call Base16hi("SpecialKey",  g:base16_gui01, "", g:base16_cterm01, "", "", "")
+        call Base16hi("CursorColumn",   "",             g:base16_gui01, "",               g:base16_cterm01, "", "")
+        call Base16hi("CursorLine",     "",             g:base16_gui01, "",               g:base16_cterm01, "", "")
+        call Base16hi("Comment",        g:base16_gui09, "",             g:base16_cterm09, "",               "", "")
+        call Base16hi("LspInlayHint",   g:base16_gui03, "",             g:base16_cterm03, "",               "", "")
+        call Base16hi("CocHintSign",    g:base16_gui03, "",             g:base16_cterm03, "",               "", "")
+        call Base16hi("NonText",        g:base16_gui01, "",             g:base16_cterm01, "",               "", "")
+        call Base16hi("SpecialKey",     g:base16_gui01, "",             g:base16_cterm01, "",               "", "")
       ]])
     '';
   };
