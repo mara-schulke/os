@@ -3,9 +3,10 @@
 {
   imports = [
     ./editor
-    ./terminal
-    ./shell
+    ./libs.nix
     ./programs
+    ./shell
+    ./terminal
   ];
 
   programs.home-manager.enable = true;
