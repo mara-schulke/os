@@ -3,7 +3,6 @@
 {
   imports = [
     ./editor
-    ./libs.nix
     ./programs
     ./shell
     ./terminal
