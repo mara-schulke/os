@@ -72,7 +72,7 @@
       };
 
       none-ls = {
-        enable = false;
+        enable = true;
         enableLspFormat = true;
         sources = {
           completion = {
