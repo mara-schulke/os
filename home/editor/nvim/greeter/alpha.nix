@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}:
+{ pkgs, ... }:
 
 let
   alpha = pkgs.vimUtils.buildVimPlugin {
