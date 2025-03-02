@@ -12,11 +12,10 @@
   nixpkgs.config.allowUnfree = true;
 
   nix.settings.trusted-users = [ "mara.schulke" ];
-  nix.experimental-features = [
-    "nix-command"
-    "flakes"
-    "pipe-operators"
-  ];
+  nix.extraOptions = ''
+    experimental-features = nix-command flakes pipe-operators
+  '';
+
   users.users."mara.schulke" = {
     name = "mara.schulke";
     home = "/Users/mara.schulke";
