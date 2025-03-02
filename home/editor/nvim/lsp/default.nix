@@ -77,7 +77,8 @@
         settings = {
           should_attach = ''
             function(bufnr)
-              return not vim.api.nvim_buf_get_name(bufnr):match("^git://")
+              local bufname = vim.fn.bufname(bufnr)
+              return not string.find(bufname, "%.git/")
             end
           '';
         };
