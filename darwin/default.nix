@@ -12,7 +12,7 @@
   nixpkgs.config.allowUnfree = true;
 
   nix.settings.trusted-users = [ "mara.schulke" ];
-  nix.settings.experimental-features = [
+  nix.experimental-features = [
     "nix-command"
     "flakes"
     "pipe-operators"
