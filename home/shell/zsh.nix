@@ -118,7 +118,7 @@ in
       cps = "config push";
 
       # exa
-      ls = "exa --long --all --icons --group-directories-first --git --header";
+      ls = "exa --long --all --icons --group-directories-first --git --ignore-glob '.venv' --header";
       lsd = "ls -D";
       lst = "ls -T --git-ignore -I=.git";
 
