@@ -61,7 +61,7 @@ in
       vim.cmd([[
         let g:fern#opener = 'edit'
         let g:fern#default_hidden = 1
-        let g:fern#default_exclude = '.git/'
+        let g:fern#default_exclude = '^\%(.git\|.venv\)$'
         let g:fern#drawer_width = 40
         let g:fern#disable_default_mappings = 1
 
