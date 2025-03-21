@@ -34,7 +34,11 @@ work_on() {
 	echo $project > $CURRENT_PROJECT_FILE
 	cd $WORKSPACE/$project
 
-	if [ -s shell.nix ]; then
+    if [ -s flake.nix ]; then
+        nix develop
+    fi
+
+    if [ -s shell.nix ]; then
 		nix-shell-active || nix-shell --command zsh
 	fi
 

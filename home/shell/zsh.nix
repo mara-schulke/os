@@ -156,7 +156,6 @@ in
       # load functions
       source ${./functions/github.sh}
       source ${./functions/nix.sh}
-      source ${./functions/work.sh}
 
       # prompt
       source ${./prompt.sh}
