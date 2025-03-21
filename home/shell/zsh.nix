@@ -160,9 +160,6 @@ in
 
       # prompt
       source ${./prompt.sh}
-
-      # go into the current project directory if given
-      work restore
     '';
   };
 }

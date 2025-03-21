@@ -22,4 +22,3 @@ zsh-prompt() {
 setopt PROMPT_SUBST
 PROMPT="$(zsh-prompt)"
 RPROMPT=""
- RPROMPT=""
