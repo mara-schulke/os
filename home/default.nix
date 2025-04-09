@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./env
     ./editor
     ./programs
     ./shell

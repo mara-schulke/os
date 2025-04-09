@@ -1,11 +1,14 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 
 let
   tmux = false;
 in
 {
+  home.packages = with pkgs; [ oh-my-zsh ];
+
   programs.zsh = {
     enable = true;
+    dotDir = ".config/zsh";
 
     autosuggestion = {
       enable = true;
@@ -106,16 +109,6 @@ in
 
       # chrome
       "chromium-headless" = "chromium --kiosk --new-window";
-
-      # dotfiles
-      config = "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME";
-      cfg = "config";
-      cst = "config status";
-      ca = "config add";
-      cc = "config commit";
-      cco = "config checkout";
-      cf = "config fetch";
-      cps = "config push";
 
       # exa
       ls = "exa --long --all --icons --group-directories-first --git --ignore-glob '.venv' --header";
