@@ -63,8 +63,30 @@
         ];
       };
 
+      maple = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+	modules = [
+	  home-manager.nixosModules.home-manager
+	  ({
+            home-manager.users."mara" = {
+              imports = [ ./home ];
+              home.packages = [ deploy.packages.x86_64-linux.default ];
+            };
+
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+              username = "mara";
+            };
+	  })
+	  ./config.nix
+	];
+      };
     in
     {
+      nixosConfigurations = {
+        inherit maple;
+      };
+
       # nix run nix-darwin -- switch --flake .#mac
       darwinConfigurations = {
         inherit mac;
