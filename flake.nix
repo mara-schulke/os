@@ -47,6 +47,10 @@
 
         home-manager.users."mara.schulke" = {
           imports = [ ./home ];
+
+          home.stateVersion = "24.05";
+	  home.username = "mara.schulke";
+          home.homeDirectory = "/Users/mara.schulke";
           home.packages = [ deploy.packages.aarch64-darwin.default ];
         };
 
@@ -68,14 +72,23 @@
 	modules = [
 	  home-manager.nixosModules.home-manager
 	  ({
+            nixpkgs.overlays = [ rust.overlays.default ];
+
+	    networking.hostName = "maple";
+
             home-manager.users."mara" = {
               imports = [ ./home ];
+
+              home.homeDirectory = "/home/mara";
+	      home.username = "mara";
+              home.stateVersion = "25.05";
               home.packages = [ deploy.packages.x86_64-linux.default ];
             };
 
             home-manager.extraSpecialArgs = {
               inherit inputs;
               username = "mara";
+	      realname = "Mara Schulke";
             };
 	  })
 	  ./config.nix
@@ -83,6 +96,7 @@
       };
     in
     {
+      # nix run nix-darwin -- switch --flake .#mac
       nixosConfigurations = {
         inherit maple;
       };

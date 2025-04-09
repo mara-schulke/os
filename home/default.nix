@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 
 {
   imports = [
@@ -29,21 +29,17 @@
       zlib
       perl
 
-      (rust-bin.stable."1.85.1".default.override {
-        extensions = [
-          "rust-src"
-          "rust-analyzer"
-        ];
-        targets = [ "arm-unknown-linux-gnueabihf" ];
-      })
+      # (rust-bin.stable."1.85.1".default.override {
+      #  extensions = [
+      #    "rust-src"
+      #    "rust-analyzer"
+      #  ];
+      #  targets = [ "arm-unknown-linux-gnueabihf" ];
+      # })
 
       nodejs_22
       protobuf
       nixfmt-rfc-style
     ];
-
-    stateVersion = "24.05";
-    username = "mara.schulke";
-    homeDirectory = "/Users/mara.schulke";
   };
 }
