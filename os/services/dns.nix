@@ -1,12 +1,12 @@
 { config, pkgs, ... }:
 
 {
-  systemd.timers.dns = {
-    after = ["network.target"];
-    wantedBy = ["timers.target"];
-    partOf = [ "dns.service" ];
-    timerConfig.OnCalendar = "minutely";
-  };
+  # systemd.timers.dns = {
+  #  after = ["network.target"];
+  #  wantedBy = ["timers.target"];
+  #  partOf = [ "dns.service" ];
+  #  timerConfig.OnCalendar = "minutely";
+  # };
 
   systemd.services.dns = {
     description = "Automatically set the A-Record of my domain to the public IP of this machine";

@@ -9,7 +9,7 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    extraPackages = with pkgs; [nvidia-vaapi-driver];
+    extraPackages = with pkgs; [ nvidia-vaapi-driver ];
     extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
   };
 
@@ -39,11 +39,6 @@
     firmwareLinuxNonfree
   ];
 
-  nixpkgs.config.allowUnfree = true;
-
-  networking.wireless.enable = lib.mkForce false;
-  networking.networkmanager.enable = true;
-
   time.timeZone = "Europe/Berlin";
 
   console = {
@@ -64,20 +59,16 @@
     extraGroups = [ "wheel" ];
     home = "/home/mara";
   };
-
-  programs.firefox.enable = true;
   programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [
     neovim
     curl
     resources
-    (chromium.override {
-      enableWideVine = true;
-    })
+    (chromium.override { enableWideVine = true; })
     liquidctl
   ];
 
-  system.stateVersion = lib.mkForce "25.05";
+  system.stateVersion = "25.05";
 }
 

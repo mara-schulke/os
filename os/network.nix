@@ -1,7 +1,7 @@
-{ config, ... }:
+{ lib, ... }:
 
 {
-  networking.wireless.enable = false;
+  networking.wireless.enable = lib.mkForce false;
   networking.networkmanager.enable = true;
   programs.nm-applet.enable = true;
 

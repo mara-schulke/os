@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -9,7 +9,6 @@
     broot
     curl
     dmenu
-    exa
     fd
     fzf
     httpie

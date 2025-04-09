@@ -49,7 +49,7 @@
           imports = [ ./home ];
 
           home.stateVersion = "24.05";
-	  home.username = "mara.schulke";
+          home.username = "mara.schulke";
           home.homeDirectory = "/Users/mara.schulke";
           home.packages = [ deploy.packages.aarch64-darwin.default ];
         };
@@ -69,18 +69,16 @@
 
       maple = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-	modules = [
-	  home-manager.nixosModules.home-manager
-	  ({
-            nixpkgs.overlays = [ rust.overlays.default ];
-
-	    networking.hostName = "maple";
+        modules = [
+          home-manager.nixosModules.home-manager
+          {
+            networking.hostName = "maple";
 
             home-manager.users."mara" = {
               imports = [ ./home ];
 
               home.homeDirectory = "/home/mara";
-	      home.username = "mara";
+              home.username = "mara";
               home.stateVersion = "25.05";
               home.packages = [ deploy.packages.x86_64-linux.default ];
             };
@@ -88,11 +86,11 @@
             home-manager.extraSpecialArgs = {
               inherit inputs;
               username = "mara";
-	      realname = "Mara Schulke";
+              realname = "Mara Schulke";
             };
-	  })
-	  ./config.nix
-	];
+          }
+          ./config.nix
+        ];
       };
     in
     {

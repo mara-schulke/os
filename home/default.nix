@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
@@ -11,6 +11,7 @@
   programs.home-manager.enable = true;
 
   nixpkgs = {
+    overlays = [ inputs.rust.overlays.default ];
     config = {
       allowUnfree = true;
       allowUnfreePredicate = _: true;
@@ -29,13 +30,13 @@
       zlib
       perl
 
-      # (rust-bin.stable."1.85.1".default.override {
-      #  extensions = [
-      #    "rust-src"
-      #    "rust-analyzer"
-      #  ];
-      #  targets = [ "arm-unknown-linux-gnueabihf" ];
-      # })
+      (rust-bin.stable."1.85.1".default.override {
+        extensions = [
+          "rust-src"
+          "rust-analyzer"
+        ];
+        targets = [ "arm-unknown-linux-gnueabihf" ];
+      })
 
       nodejs_22
       protobuf
