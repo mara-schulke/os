@@ -13,6 +13,8 @@
     extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
   };
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # services.xserver.displayManager.sessionCommands = ''
   #  xset s off -dpms
   # '';
