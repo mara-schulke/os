@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -13,12 +18,15 @@
     extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # services.xserver.displayManager.sessionCommands = ''
   #  xset s off -dpms
   # '';
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = false;
@@ -33,20 +41,41 @@
     device = "nodev";
     efiSupport = true;
   };
+
+  boot = {
+    plymouth = {
+      enable = true;
+      theme = "spinner";
+      # logo = "/path/to/your/logo.png";
+    };
+
+    consoleLogLevel = 0;
+    kernelParams = [
+      "quiet"
+      "splash"
+      #"rd.systemd.show_status=false"
+      #"rd.udev.log_level=3"
+      #"vt.global_cursor_default=0"
+    ];
+  };
+
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
+
   hardware.enableAllFirmware = lib.mkForce true;
-  hardware.firmware = with pkgs; lib.mkForce [
-    linux-firmware
-    firmwareLinuxNonfree
-  ];
+  hardware.firmware =
+    with pkgs;
+    lib.mkForce [
+      linux-firmware
+      firmwareLinuxNonfree
+    ];
 
   time.timeZone = "Europe/Berlin";
 
-  console = {
-    font = "Lat2-Terminus16";
-    useXkbConfig = true;
-  };
+  #console = {
+  #font = "Lat2-Terminus16";
+  #useXkbConfig = true;
+  #};
 
   services.xserver.enable = true;
 
@@ -73,4 +102,3 @@
 
   system.stateVersion = "25.05";
 }
-
