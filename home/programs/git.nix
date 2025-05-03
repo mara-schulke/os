@@ -25,6 +25,8 @@
       merge.tool = "nvim";
       mergetool.nvim.cmd = "nvim -c \"DiffviewOpen\"";
       mergetool.prompt = "false";
+
+      credentials.helper = "store";
     };
   };
 
