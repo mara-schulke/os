@@ -1,16 +1,10 @@
 { pkgs, ... }:
 
 {
-  #nixpkgs.overlays = [(self: super: {
-  #  discord = super.discord.overrideAttrs (_: {
-  #    src = builtins.fetchTarball "https://discordapp.com/api/download?platform=linux&format=tar.gz";
-  #  });
-  #})];
-
   environment.systemPackages = with pkgs; [
-    alacritty 
+    alacritty
     (chromium.override { enableWideVine = true; })
-    # discord
+    discord
     exercism
     firefox
     libreoffice
