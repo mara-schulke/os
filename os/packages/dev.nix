@@ -1,16 +1,22 @@
-{ config, pkgs, fetchFromGitHub, ... }:
+{
+  config,
+  pkgs,
+  fetchFromGitHub,
+  ...
+}:
 
 let
-  # mozilla = import (builtins.fetchTarball https://github.com/mozilla/nixpkgs-mozilla/archive/master.tar.gz);
-  # rust = (pkgs.rustChannelOf { date = "2025-03-18"; channel = "stable"; }).rust.override {
-  #  targets = [ "wasm32-unknown-unknown" "armv7-unknown-linux-gnueabihf" "riscv32i-unknown-none-elf" ];
-  #  extensions = [
-  #    "rust-std"
-  #    "rust-src"
-  #  ];
-  #};
-  #unstable = import (builtins.fetchTarball https://github.com/nixos/nixpkgs/tarball/nixpkgs-unstable) {};
-in {
+in
+# mozilla = import (builtins.fetchTarball https://github.com/mozilla/nixpkgs-mozilla/archive/master.tar.gz);
+# rust = (pkgs.rustChannelOf { date = "2025-03-18"; channel = "stable"; }).rust.override {
+#  targets = [ "wasm32-unknown-unknown" "armv7-unknown-linux-gnueabihf" "riscv32i-unknown-none-elf" ];
+#  extensions = [
+#    "rust-std"
+#    "rust-src"
+#  ];
+#};
+#unstable = import (builtins.fetchTarball https://github.com/nixos/nixpkgs/tarball/nixpkgs-unstable) {};
+{
   #nixpkgs.overlays = [(self: super: {
   #  neovim-unwrapped = super.neovim-unwrapped.overrideAttrs (_: {
   #    version = "0.11.0";
@@ -31,20 +37,22 @@ in {
     biber
     (texlive.combine {
       inherit (texlive)
-      apa
-      biblatex biblatex-apa
-      csquotes
-      glossaries
-      fontaxes
-      hyphenat
-      latexindent
-      latexmk
-      lipsum
-      listing
-      plex
-      scheme-full
-      textpos;
-    }) 
+        apa
+        biblatex
+        biblatex-apa
+        csquotes
+        glossaries
+        fontaxes
+        hyphenat
+        latexindent
+        latexmk
+        lipsum
+        listing
+        plex
+        scheme-full
+        textpos
+        ;
+    })
     docker
     docker-compose
     flutter
@@ -61,7 +69,7 @@ in {
     nodejs
     openssl
     picocom
-    python39
+    python3
     # rust
     # rustup
     stack
