@@ -18,10 +18,12 @@
     rclone
     ripgrep
     rofi
+    gwe
     scrot
     unrar
     v4l-utils
-    zip unzip
+    zip
+    unzip
     git-filter-repo
     openconnect
     openssl
