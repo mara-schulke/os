@@ -28,9 +28,9 @@
 
   environment.etc."ssh/ssh_config.d/200-hemisphere.conf".text = ''
     Host hemisphere-builder
-    User root
-    Hostname hemisphere.studio
-    Port 22
-    IdentityFile /Users/mara.schulke/.ssh/id_ed25519
+      User root
+      Hostname hemisphere.studio
+      Port 22
+      IdentityFile /Users/mara.schulke/.ssh/id_ed25519
   '';
 }
