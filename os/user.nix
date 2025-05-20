@@ -1,11 +1,15 @@
 { pkgs, ... }:
 
 {
+  time.timeZone = "Europe/Berlin";
+
   users.mutableUsers = false;
+
   users.users = {
     mara = {
       uid = 1000;
-      description = "Mara Schulke";
+      description = "Mara";
+      home = "/home/mara";
       extraGroups = [
         "wheel"
         "networkmanager"
