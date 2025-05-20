@@ -2,6 +2,7 @@
 
 {
   imports = [
-    ./backlight.nix
+    ./dpi
+    ./gpu
   ];
 }
