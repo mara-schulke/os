@@ -72,6 +72,14 @@
         modules = [
           home-manager.nixosModules.home-manager
           {
+            imports = [
+              ./hardware/maple.nix
+              ./os
+            ];
+
+            sphere.graphics.gpu.nvidia.enable = true;
+          }
+          {
             networking.hostName = "maple";
 
             home-manager.users."mara" = {
@@ -89,7 +97,6 @@
               realname = "Mara Schulke";
             };
           }
-          ./config.nix
         ];
       };
     in

@@ -1,8 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  boot.loader.efi.canTouchEfiVariables = true;
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
+
     kernelModules = [ "v4l2loopback" ];
     extraModulePackages = with pkgs.unstable; [
       config.boot.kernelPackages.v4l2loopback

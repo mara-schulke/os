@@ -1,38 +1,6 @@
-{
-  config,
-  pkgs,
-  fetchFromGitHub,
-  ...
-}:
+{ pkgs, ... }:
 
-let
-in
-# mozilla = import (builtins.fetchTarball https://github.com/mozilla/nixpkgs-mozilla/archive/master.tar.gz);
-# rust = (pkgs.rustChannelOf { date = "2025-03-18"; channel = "stable"; }).rust.override {
-#  targets = [ "wasm32-unknown-unknown" "armv7-unknown-linux-gnueabihf" "riscv32i-unknown-none-elf" ];
-#  extensions = [
-#    "rust-std"
-#    "rust-src"
-#  ];
-#};
-#unstable = import (builtins.fetchTarball https://github.com/nixos/nixpkgs/tarball/nixpkgs-unstable) {};
 {
-  #nixpkgs.overlays = [(self: super: {
-  #  neovim-unwrapped = super.neovim-unwrapped.overrideAttrs (_: {
-  #    version = "0.11.0";
-  #    src = pkgs.fetchFromGitHub {
-  #      owner = "neovim";
-  #      repo = "neovim";
-  #      rev = "v0.11.0";
-  #      sha256 = "UVMRHqyq3AP9sV79EkPUZnVkj0FpbS+XDPPOppp2yFE=";
-  #    };
-  #
-  #    buildInputs = super.neovim-unwrapped.buildInputs ++ [ pkgs.tree-sitter ];
-  #
-  #   cmakeFlags = super.neovim-unwrapped.cmakeFlags ++ [ "-DUSE_BUNDLED=OFF" ];
-  # });
-  # })];
-
   environment.systemPackages = with pkgs; [
     biber
     (texlive.combine {
@@ -53,6 +21,7 @@ in
         textpos
         ;
     })
+    curl
     docker
     docker-compose
     flutter
@@ -63,21 +32,23 @@ in
     jetbrains.datagrip
     jetbrains.idea-ultimate
     kubectl
-    libsodium
     lens
+    libsodium
+    liquidctl
+    neovim
     neovim
     nodejs
     openssl
     picocom
     python3
-    # rust
-    # rustup
+    resources
     stack
     tig
-    # unstable.terraform
     watchman
     yarn
   ];
+
+  programs.zsh.enable = true;
 
   environment.variables.OPENSSL_DIR = "${pkgs.openssl.dev}";
   environment.variables.OPENSSL_LIB_DIR = "${pkgs.openssl.out}/lib";
