@@ -74,6 +74,7 @@
           {
             imports = [
               ./hardware/maple.nix
+              ./builder.nix
               ./os
             ];
 

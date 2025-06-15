@@ -16,7 +16,7 @@
     {
       hostName = "builder";
       sshUser = "root";
-      sshKey = "/home/mara/.ssh/nix-builder";
+      sshKey = "/home/mara/.ssh/builder";
       publicHostKey = "AAAAC3NzaC1lZDI1NTE5AAAAINPqSejXwLVx7S+W3dUmrB6OI71Sf951/KUnAEnHmyDt";
       systems = [ "aarch64-linux" ];
       supportedFeatures = [
@@ -40,7 +40,7 @@
         Hostname hemisphere.studio
         Port 22
         StrictHostKeyChecking no
-        IdentityFile /home/mara/.ssh/nix-builder
+        IdentityFile /home/mara/.ssh/builder
     '';
   };
 }
