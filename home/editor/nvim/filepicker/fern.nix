@@ -11,7 +11,7 @@ let
       owner = "lambdalisue";
       repo = "vim-fern";
       rev = "main";
-      sha256 = "sha256-6yIS/r/XYS+H3510Z97kYThg+zxAZlxT0aO0Jk4Z3uM=";
+      sha256 = "sha256-61JjXnf740eZf5GvMKgJzS0qyOPt6ITGjq1A7uyu9hY=";
     };
   };
 
