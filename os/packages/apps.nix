@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     alacritty
     (chromium.override { enableWideVine = true; })
+    brave
     discord
     exercism
     firefox
