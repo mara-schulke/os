@@ -73,7 +73,7 @@
           home-manager.nixosModules.home-manager
           {
             imports = [
-              ./hardware/maple.nix
+              ./hardware/maple
               ./builder.nix
               ./os
             ];

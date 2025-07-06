@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 {
-
-  home.packages = with pkgs; [ setzer ];
+  home.packages = with pkgs; [
+    setzer
+    sqlitebrowser
+  ];
 }

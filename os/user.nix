@@ -12,13 +12,14 @@
       home = "/home/mara";
       extraGroups = [
         "wheel"
-        "networkmanager"
-        "docker"
         "audio"
-        "video"
+        "docker"
+        "i2c"
         "input"
-        "lp"
         "libvirtd"
+        "lp"
+        "networkmanager"
+        "video"
       ];
       isNormalUser = true;
       hashedPassword = "$6$Pa3222xp.3sgTY5a$lE6tmrGYfiq6wcl//eyPlkBcxyiJBt1hdAwe0b0quVauDiTwXOy2OJE9o1w3rZU8PX.KBUMsll7nG6MYKBYfZ1";

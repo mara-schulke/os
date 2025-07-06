@@ -14,6 +14,8 @@
     ./volt
   ];
 
+  maple.volt.enable = true;
+
   boot.initrd.systemd.enable = true;
   boot.initrd.luks.fido2Support = false;
   boot.initrd.availableKernelModules = [
