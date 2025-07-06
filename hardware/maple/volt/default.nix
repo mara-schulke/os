@@ -10,7 +10,7 @@ with lib;
 let
   cfg = config.maple.volt;
 
-  kfrgb = writeShellApplication {
+  kfrgb = pkgs.writeShellApplication {
     name = "kfrgb";
     runtimeInputs = with pkgs; [
       yad
@@ -21,7 +21,7 @@ let
     text = ./kfrgb.sh;
   };
 
-  volt = writeShellApplication {
+  volt = pkgs.writeShellApplication {
     name = "volt";
     runtimeInputs = with pkgs; [
       liquidctl
@@ -46,7 +46,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    systemd.user.services.volt = {
+    systemd.services.volt = {
       enable = true;
       description = "Volt";
       before = [ "basic.target" ];
@@ -62,5 +62,7 @@ in
         Type = "oneshot";
       };
     };
+
+    environment.systemPackages = [ volt ];
   };
 }
