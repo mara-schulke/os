@@ -11,6 +11,7 @@
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
+    ./volt
   ];
 
   boot.initrd.systemd.enable = true;
@@ -25,7 +26,14 @@
     "sd_mod"
   ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [
+    "kvm-amd"
+    "i2c-dev"
+    "i2c-piix4"
+  ];
+  boot.kernelParams = [
+    "acpi_enforce_resources=lax"
+  ];
   boot.extraModulePackages = [ ];
 
   boot.initrd.luks.devices."cryptroot" = {
