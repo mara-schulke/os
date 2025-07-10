@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 # kfrgb
 
 # Version:    0.11.0
@@ -390,7 +388,7 @@ function check_ramsticks_on_smbus() {
 	unset spd5118_module
 	if lsmod | grep -q 'spd5118'; then
 		spd5118_module='true'
-		modprobe -r spd5118
+		# rmmod spd5118
 	fi
 	for smbus_number_check in ${smbus_numbers}; do
 		risk="${risk_stored}"
@@ -646,9 +644,9 @@ function check_ramsticks_on_smbus() {
 			echo -n "${smbus_number_check}-0057" > /sys/bus/i2c/drivers/spd5118/bind
 		fi
 	done
-	if [[ "${spd5118_module}" = 'true' ]]; then
-		modprobe spd5118
-	fi
+	#if [[ "${spd5118_module}" = 'true' ]]; then
+		# modprobe spd5118
+	#fi
 	if [[ "$(echo ${smbus_numbers_check} | wc -w)" -eq '0' ]]; then
 		smbus_menu='true'
 	elif [[ "$(echo ${smbus_numbers_check} | wc -w)" -gt '1' ]]; then

@@ -13,12 +13,22 @@ let
   kfrgb = pkgs.writeShellApplication {
     name = "kfrgb";
     runtimeInputs = with pkgs; [
+      busybox
       yad
       i2c-tools
       lshw
+      perl
       bash
     ];
-    text = ./kfrgb.sh;
+    text = ''
+      set +ue
+      rmmod spd5118
+      set -e
+      ${builtins.readFile ./kfrgb.sh}
+      set +e
+      modprobe spd5118
+    '';
+    checkPhase = "";
   };
 
   volt = pkgs.writeShellApplication {
@@ -28,14 +38,7 @@ let
       kfrgb
     ];
     text = ''
-      kfrgb \
-        --smbus 1 \
-        --ramslots 2,4 \
-        --color 255,200,255 \
-        --brightness 100 \
-        --mode static \
-        --iwanttoriskandskipmodeldetectionevenifiknowthisisstronglynotrecommended \
-        --nowarn
+      ${kfrgb}/bin/kfrgb --mode static --smbus 1 --ramslots 2,4 --color 255,200,255 --brightness 100 --iwanttoriskandskipmodeldetectionevenifiknowthisisstronglynotrecommended --nowarn
       liquidctl set sync color static ffbbbb
     '';
   };
@@ -46,15 +49,26 @@ in
   };
 
   config = mkIf cfg.enable {
+    boot.kernelModules = [
+      "i2c-core"
+      "i2c-dev"
+      "i2c-piix4"
+    ];
+
+    boot.kernelParams = [
+      "acpi_enforce_resources=lax"
+    ];
+
+    boot.initrd.kernelModules = [
+      "i2c-core"
+      "i2c-dev"
+      "i2c-piix4"
+    ];
+
     systemd.services.volt = {
       enable = true;
       description = "Volt";
-      before = [ "basic.target" ];
       wantedBy = [ "basic.target" ];
-      after = [
-        "local-fs.target"
-        "sysinit.target"
-      ];
       path = [ volt ];
       serviceConfig = {
         User = "root";
@@ -63,6 +77,9 @@ in
       };
     };
 
-    environment.systemPackages = [ volt ];
+    environment.systemPackages = [
+      volt
+      kfrgb
+    ];
   };
 }

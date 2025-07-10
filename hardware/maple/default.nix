@@ -28,14 +28,7 @@
     "sd_mod"
   ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [
-    "kvm-amd"
-    "i2c-dev"
-    "i2c-piix4"
-  ];
-  boot.kernelParams = [
-    "acpi_enforce_resources=lax"
-  ];
+  boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   boot.initrd.luks.devices."cryptroot" = {
