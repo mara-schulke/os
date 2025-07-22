@@ -1,9 +1,9 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
     feh
-    gnome3.nautilus
+    nautilus
     pavucontrol
     system-config-printer
     trayer

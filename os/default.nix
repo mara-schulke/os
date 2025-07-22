@@ -2,14 +2,15 @@
 
 {
   imports = [
+    ./graphics
+    ./audio
+    ./packages
+    ./system
+
     ./user.nix
     ./desktop.nix
     ./network.nix
-
-    ./audio/init.nix
-    ./graphics/init.nix
-    ./packages/init.nix
-    ./services/init.nix
-    ./system/init.nix
   ];
+
+  system.stateVersion = "25.05";
 }

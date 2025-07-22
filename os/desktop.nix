@@ -1,41 +1,24 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   services.xserver = {
     enable = true;
-    layout = "de";
+    layout = "us";
 
     autoRepeatDelay = 300;
     autoRepeatInterval = 25;
 
     displayManager.gdm.enable = true;
-    displayManager.defaultSession = "none+xmonad";
-
-    windowManager.xmonad.enable = true;
-    windowManager.xmonad.enableContribAndExtras = true;
-    windowManager.xmonad.extraPackages = hpkgs: [
-      hpkgs.xmonad
-      hpkgs.xmonad-contrib
-      hpkgs.xmonad-extras
-      hpkgs.data-default
-    ];
-
-    windowManager.dwm.enable = true;
-
-    xautolock = {
-      enable = true;
-      locker = "${pkgs.slock}/bin/slock";
-    };
+    displayManager.defaultSession = "gnome";
+    desktopManager.gnome.enable = true;
 
     libinput.enable = true;
-    xkbOptions = "eurosign:e";
+    xkb.options = "eurosign:e,caps:escape";
   };
-
-  programs.slock.enable = true;
 
   fonts.fonts = with pkgs; [
     noto-fonts
-    noto-fonts-cjk
+    noto-fonts-cjk-sans
     noto-fonts-emoji
     fira-code
     fira-code-symbols

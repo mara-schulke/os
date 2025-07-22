@@ -1,7 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
+    ./env
     ./editor
     ./programs
     ./shell
@@ -11,6 +12,7 @@
   programs.home-manager.enable = true;
 
   nixpkgs = {
+    overlays = [ inputs.rust.overlays.default ];
     config = {
       allowUnfree = true;
       allowUnfreePredicate = _: true;
@@ -41,9 +43,5 @@
       protobuf
       nixfmt-rfc-style
     ];
-
-    stateVersion = "24.05";
-    username = "mara.schulke";
-    homeDirectory = "/Users/mara.schulke";
   };
 }

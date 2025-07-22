@@ -3,7 +3,7 @@
 { pkgs, ... }:
 
 let
-  font = "Menlo";
+  font = "Ubuntu Mono";
 in
 {
   programs.alacritty = {

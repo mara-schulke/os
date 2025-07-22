@@ -17,6 +17,7 @@
     userEmail = "mail@maras.cloud";
 
     lfs.enable = true;
+    signing.signByDefault = true;
 
     extraConfig = {
       init.defaultBranch = "main";
@@ -25,6 +26,8 @@
       merge.tool = "nvim";
       mergetool.nvim.cmd = "nvim -c \"DiffviewOpen\"";
       mergetool.prompt = "false";
+
+      credentials.helper = "store";
     };
   };
 

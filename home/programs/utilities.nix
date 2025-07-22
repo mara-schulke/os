@@ -17,6 +17,9 @@
     tree
     curl
 
+    python312
+    python312Packages.huggingface-hub
+
     lsof
   ];
 }
