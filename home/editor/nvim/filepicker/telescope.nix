@@ -7,11 +7,7 @@
       project = {
         enable = true;
         settings = {
-          base_dirs = [
-            "~/Documents/Helsing"
-            "~/Documents/Private"
-            "~/Documents/Archived"
-          ];
+          base_dirs = [ ];
           order_by = "asc";
           search_by = "title";
           mappings = { };
