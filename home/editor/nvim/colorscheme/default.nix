@@ -90,8 +90,7 @@ let
   };
 in
 {
-  programs.nixvim = rec {
-
+  programs.nixvim = {
     extraFiles."colors/base16-gruvbox-dark-hard.vim" = {
       enable = true;
       source = ./colors/base16-gruvbox-dark-hard.vim;

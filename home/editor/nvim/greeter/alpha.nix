@@ -40,7 +40,7 @@ in
         [[                  .                   ]],   
       }
       dashboard.section.buttons.val = {
-          dashboard.button("ctrl+e", "> Explore", ":FernToggle<CR>"),
+          dashboard.button("ctrl+e", "> Explore", ":Oil<CR>"),
           dashboard.button("spce+s", "> Search", ":Telescope live_grep<CR>"),
           dashboard.button("spce+o", "> Open file", ":Telescope git_files<CR>"),
           dashboard.button("spce+f", "> Find file", ":Telescope find_files<CR>"),

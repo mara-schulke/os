@@ -23,6 +23,7 @@
     fira-code
     fira-code-symbols
     ubuntu_font_family
+    nerd-fonts.ubuntu-mono
     lmodern
   ];
 }
