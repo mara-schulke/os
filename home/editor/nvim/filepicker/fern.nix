@@ -15,6 +15,28 @@ let
     };
   };
 
+  fern-nerdfont = pkgs.vimUtils.buildVimPlugin {
+    pname = "vim-nerdfont";
+    version = "1.0";
+    src = pkgs.fetchFromGitHub {
+      owner = "lambdalisue";
+      repo = "vim-nerdfont";
+      rev = "master";
+      sha256 = "sha256-srTetFxbf1ZltYCBXB308WayMupRwQMJLd7Up7kYEuU=";
+    };
+  };
+
+  fern-renderer-nerdfont = pkgs.vimUtils.buildVimPlugin {
+    pname = "fern-renderer-nerdfont";
+    version = "1.0";
+    src = pkgs.fetchFromGitHub {
+      owner = "lambdalisue";
+      repo = "vim-fern-renderer-nerdfont";
+      rev = "master";
+      sha256 = "sha256-bcFIyPHxdckmmEGSCr9F5hLGTENF+KgRoz2BK49rGv4=";
+    };
+  };
+
   fern-git-status = pkgs.vimUtils.buildVimPlugin {
     pname = "fern-git-status";
     version = "1.0";
@@ -52,6 +74,8 @@ in
   programs.nixvim = {
     extraPlugins = [
       fern
+      fern-nerdfont
+      fern-renderer-nerdfont
       fern-git-status
       fern-mapping-git
       fern-hijack
@@ -60,6 +84,7 @@ in
     extraConfigLuaPost = ''
       vim.cmd([[
         let g:fern#opener = 'edit'
+        let g:fern#renderer = "nerdfont"
         let g:fern#default_hidden = 1
         let g:fern#default_exclude = '^\%(.git\|__pycache__\|.venv\)$'
         let g:fern#drawer_width = 40

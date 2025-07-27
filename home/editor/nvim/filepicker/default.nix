@@ -2,7 +2,8 @@
 
 {
   imports = [
-    ./fern.nix
+    #./fern.nix
+    ./oil.nix
     ./telescope.nix
   ];
 }
