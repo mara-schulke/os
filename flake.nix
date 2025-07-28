@@ -74,8 +74,7 @@
           {
             imports = [
               ./hosts/maple
-              ./builder.nix
-              ./modules
+              ./modules/system/
             ];
 
             sphere.graphics.gpu.nvidia.enable = true;
