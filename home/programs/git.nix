@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   programs.git = {
@@ -28,6 +28,12 @@
       mergetool.prompt = "false";
 
       credentials.helper = "store";
+
+      # sign with 1password
+      gpg.format = "ssh";
+      "gpg \"ssh\"".program = "${lib.getExe' pkgs._1password-gui "op-ssh-sign"}";
+      commit.gpgsign = true;
+      user.signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINQzqzXz57EF6Z9anpzFhK4a1LscLC+e4W4IWiuJ0d5G";
     };
   };
 
