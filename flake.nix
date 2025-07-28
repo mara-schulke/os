@@ -73,9 +73,9 @@
           home-manager.nixosModules.home-manager
           {
             imports = [
-              ./hardware/maple
+              ./hosts/maple
               ./builder.nix
-              ./os
+              ./modules
             ];
 
             sphere.graphics.gpu.nvidia.enable = true;
