@@ -4,46 +4,30 @@
   imports = [ ./folding.nix ];
 
   programs.nixvim = {
-    plugins.treesitter = {
-      enable = true;
-      nixGrammars = true;
+    plugins = {
+      treesitter = {
+        enable = true;
 
-      grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
-        bash
-        c
-        cpp
-        css
-        csv
-        dockerfile
-        haskell
-        html
-        javascript
-        json
-        lua
-        lua
-        make
-        markdown
-        nix
-        proto
-        python
-        regex
-        rust
-        sql
-        terraform
-        toml
-        typescript
-        vim
-        vimdoc
-        xml
-        yaml
-      ];
+        folding = true;
 
-      folding = true;
+        nixGrammars = true;
+        nixvimInjections = true;
 
-      settings = {
-        auto_install = true;
-        ensure_installed = "all";
-        highlight.enable = true;
+        grammarPackages = pkgs.vimPlugins.nvim-treesitter.passthru.allGrammars;
+
+        settings = {
+          indent.enable = false;
+          highlight.enable = true;
+          fold.enable = true; # add this
+        };
+      };
+
+      treesitter-textobjects = {
+        enable = true;
+        select = {
+          enable = true;
+          lookahead = true;
+        };
       };
     };
 

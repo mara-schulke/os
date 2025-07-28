@@ -8,6 +8,7 @@
   imports = [
     ./completions.nix
     ./diagnostics.nix
+    ./formatter.nix
   ];
 
   programs.nixvim = {
@@ -71,63 +72,17 @@
         };
       };
 
-      none-ls = {
-        enable = true;
-        enableLspFormat = true;
-        settings = {
-          should_attach = ''
-            function(bufnr)
-              local bufname = vim.fn.bufname(bufnr)
-              return not string.find(bufname, "%.git/")
-            end
-          '';
-        };
-        sources = {
-          completion = {
-            spell.enable = true;
-          };
-
-          formatting = {
-            prettier.enable = true;
-            prettier.disableTsServerFormatter = true;
-            black.enable = true;
-            mdformat.enable = true;
-            isort.enable = true;
-            sqlfluff.enable = true;
-          };
-
-          diagnostics = {
-            protolint.enable = true;
-          };
-        };
-      };
-
       lsp-format = {
         enable = true;
         lspServersToEnable = "all";
       };
 
       lspkind.enable = true;
-
-      lspsaga = {
-        enable = true;
-        lightbulb.virtualText = false;
-        ui = {
-          codeAction = "";
-        };
-        definition = {
-          keys = {
-            edit = "<CR>";
-            vsplit = "v";
-            split = "h";
-            tabe = "t";
-            quit = "q";
-            # close = "k";
-          };
-        };
-      };
-
+      nix.enable = true;
+      crates.enable = true;
+      typescript-tools.enable = true;
       trouble.enable = true;
+      fidget.enable = true;
 
       rustaceanvim = {
         enable = true;
@@ -136,14 +91,81 @@
             cmd = [ "rust-analyzer" ];
             default_settings = {
               rust-analyzer = {
-                check = {
-                  command = "clippy";
+                completion = {
+                  limit = 50;
+                  postfix = {
+                    enable = false;
+                  };
                 };
-                inlayHints = {
-                  enable = "always";
 
+                inlayHints = {
+                  maxLength = 20;
                   lifetimeElisionHints = {
-                    enable = "always";
+                    enable = "skip_trivial";
+                    useParameterNames = false;
+                  };
+                  closureReturnTypeHints = {
+                    enable = "with_block";
+                  };
+                  typeHints = {
+                    hideClosureInitialization = true;
+                    hideNamedConstructor = true;
+                  };
+                  chainingHints = {
+                    maxLength = 15; # Custom limit for performance
+                  };
+                  parameterHints = {
+                    maxLength = 15; # Custom limit for performance
+                  };
+                };
+
+                lens = {
+                  references = {
+                    adt.enable = false;
+                    enumVariant.enable = false;
+                    method.enable = false;
+                    trait.enable = false;
+                  };
+                };
+
+                cargo = {
+                  buildScripts = {
+                    features = "all"; # Enable all feature flags
+                    invocationStrategy = "once"; # Default is "per_workspace", faster caching
+                  };
+                };
+
+                checkOnSave = true;
+
+                imports = {
+                  granularity = {
+                    group = "module";
+                  };
+                  prefix = "crate";
+                };
+
+                workspace = {
+                  symbol = {
+                    search = {
+                      kind = "only_types";
+                      limit = 64;
+                    };
+                  };
+                };
+
+                files = {
+                  excludeDirs = [
+                    "target"
+                    "node_modules"
+                    ".git"
+                    "dist"
+                    "build"
+                  ];
+                };
+
+                diagnostics = {
+                  experimental = {
+                    enable = false;
                   };
                 };
               };
@@ -152,9 +174,8 @@
           };
         };
       };
-      crates.enable = true;
-      fidget.enable = true;
     };
+
     keymaps = [
       {
         mode = "n";
@@ -185,32 +206,6 @@
         mode = "n";
         key = "gk";
         action = "<cmd>lua vim.diagnostic.goto_prev()<cr>";
-      }
-      {
-        mode = "n";
-        key = "ga";
-        # action = "<cmd> lua vim.lsp.buf.code_action()<cr>";
-        action = ":Lspsaga code_action<cr>";
-      }
-      {
-        mode = "n";
-        key = "gd";
-        # action = "<cmd>lua require('telescope.builtin').lsp_definitions({})<cr>";
-        action = ":Lspsaga goto_definition<cr>";
-        # action = ":Lspsaga peek_definition<cr>";
-      }
-      {
-        mode = "n";
-        key = "gi";
-        # action = "<cmd>lua require('telescope.builtin').lsp_implementations({})<cr>";
-        action = ":Lspsaga finder imp<cr>";
-      }
-      {
-        mode = "n";
-        key = "gp";
-        # action = "<cmd>lua require('telescope.builtin').lsp_type_definitions({})<cr>";
-        # action = ":Lspsaga goto_type_definition<cr>";
-        action = ":Lspsaga peek_type_definition<cr>";
       }
       {
         mode = "n";

@@ -3,7 +3,7 @@
 {
   programs.nixvim = {
     opts = {
-      foldenable = true;
+      foldenable = false;
       foldexpr = "nvim_treesitter#foldexpr()";
       foldlevel = 5;
       foldlevelstart = 5;

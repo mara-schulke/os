@@ -9,9 +9,11 @@
     ./filepicker
     ./greeter
     ./lsp
+    ./misc
     ./parser
     ./statusline
     ./utils
+    ./vcs
     ./windows
   ];
 
