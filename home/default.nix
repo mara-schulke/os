@@ -3,7 +3,7 @@
 {
   imports = [
     ./env
-    ./ssh
+    ./ssh.nix
     ./editor
     ./programs
     ./shell
@@ -32,7 +32,7 @@
       zlib
       perl
 
-      (rust-bin.stable."1.88.1".default.override {
+      (rust-bin.stable."1.88.0".default.override {
         extensions = [
           "rust-src"
           "rust-analyzer"
