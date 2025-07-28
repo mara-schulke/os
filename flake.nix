@@ -39,14 +39,14 @@
 
     let
       darwinModule = {
-        imports = [ ./darwin ];
+        imports = [ ./modules/darwin ];
 
         nixpkgs.overlays = [
           rust.overlays.default
         ];
 
         home-manager.users."mara.schulke" = {
-          imports = [ ./home ];
+          imports = [ ./modules/home ];
 
           home.stateVersion = "24.05";
           home.username = "mara.schulke";
@@ -84,7 +84,7 @@
             networking.hostName = "maple";
 
             home-manager.users."mara" = {
-              imports = [ ./home ];
+              imports = [ ./modules/home ];
 
               home.homeDirectory = "/home/mara";
               home.username = "mara";
@@ -102,7 +102,7 @@
       };
     in
     {
-      # nix run nix-darwin -- switch --flake .#mac
+      # nix run nix-darwin -- switch --flake .#maple
       nixosConfigurations = {
         inherit maple;
       };
@@ -113,7 +113,7 @@
       };
 
       homeModules = {
-        default = import ./home;
+        default = import ./modules/home;
       };
 
       darwinModules = {
