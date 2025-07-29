@@ -2,7 +2,7 @@
   description = "Mara's Nix Configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/932a539fe9e3a2080666be2db1fd5a581b748a82";
+    nixpkgs.url = "github:nixos/nixpkgs/release-25.05";
 
     darwin = {
       url = "github:lnl7/nix-darwin";
@@ -34,7 +34,7 @@
       mac = darwin.lib.darwinSystem { modules = [ ./hosts/mac ]; };
       maple = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        extraSpecialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs; };
         modules = [ ./hosts/maple ];
       };
     in
