@@ -22,7 +22,6 @@ in
       plugins = [
         "git"
         "git-flow"
-        "ssh-agent"
         "vi-mode"
       ] ++ lib.optionals tmux [ "tmux" ];
       extraConfig =
@@ -31,8 +30,6 @@ in
           export DISABLE_AUTO_TITLE="true"
           export DISABLE_UNTRACKED_FILES_DIRTY="true"
           export DISABLE_MAGIC_FUNCTIONS=true
-
-          zstyle :omz:plugins:ssh-agent identities id_ed25519
         ''
         + lib.optionalString tmux ''
           export ZSH_TMUX_AUTOSTART=false

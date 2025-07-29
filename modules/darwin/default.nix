@@ -1,7 +1,11 @@
-{ ... }:
+{ inputs, ... }:
 
 {
   imports = [ ./builder ];
+
+  nixpkgs.overlays = [
+    inputs.rust.overlays.default
+  ];
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = false;

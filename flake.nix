@@ -28,76 +28,14 @@
   };
 
   outputs =
-    {
-      nixpkgs,
-      home-manager,
-      darwin,
-      deploy,
-      rust,
-      ...
-    }@inputs:
+    { nixpkgs, darwin, ... }@inputs:
 
     let
-      darwinModule = {
-        imports = [ ./modules/darwin ];
-
-        nixpkgs.overlays = [
-          rust.overlays.default
-        ];
-
-        home-manager.users."mara.schulke" = {
-          imports = [ ./modules/home ];
-
-          home.stateVersion = "24.05";
-          home.username = "mara.schulke";
-          home.homeDirectory = "/Users/mara.schulke";
-          home.packages = [ deploy.packages.aarch64-darwin.default ];
-        };
-
-        home-manager.extraSpecialArgs = {
-          inherit inputs;
-          username = "mara.schulke";
-        };
-      };
-
-      mac = darwin.lib.darwinSystem {
-        modules = [
-          home-manager.darwinModules.home-manager
-          darwinModule
-        ];
-      };
-
+      mac = darwin.lib.darwinSystem { modules = [ ./hosts/mac ]; };
       maple = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [
-          home-manager.nixosModules.home-manager
-          {
-            imports = [
-              ./hosts/maple
-              ./modules/system
-            ];
-
-            sphere.graphics.gpu.nvidia.enable = true;
-          }
-          {
-            networking.hostName = "maple";
-
-            home-manager.users."mara" = {
-              imports = [ ./modules/home ];
-
-              home.homeDirectory = "/home/mara";
-              home.username = "mara";
-              home.stateVersion = "25.05";
-              home.packages = [ deploy.packages.x86_64-linux.default ];
-            };
-
-            home-manager.extraSpecialArgs = {
-              inherit inputs;
-              username = "mara";
-              realname = "Mara Schulke";
-            };
-          }
-        ];
+        extraSpecialArgs = { inherit inputs; };
+        modules = [ ./hosts/maple ];
       };
     in
     {
@@ -111,12 +49,16 @@
         inherit mac;
       };
 
+      nixosModules = {
+        default = import ./modules/system;
+      };
+
       homeModules = {
         default = import ./modules/home;
       };
 
       darwinModules = {
-        default = darwinModule;
+        default = import ./modules/darwin;
       };
 
       checks.aarch64-darwin = {
