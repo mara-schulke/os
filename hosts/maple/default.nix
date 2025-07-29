@@ -3,7 +3,7 @@
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
-    ../../modules/system/
+    ../../modules/system
     ./hardware-configuration.nix
     ./volt
   ];
