@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, lib, ... }:
 
 {
   imports = [ ./builder ];
@@ -9,6 +9,8 @@
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = false;
+
+  security.pam.services.sudo_local.touchIdAuth = lib.mkForce true;
 
   nixpkgs.hostPlatform = "aarch64-darwin";
   nixpkgs.config.allowUnfree = true;
