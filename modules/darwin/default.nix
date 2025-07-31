@@ -25,7 +25,7 @@
     home = "/Users/mara.schulke";
   };
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     ubuntu_font_family
     nerd-fonts.ubuntu-mono
     lmodern
