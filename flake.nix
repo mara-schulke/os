@@ -2,7 +2,7 @@
   description = "Mara's Nix Configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     darwin = {
       url = "github:lnl7/nix-darwin/nix-darwin-25.05";
@@ -10,7 +10,7 @@
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

@@ -8,7 +8,6 @@
       pkg-config
       flex
       cmake
-      python3
       postgresql
       nodejs
     ]

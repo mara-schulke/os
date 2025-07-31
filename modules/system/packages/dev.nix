@@ -40,7 +40,6 @@
     nodejs
     openssl
     picocom
-    python3
     resources
     stack
     tig

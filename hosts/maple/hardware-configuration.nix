@@ -2,6 +2,7 @@
 # and may be overwritten by future invocations.  Please make changes
 # to /etc/nixos/configuration.nix instead.
 {
+  pkgs,
   config,
   lib,
   modulesPath,
@@ -25,9 +26,13 @@
     "usbhid"
     "usb_storage"
     "sd_mod"
+    "btmtk"
   ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [
+    "kvm-amd"
+    "btmtk"
+  ];
   boot.extraModulePackages = [ ];
 
   boot.initrd.luks.devices."cryptroot" = {
@@ -64,4 +69,9 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+
+  hardware.firmware = with pkgs; [ linux-firmware ];
 }
