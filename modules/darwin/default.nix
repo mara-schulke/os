@@ -1,4 +1,4 @@
-{ inputs, lib, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports = [ ./builder ];
@@ -24,6 +24,12 @@
     name = "mara.schulke";
     home = "/Users/mara.schulke";
   };
+
+  fonts.fonts = with pkgs; [
+    ubuntu_font_family
+    nerd-fonts.ubuntu-mono
+    lmodern
+  ];
 
   system.stateVersion = 4;
 }
