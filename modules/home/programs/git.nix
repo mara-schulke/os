@@ -1,5 +1,14 @@
 { lib, pkgs, ... }:
 
+let
+  opSign =
+    if pkgs.stdenv.isDarwin then
+      "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+    else if pkgs.stdenv.isLinux then
+      "${lib.getExe' pkgs._1password-gui "op-ssh-sign"}"
+    else
+      builtins.throw "Unsupported system target for 1password commit signing";
+in
 {
   programs.git = {
     enable = true;
@@ -30,7 +39,8 @@
       credentials.helper = "store";
 
       gpg.format = "ssh";
-      "gpg \"ssh\"".program = "${lib.getExe' pkgs._1password-gui "op-ssh-sign"}";
+      "gpg \"ssh\"".program = opSign;
+
       commit.gpgsign = true;
       user.signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINQzqzXz57EF6Z9anpzFhK4a1LscLC+e4W4IWiuJ0d5G";
     };

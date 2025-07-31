@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports = [ ./builder ];
@@ -10,7 +10,7 @@
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = false;
 
-  security.pam.services.sudo_local.touchIdAuth = true;
+  #security.pam.services.sudo_local.touchIdAuth = lib.mkForce true;
 
   nixpkgs.hostPlatform = "aarch64-darwin";
   nixpkgs.config.allowUnfree = true;
@@ -24,6 +24,12 @@
     name = "mara.schulke";
     home = "/Users/mara.schulke";
   };
+
+  fonts.packages = with pkgs; [
+    ubuntu_font_family
+    nerd-fonts.ubuntu-mono
+    lmodern
+  ];
 
   system.stateVersion = 4;
 }
