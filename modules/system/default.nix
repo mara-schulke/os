@@ -1,4 +1,4 @@
-{ ... }:
+{ inputs, ... }:
 
 {
   imports = [
@@ -13,7 +13,14 @@
     ./builder.nix
   ];
 
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = false;
+
   nixpkgs = {
+    overlays = [
+      inputs.rust.overlays.default
+    ];
+
     config = {
       allowUnfree = true;
       allowUnfreePredicate = _: true;

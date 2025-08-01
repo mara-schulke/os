@@ -31,13 +31,17 @@
     { nixpkgs, darwin, ... }@inputs:
 
     let
-      mac = darwin.lib.darwinSystem { modules = [ ./hosts/mac ]; };
+      args = {
+        inherit inputs;
+        darwin = null;
+      };
+      mac = darwin.lib.darwinSystem {
+        modules = [ ./hosts/mac ];
+        specialArgs = args;
+      };
       maple = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = {
-          inherit inputs;
-          darwin = null;
-        };
+        specialArgs = args;
         modules = [ ./hosts/maple ];
       };
     in
