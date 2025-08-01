@@ -23,18 +23,18 @@ in
         "git"
         "git-flow"
         "vi-mode"
-      ] ++ lib.optionals tmux [ "tmux" ];
-      extraConfig =
-        ''
-          export CASE_SENSITIVE="true"
-          export DISABLE_AUTO_TITLE="true"
-          export DISABLE_UNTRACKED_FILES_DIRTY="true"
-          export DISABLE_MAGIC_FUNCTIONS=true
-        ''
-        + lib.optionalString tmux ''
-          export ZSH_TMUX_AUTOSTART=false
-          export ZSH_TMUX_CONFIG=$HOME/.config/tmux/conf
-        '';
+      ]
+      ++ lib.optionals tmux [ "tmux" ];
+      extraConfig = ''
+        export CASE_SENSITIVE="true"
+        export DISABLE_AUTO_TITLE="true"
+        export DISABLE_UNTRACKED_FILES_DIRTY="true"
+        export DISABLE_MAGIC_FUNCTIONS=true
+      ''
+      + lib.optionalString tmux ''
+        export ZSH_TMUX_AUTOSTART=false
+        export ZSH_TMUX_CONFIG=$HOME/.config/tmux/conf
+      '';
     };
 
     historySubstringSearch = {
