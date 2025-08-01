@@ -8,7 +8,6 @@
       pkg-config
       flex
       cmake
-      postgresql
       nodejs
     ]
     ++ lib.optionals pkgs.stdenv.isDarwin [
