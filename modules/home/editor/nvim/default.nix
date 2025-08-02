@@ -12,6 +12,7 @@
     ./misc
     ./parser
     ./statusline
+    ./terminal
     ./utils
     ./vcs
     ./windows
