@@ -1,41 +1,80 @@
 { pkgs, ... }:
 
+let
+  smartpath = {
+    __unkeyed.__raw = ''
+      function()
+          local max_length = 30
+          local filepath = vim.fn.fnamemodify(vim.fn.expand('%'), ':~:.')
+          local cwd = vim.fn.fnamemodify(vim.fn.getcwd() .. "/", ':~:.')
+
+          if filepath:match("^term://") then
+              local num = filepath:match("#toggleterm#(%d+)")
+              if num then
+                  return "zsh (" .. num .. ")"
+              else
+                  return "zsh"
+              end
+          end
+
+          if filepath:match("^oil://") then
+              filepath = filepath:gsub("^oil://", "")
+              filepath = vim.fn.fnamemodify(filepath, ':~:.')
+              filepath = filepath:gsub("^" .. cwd, "")
+          end
+          
+          if not filepath or #filepath <= max_length then
+              return filepath or ""
+          end
+          
+          local segments = {}
+
+          for segment in string.gmatch(filepath, "[^/\\]+") do
+              table.insert(segments, segment)
+          end
+          
+          local count = #segments
+          
+          if #filepath <= max_length or count <= 3 then
+              return filepath
+          end
+          
+          local abbreviated = segments[1] .. "/../" .. segments[count-1] .. "/" .. segments[count]
+
+          if filepath:match("^/") then
+              return "/" .. abbreviated
+          end
+          
+          return abbreviated
+      end
+    '';
+  };
+in
 {
   programs.nixvim = {
     plugins.lualine = {
       enable = true;
       settings = {
         options = {
-          icons_enabled = false;
+          icons_enabled = true;
           section_separators = "";
           component_separators = "";
         };
         sections = {
           lualine_a = [ "mode" ];
-          lualine_b = [
-            {
-              __unkeyed-1 = "filename";
-              file_status = true;
-              path = 1;
-            }
-          ];
+          lualine_b = [ smartpath ];
           lualine_c = [
             {
-              __unkeyed-1 = "diff";
-              symbols = {
-                added = "+ ";
-                modified = "= ";
-                removed = "- ";
-              };
+              __unkeyed = "aerial";
             }
             {
-              __unkeyed-1 = "diagnostics";
+              __unkeyed = "diagnostics";
               sources = [ "nvim_diagnostic" ];
               symbols = {
-                error = "E ";
-                warn = "W ";
-                info = "I ";
-                hint = "H ";
+                error = "⊝ ";
+                warn = "⚡";
+                info = "⊙ ";
+                hint = "⟲ ";
               };
             }
           ];
@@ -44,12 +83,7 @@
         inactive_sections = {
           lualine_a = [ ];
           lualine_b = [ ];
-          lualine_c = [
-            {
-              __unkeyed-1 = "filename";
-              path = 1;
-            }
-          ];
+          lualine_c = [ smartpath ];
           lualine_x = [ "location" ];
           lualine_y = [ ];
           lualine_z = [ ];
@@ -82,7 +116,6 @@
         };
         extensions = [
           "fzf"
-          "toggleterm"
           "fugitive"
         ];
       };
