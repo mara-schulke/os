@@ -10,6 +10,14 @@ let
       builtins.throw "Unsupported system target for 1password commit signing";
 in
 {
+  home.packages = with pkgs; [
+    claude-code
+    tig
+    onefetch
+    lazygit
+    delta
+  ];
+
   programs.git = {
     enable = true;
     aliases = {
@@ -45,11 +53,4 @@ in
       user.signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINQzqzXz57EF6Z9anpzFhK4a1LscLC+e4W4IWiuJ0d5G";
     };
   };
-
-  home.packages = with pkgs; [
-    tig
-    onefetch
-    lazygit
-    delta
-  ];
 }
