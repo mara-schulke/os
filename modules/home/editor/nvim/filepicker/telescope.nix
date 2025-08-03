@@ -83,6 +83,22 @@
         action = "project";
         options.desc = "Projects";
       };
+      "gd" = {
+        action = "lsp_definitions";
+        options.desc = "Go to definition";
+      };
+      "gf" = {
+        action = "lsp_references";
+        options.desc = "Go to references";
+      };
+      "gi" = {
+        action = "lsp_implementations";
+        options.desc = "Go to implementations";
+      };
+      "gt" = {
+        action = "lsp_type_definitions";
+        options.desc = "Go to type definitions";
+      };
       "<leader>b" = {
         action = "git_branches";
         options.desc = "Git Branches";
