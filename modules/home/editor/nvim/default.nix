@@ -57,7 +57,7 @@
           spelllang = "en";
           swapfile = false; # creates a swapfile
           title = true; # set the title of window to the value of the titlestring
-          titlestring = "%<%F%=%l/%L - nvim"; # what the title of the window will be set to
+          titlestring = "nvim :: %f"; # what the title of the window will be set to
           undofile = true; # enable persistent undo
           updatetime = 100; # faster completion
           wildignore = "*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*";
