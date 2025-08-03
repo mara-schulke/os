@@ -5,7 +5,7 @@
     ./env
     ./ssh.nix
     ./editor
-    ./programs
+    ./pkgs
     ./shell
     ./terminal
   ];

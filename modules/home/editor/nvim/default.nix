@@ -7,6 +7,7 @@
     ./colorscheme
     ./editing
     ./filepicker
+    ./git
     ./greeter
     ./lsp
     ./misc
@@ -14,7 +15,6 @@
     ./statusline
     ./terminal
     ./utils
-    ./vcs
     ./windows
   ];
 
