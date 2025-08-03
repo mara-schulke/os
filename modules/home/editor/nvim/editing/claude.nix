@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}:
+{ pkgs, ... }:
 
 let
   claude = pkgs.vimUtils.buildVimPlugin {
@@ -11,7 +8,7 @@ let
       owner = "greggh";
       repo = "claude-code.nvim";
       rev = "main";
-      sha256 = "sha256-IW4RToeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeX5jDr4=";
+      sha256 = "sha256-ZEIPutxhgyaAhq+fJw1lTO781IdjTXbjKy5yKgqSLjM=";
     };
   };
 in
@@ -20,7 +17,7 @@ in
     extraPlugins = [ claude ];
 
     extraConfigLuaPost = ''
-      require("claude-code").setup()
+      require('claude-code').setup()
     '';
 
     keymaps = [

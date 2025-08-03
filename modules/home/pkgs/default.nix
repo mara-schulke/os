@@ -5,7 +5,7 @@
     ./apps.nix
     ./dev.nix
     ./utilities.nix
-    ./git.nix
+    ./dev.nix
     ./gpg.nix
   ];
 }

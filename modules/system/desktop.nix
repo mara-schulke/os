@@ -3,20 +3,22 @@
 {
   services.xserver = {
     enable = true;
-    layout = "us";
+    xkb.layout = "us";
+    xkb.options = "eurosign:e,caps:escape";
 
     autoRepeatDelay = 300;
     autoRepeatInterval = 25;
-
-    displayManager.gdm.enable = true;
-    displayManager.defaultSession = "gnome";
-    desktopManager.gnome.enable = true;
-
-    libinput.enable = true;
-    xkb.options = "eurosign:e,caps:escape";
   };
 
-  fonts.fonts = with pkgs; [
+  services.displayManager = {
+    gdm.enable = true;
+    defaultSession = "gnome";
+  };
+
+  services.desktopManager.gnome.enable = true;
+  services.libinput.enable = true;
+
+  fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-emoji
