@@ -4,10 +4,11 @@
   programs.nixvim = {
     extraPackages = with pkgs; [
       biome
-      prettierd
       nixfmt-rfc-style
+      prettierd
       rustfmt
       shfmt
+      taplo
       yamlfmt
     ];
 

@@ -58,7 +58,6 @@
           pyright.enable = true;
           tailwindcss.enable = true;
           terraformls.enable = true;
-          ts_ls.enable = true;
 
           yamlls = {
             enable = true;
@@ -182,11 +181,6 @@
         key = "gh";
         action = "<cmd>lua vim.lsp.buf.hover()<CR>";
       }
-      #{
-      #mode = "n";
-      #key = "g";
-      #action = ":Lspsaga outline<cr>";
-      #}
       {
         mode = "n";
         key = "g?";
