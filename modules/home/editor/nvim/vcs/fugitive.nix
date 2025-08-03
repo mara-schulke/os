@@ -43,7 +43,7 @@
       {
         mode = "n";
         key = "<A-c>";
-        action = "<cmd>horizontal Git commit<CR>";
+        action = "<cmd>vertical Git commit<CR>";
         options = {
           desc = "Git commit";
         };
