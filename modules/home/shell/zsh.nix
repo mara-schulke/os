@@ -92,13 +92,7 @@ in
     };
 
     shellGlobalAliases = {
-      lock = "slock";
-      reload = "source ~/.zshrc";
-      scrot = "scrot ~/pictures/screenshots/%y%m%d-%H%M%S.png";
-
-      # utils
-      urldecode = "python3 -c \"import sys, urllib.parse as ul; print(ul.unquote(sys.argv[1]))\"";
-      urlencode = "python3 -c \"import sys, urllib.parse as ul; print(ul.quote(sys.argv[1]))\"";
+      reload = "source ~/.config/zsh/.zshrc";
 
       # encrypted filesystems
       "mount.archive" =
@@ -126,13 +120,9 @@ in
 
       # nix-shell
       nix-shell = "nix-shell --command zsh";
-
-      # nix darwin
-      nix-sync = "cd $DARWIN_FLAKE && nix flake \"lock\" --update-input os && cd -";
-      nix-rebuild = "nix run nix-darwin -- switch --flake $DARWIN_FLAKE#helsing";
     };
 
-    initExtra = ''
+    initContent = ''
       export PATH="/usr/local/bin:$PATH"
       export PATH="/opt/local/bin:$PATH"
       export PATH="/opt/local/sbin:$PATH"
