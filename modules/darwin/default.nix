@@ -5,6 +5,7 @@
 
   nixpkgs.overlays = [
     inputs.rust.overlays.default
+    inputs.fonts.overlays.default
   ];
 
   home-manager.useGlobalPkgs = true;

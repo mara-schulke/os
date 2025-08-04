@@ -21,6 +21,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    fonts = {
+      url = "git+ssh://git@github.com/hemisphere-studio/fonts";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     rust = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
