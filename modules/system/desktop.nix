@@ -19,6 +19,8 @@
   services.libinput.enable = true;
 
   fonts.packages = with pkgs; [
+    berkeley-mono
+    berkeley-mono-nerd
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-emoji

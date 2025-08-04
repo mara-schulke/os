@@ -27,6 +27,8 @@
   };
 
   fonts.packages = with pkgs; [
+    berkeley-mono
+    berkeley-mono-nerd
     ubuntu_font_family
     nerd-fonts.ubuntu-mono
     lmodern
