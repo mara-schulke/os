@@ -35,6 +35,9 @@
     home.stateVersion = "25.05";
 
     home.file.".ssh/config".text = ''
+      Host *
+        IdentityAgent /home/mara/.1password/agent.sock
+
       Host builder
         User root
         Hostname hemisphere.studio
