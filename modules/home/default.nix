@@ -23,7 +23,7 @@
       zlib
       perl
 
-      (rust-bin.nightly."2025-01-08".default.override {
+      (rust-bin.nightly."2025-08-01".default.override {
         extensions = [
           "rust-src"
           "rust-analyzer"
