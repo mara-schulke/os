@@ -10,7 +10,7 @@
     keymaps = lib.mkAfter [
       {
         mode = "n";
-        key = "<A-g>";
+        key = "<leader>g";
         action = ''
           function()
             vim.api.nvim_feedkeys(":Git ", "n", false)
@@ -24,7 +24,7 @@
 
       {
         mode = "n";
-        key = "<A-d>";
+        key = "<A-g>";
         action = "<cmd>Gvdiff<CR>";
         options = {
           desc = "Show git diff";

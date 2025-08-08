@@ -111,17 +111,9 @@
         action = "git_commits";
         options.desc = "commits";
       };
-      "<leader>g" = {
-        action = "git_status";
-        options.desc = "Status";
-      };
       "<leader>u" = {
         action = "current_buffer_fuzzy_find";
         options.desc = "Buffer";
-      };
-      "<leader>d" = {
-        action = "diagnostics bufnr=0";
-        options.desc = "Document Diagnostics";
       };
       "<leader>D" = {
         action = "diagnostics";
