@@ -15,6 +15,9 @@
     steam
     spotify
     st
+    affinity-photo
+    affinity-designer
+    affinity-publisher
   ];
 
   programs.steam = {
