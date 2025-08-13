@@ -22,7 +22,7 @@
     };
 
     polar = {
-      url = "git+ssh://git@github.com/hemisphere-systems/polar";
+      url = "github:hemisphere-systems/polar";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

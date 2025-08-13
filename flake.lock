@@ -469,15 +469,15 @@
       "locked": {
         "lastModified": 1754859976,
         "narHash": "sha256-aDMijO1pkZc8Ga1TtlYD2N2cUkZKILgeX9Wn/uauR28=",
-        "ref": "refs/heads/main",
+        "owner": "hemisphere-systems",
+        "repo": "polar",
         "rev": "e1e50e2ddb2d9d10aeecf47adbf1eed0672c52fc",
-        "revCount": 24,
-        "type": "git",
-        "url": "ssh://git@github.com/hemisphere-systems/polar"
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "ssh://git@github.com/hemisphere-systems/polar"
+        "owner": "hemisphere-systems",
+        "repo": "polar",
+        "type": "github"
       }
     },
     "root": {
