@@ -18,7 +18,7 @@
 
   nixpkgs = {
     overlays = [
-      inputs.rust.overlays.default
+      inputs.polar.overlays.default
       inputs.fonts.overlays.default
     ];
 

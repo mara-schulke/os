@@ -9,9 +9,9 @@
       cmp_luasnip.enable = true;
 
       cmp-cmdline.enable = true;
-      cmp-nvim-lua.enable = true; # Neovim Lua API completion
-      cmp-emoji.enable = true; # Emoji completion :smile:
-      cmp-calc.enable = true; # Calculator completion
+      cmp-nvim-lua.enable = true;
+      cmp-emoji.enable = true;
+      cmp-calc.enable = true;
       cmp-treesitter.enable = true;
 
       luasnip = {

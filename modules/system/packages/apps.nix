@@ -5,8 +5,8 @@
     alacritty
     (chromium.override { enableWideVine = true; })
     brave
+    vivaldi
     discord
-    exercism
     firefox
     libreoffice
     libheif
@@ -14,7 +14,6 @@
     slack
     steam
     spotify
-    st
   ];
 
   programs.steam = {

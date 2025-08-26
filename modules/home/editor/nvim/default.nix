@@ -1,5 +1,12 @@
-{ inputs, ... }:
+{
+  inputs,
+  pkgs,
+  ...
+}:
 
+let
+  nightly = false;
+in
 {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
@@ -20,6 +27,19 @@
 
   programs.nixvim = {
     enable = true;
+    package =
+      if nightly then
+        pkgs.neovim-unwrapped.overrideAttrs (oldAttrs: {
+          src = pkgs.fetchFromGitHub {
+            owner = "neovim";
+            repo = "neovim";
+            rev = "53ac2ad20ab26b147d64da48a5e3684c2541c844";
+            sha256 = "sha256-xIFLxKCfgY5xlWtF+AWSx0LH1B6iJPMxj9k/qk4Bg7g=";
+          };
+          version = "0.12.0-dev";
+        })
+      else
+        pkgs.neovim-unwrapped;
     globals.mapleader = " ";
     clipboard = {
       register = "unnamedplus";
