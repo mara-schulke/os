@@ -11,8 +11,11 @@
   };
 
   services.displayManager = {
-    gdm.enable = true;
     defaultSession = "gnome";
+    gdm = {
+      enable = true;
+      wayland = false;
+    };
   };
 
   services.desktopManager.gnome.enable = true;
