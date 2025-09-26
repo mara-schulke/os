@@ -11,10 +11,10 @@
   };
 
   services.displayManager = {
-    defaultSession = "gnome";
+    defaultSession = "gnome-xorg";
     gdm = {
       enable = true;
-      wayland = false;
+      wayland = true;
     };
   };
 

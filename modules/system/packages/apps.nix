@@ -5,15 +5,16 @@
     alacritty
     (chromium.override { enableWideVine = true; })
     brave
-    vivaldi
+    davinci-resolve
     discord
     firefox
-    libreoffice
     libheif
+    libreoffice
     mgba
     slack
-    steam
     spotify
+    steam
+    vivaldi
   ];
 
   programs.steam = {
