@@ -19,6 +19,26 @@
         plex
         scheme-full
         textpos
+        algorithms
+        algorithmicx
+        beamer
+        chemfig
+        circuitikz
+        draftwatermark
+        fancyhdr
+        geometry
+        hyperref
+        mathtools
+        microtype
+        minted
+        pgfplots
+        siunitx
+        caption
+        tikz-cd
+        titlesec
+        todonotes
+        import
+        xcolor
         ;
     })
     curl
