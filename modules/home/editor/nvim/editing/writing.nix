@@ -6,7 +6,7 @@
       enable = true;
       texlivePackage = null; # Use system texlive
       settings = {
-        view_method = "okular";
+        view_method = "zathura";
         compiler_method = "latexmk";
         compiler_latexmk = {
           options = [
@@ -23,8 +23,8 @@
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "tex",
         callback = function()
-          vim.keymap.set("n", "<M-,>", "<cmd>VimtexView<CR>", { buffer = true, desc = "VimTeX View" })
-          vim.keymap.set("n", "<M-.>", "<cmd>VimtexTocToggle<CR>", { buffer = true, desc = "VimTeX TOC Toggle" })
+          vim.keymap.set("n", "<A-.>", "<cmd>VimtexView<CR>", { buffer = true, desc = "VimTeX View" })
+          vim.keymap.set("n", "<A-,>", "<cmd>VimtexTocToggle<CR>", { buffer = true, desc = "VimTeX TOC Toggle" })
         end,
       })
     '';
