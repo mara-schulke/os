@@ -6,6 +6,7 @@
     ./audio
     ./packages
     ./system
+    ./wm
 
     ./user.nix
     ./desktop.nix
