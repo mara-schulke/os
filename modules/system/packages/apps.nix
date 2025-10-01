@@ -9,8 +9,8 @@
     discord
     firefox
     libheif
-    libreoffice
     mgba
+    lunar-client
     slack
     spotify
     steam
