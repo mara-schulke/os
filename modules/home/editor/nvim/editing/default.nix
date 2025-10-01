@@ -6,6 +6,7 @@
     ./comments.nix
     ./hints.nix
     ./search.nix
+    ./writing.nix
   ];
 
   programs.nixvim = {
