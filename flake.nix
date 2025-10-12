@@ -21,10 +21,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    polar = {
-      url = "github:hemisphere-systems/polar";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    polar.url = "github:hemisphere-systems/polar";
 
     fonts = {
       url = "git+ssh://git@github.com/hemisphere-systems/fonts";

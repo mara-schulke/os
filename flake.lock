@@ -268,11 +268,11 @@
         "utils": "utils_3"
       },
       "locked": {
-        "lastModified": 1760280634,
-        "narHash": "sha256-ody6NtpKGR3ZhxFFbYrgvlNi6pqOa6H4eoDKP33OilQ=",
+        "lastModified": 1760280934,
+        "narHash": "sha256-Mv6t4hepqcpODmNxET3RShvF2EkLwKomRClTQkWCcfg=",
         "owner": "hemisphere-systems",
         "repo": "polar",
-        "rev": "01666e6faef8483ccd7bfd8ffa4b4ee30a811078",
+        "rev": "f1b0487445d4fa3e405a54e032e3a7d208383ca1",
         "type": "github"
       },
       "original": {
@@ -411,11 +411,11 @@
     },
     "unstable": {
       "locked": {
-        "lastModified": 1757034884,
-        "narHash": "sha256-PgLSZDBEWUHpfTRfFyklmiiLBE1i1aGCtz4eRA3POao=",
+        "lastModified": 1760164275,
+        "narHash": "sha256-gKl2Gtro/LNf8P+4L3S2RsZ0G390ccd5MyXYrTdMCFE=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "ca77296380960cd497a765102eeb1356eb80fed0",
+        "rev": "362791944032cb532aabbeed7887a441496d5e6e",
         "type": "github"
       },
       "original": {
