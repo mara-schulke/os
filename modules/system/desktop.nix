@@ -21,6 +21,10 @@
   services.desktopManager.gnome.enable = true;
   services.libinput.enable = true;
 
+  environment.systemPackages = with pkgs; [
+    gnomeExtensions.tiling-shell
+  ];
+
   fonts.packages = with pkgs; [
     berkeley-mono
     berkeley-mono-nerd
