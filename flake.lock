@@ -213,20 +213,6 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
-      "locked": {
-        "lastModified": 1673606088,
-        "narHash": "sha256-wdYD41UwNwPhTdMaG0AIe7fE1bAdyHe6bB4HLUqUvck=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "37b97ae3dd714de9a17923d004a2c5b5543dfa6d",
-        "type": "github"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "type": "indirect"
-      }
-    },
     "nixvim": {
       "inputs": {
         "flake-parts": "flake-parts",
@@ -282,17 +268,17 @@
         "utils": "utils_3"
       },
       "locked": {
-        "lastModified": 1757544906,
-        "narHash": "sha256-ueMQWIvP3is3Gz4S8wUwrpAjwysyw8myPtMHkKNkkSI=",
-        "ref": "refs/heads/main",
-        "rev": "326fe6ad5541b3b1eb8e3636a48ce0eeaaa1c499",
-        "revCount": 25,
-        "type": "git",
-        "url": "file:///home/mara/Workspace/polar"
+        "lastModified": 1760280634,
+        "narHash": "sha256-ody6NtpKGR3ZhxFFbYrgvlNi6pqOa6H4eoDKP33OilQ=",
+        "owner": "hemisphere-systems",
+        "repo": "polar",
+        "rev": "01666e6faef8483ccd7bfd8ffa4b4ee30a811078",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///home/mara/Workspace/polar"
+        "owner": "hemisphere-systems",
+        "repo": "polar",
+        "type": "github"
       }
     },
     "root": {
@@ -404,7 +390,10 @@
     },
     "unfree": {
       "inputs": {
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": [
+          "polar",
+          "unstable"
+        ]
       },
       "locked": {
         "lastModified": 1755249704,
