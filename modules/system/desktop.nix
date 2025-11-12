@@ -30,10 +30,10 @@
     berkeley-mono-nerd
     noto-fonts
     noto-fonts-cjk-sans
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     fira-code
     fira-code-symbols
-    ubuntu_font_family
+    ubuntu-classic
     nerd-fonts.ubuntu-mono
     lmodern
   ];

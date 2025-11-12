@@ -10,6 +10,5 @@
     with pkgs;
     lib.mkForce [
       linux-firmware
-      firmwareLinuxNonfree
     ];
 }

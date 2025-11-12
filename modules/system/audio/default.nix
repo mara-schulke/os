@@ -28,9 +28,28 @@
   };
 
   services.blueman.enable = true;
-  hardware.bluetooth.enable = true;
+
   environment.systemPackages = with pkgs; [
     blueman
     pavucontrol
+    asha-pipewire-sink
   ];
+
+  #boot.extraModprobeConfig = ''
+  #options bluetooth enable_ecred=1
+  #'';
+
+  hardware = {
+    bluetooth = {
+      enable = true;
+      settings = {
+        LE = {
+          #MinConnectionInterval = 16;
+          #MaxConnectionInterval = 16;
+          #ConnectionLatency = 10;
+          #ConnectionSupervisionTimeout = 100;
+        };
+      };
+    };
+  };
 }
