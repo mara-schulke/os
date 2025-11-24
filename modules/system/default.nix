@@ -18,11 +18,6 @@
   home-manager.useUserPackages = false;
 
   nixpkgs = {
-    overlays = [
-      inputs.polar.overlays.default
-      inputs.fonts.overlays.default
-    ];
-
     config = {
       allowUnfree = true;
       allowUnfreePredicate = _: true;

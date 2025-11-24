@@ -3,9 +3,9 @@
 {
   environment.systemPackages = with pkgs; [
     alacritty
-    (chromium.override { enableWideVine = true; })
+    # (chromium.override { enableWideVine = true; })
     brave
-    davinci-resolve
+    # davinci-resolve
     discord
     firefox
     libheif
