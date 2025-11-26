@@ -131,6 +131,7 @@ in
       export PATH="/usr/local/bin:$PATH"
       export PATH="/opt/local/bin:$PATH"
       export PATH="/opt/local/sbin:$PATH"
+      export PATH="$HOME/.npm/bin:$PATH"
       export PATH="$HOME/bin:$PATH"
       export PATH="$HOME/go/bin:$PATH"
       export PATH="$HOME/.cargo/bin:$PATH"
