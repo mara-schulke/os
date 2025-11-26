@@ -32,12 +32,11 @@ in
       {
         mode = "n";
         key = "<A-t>";
-        action = ''
+        action.__raw = ''
           function()
             vim.api.nvim_feedkeys(":TodoTrouble ", "n", false)
           end
         '';
-        lua = true;
         options = {
           desc = "Git ...";
         };
