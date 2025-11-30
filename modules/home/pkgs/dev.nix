@@ -17,6 +17,7 @@ in
     onefetch
     lazygit
     delta
+    bat
   ];
 
   programs.git = {
