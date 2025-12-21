@@ -12,6 +12,7 @@
     ./desktop.nix
     ./network.nix
     ./builder.nix
+    ./wireguard.nix
   ];
 
   home-manager.useGlobalPkgs = true;
