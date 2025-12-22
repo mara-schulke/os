@@ -1,19 +1,17 @@
 { ... }:
 
 {
-  programs.ssh = {
-    enable = true;
-    extraConfig = ''
-      Host *
-          IdentityAgent /home/mara/.1password/agent.sock
-    '';
-  };
-
   services.openssh = {
     enable = true;
     settings = {
-      PermitRootLogin = "no";
       PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+      PermitRootLogin = "no";
+      AllowUsers = [ "mara" ];
     };
   };
+
+  users.users.mara.openssh.authorizedKeys.keys = [
+    ''ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINQzqzXz57EF6Z9anpzFhK4a1LscLC+e4W4IWiuJ0d5G mara''
+  ];
 }

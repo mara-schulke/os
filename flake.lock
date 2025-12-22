@@ -491,11 +491,11 @@
         "zwanzig-grad": "zwanzig-grad"
       },
       "locked": {
-        "lastModified": 1766410665,
-        "narHash": "sha256-+rNFyljodgRJO3lgTpy+7dwAxJgp5Bv/pqwRpIZcGgY=",
+        "lastModified": 1766415236,
+        "narHash": "sha256-93EnwcfXeZxrsdaJz/GN6c7MUZx8egIVnZHMr8yH8QY=",
         "ref": "refs/heads/main",
-        "rev": "22c1d06ac0b5fc2df08acf6787e766bd1c9cb2aa",
-        "revCount": 48,
+        "rev": "918a0d44bfb54246d8723d2a4720d74669350cfe",
+        "revCount": 52,
         "type": "git",
         "url": "ssh://git@github.com/hemisphere-systems/ocular"
       },
