@@ -1,3 +1,2 @@
-!secrets/.gitkeep
-secrets/**/*
+secrets
 /system.nix
