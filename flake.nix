@@ -27,6 +27,8 @@
       url = "git+ssh://git@github.com/hemisphere-systems/fonts";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    ocular.url = "git+ssh://git@github.com/hemisphere-systems/ocular";
   };
 
   outputs =

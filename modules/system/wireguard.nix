@@ -1,37 +1,17 @@
-{ pkgs, ... }:
+{
+  inputs,
+  ...
+}:
 
 let
-  serverPublic = "e1mrLtHovfDiBP9442k43HfEjFUJ6Vik+DZ2Zv7EaGE=";
-  serverHost = "vpn.maras.cloud";
-  serverPort = "51820";
+  vpn = inputs.ocular.lib.vpn;
 in
 {
-  networking.wireguard.interfaces = {
-    wg0 = {
-      ips = [ "10.100.0.2/24" ];
+  imports = [ inputs.ocular.nixosModules.vpn ];
 
-      listenPort = 51820;
-
-      privateKeyFile = "/root/wireguard/keys/private";
-
-      peers = [
-        {
-          publicKey = serverPublic;
-
-          endpoint = "${serverHost}:${serverPort}";
-
-          allowedIPs = [
-            "0.0.0.0/0"
-            "::/0"
-          ];
-
-          persistentKeepalive = 25;
-        }
-      ];
-    };
+  services.hemisphere.vpn = {
+    enable = true;
+    peer = vpn.peers.maple;
+    privateKeyFile = "/root/wireguard/keys/private";
   };
-
-  environment.systemPackages = with pkgs; [
-    wireguard-tools
-  ];
 }
