@@ -10,7 +10,6 @@ in
     ../../modules/system
     ./hardware-configuration.nix
     ./volt
-    ./vpn
   ];
 
   networking.hostName = "maple";

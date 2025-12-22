@@ -9,7 +9,6 @@ in
     inputs.ocular.nixosModules.vpn
     ../../modules/system
     ./hardware-configuration.nix
-    ./vpn
   ];
 
   networking.hostName = "moss";
