@@ -282,11 +282,11 @@
         "utils": "utils_3"
       },
       "locked": {
-        "lastModified": 1762982907,
-        "narHash": "sha256-S1nwoyJGTqD/fibt4adglHTVqvIXtJUg76FxOh7mc0U=",
+        "lastModified": 1767796687,
+        "narHash": "sha256-3m2AdM16OQ/bEKHqd0VEV9CXZGA6ZeesJRNNzLW/3v8=",
         "owner": "hemisphere-systems",
         "repo": "polar",
-        "rev": "6c2e5fcb0782a3b48c4a277b69d539931bdfa9bd",
+        "rev": "0ae662119dda5ee0f2d3f684e1209c6e81beb85b",
         "type": "github"
       },
       "original": {
@@ -314,11 +314,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1762915112,
-        "narHash": "sha256-d9j1g8nKmYDHy+/bIOPQTh9IwjRliqaTM0QLHMV92Ic=",
+        "lastModified": 1767754000,
+        "narHash": "sha256-znoNJs2QZFl+wCFLd6FbUJ00c74kvzOjyQYXc45uFvo=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "aa1e85921cfa04de7b6914982a94621fbec5cc02",
+        "rev": "0b3a5ad260479f2c9bdadf3ba5b2a4be359cfcdd",
         "type": "github"
       },
       "original": {
