@@ -9,10 +9,9 @@ in
     inputs.ocular.nixosModules.vpn
     ../../modules/system
     ./hardware-configuration.nix
-    ./volt
   ];
 
-  networking.hostName = "maple";
+  networking.hostName = "moss";
 
   home-manager.users."mara" = {
     imports = [ ../../modules/home ];
@@ -34,6 +33,4 @@ in
     peer = vpn.peers.maple;
     privateKeyFile = "/root/wireguard/keys/private";
   };
-
-  sphere.graphics.gpu.nvidia.enable = true;
 }

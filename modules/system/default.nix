@@ -12,6 +12,7 @@
     ./desktop.nix
     ./network.nix
     ./builder.nix
+    ./ssh.nix
   ];
 
   home-manager.useGlobalPkgs = true;

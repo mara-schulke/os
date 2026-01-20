@@ -26,6 +26,8 @@
       url = "git+ssh://git@github.com/hemisphere-systems/fonts";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    ocular.url = "git+ssh://git@github.com/hemisphere-systems/ocular";
   };
 
   outputs =
@@ -45,11 +47,18 @@
         specialArgs = args;
         modules = [ ./hosts/maple ];
       };
+      moss = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = args;
+        modules = [ ./hosts/moss ];
+      };
     in
     {
-      # nix run nix-darwin -- switch --flake .#maple
       nixosConfigurations = {
+        # nix run nix-darwin -- switch --flake .#maple
         inherit maple;
+        # nix run nix-darwin -- switch --flake .#moss
+        inherit moss;
       };
 
       # nix run nix-darwin -- switch --flake .#mac
