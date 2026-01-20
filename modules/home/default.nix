@@ -8,6 +8,7 @@
     ./pkgs
     ./shell
     ./terminal
+    ./desktop
   ];
 
   programs.home-manager.enable = true;
