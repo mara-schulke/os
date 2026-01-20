@@ -42,7 +42,6 @@
       disable-user-extensions = false;
       enabled-extensions = [
         "paperwm@paperwm.github.com"
-        # "tilingshell@ferrarodomenico.com"
       ];
     };
     "org/gnome/gnome-system-monitor" = {
@@ -52,7 +51,7 @@
       enabled = true;
     };
     "org/gnome/desktop/interface" = {
-      enable-animations = false; # Reduced motion
+      enable-animations = false;
     };
     "org/gnome/desktop/wm/keybindings" = {
       switch-to-workspace-1 = [ "<Super>1" ];
@@ -75,15 +74,14 @@
       move-to-workspace-9 = [ "<Super><Shift>9" ];
     };
     "org/gnome/mutter" = {
-      overlay-key = ""; # Disable Super key opening overview
-      dynamic-workspaces = false; # Use static workspaces
+      overlay-key = "";
+      dynamic-workspaces = false;
     };
     "org/gnome/desktop/wm/preferences" = {
       num-workspaces = 9; # Match workspace keybindings (1-9)
     };
     "org/gnome/shell/keybindings" = {
-      toggle-overview = [ "<Super>space" ];
-      # Disable default app launcher shortcuts (Super+1-9)
+      toggle-overview = [ "<Super>" ];
       switch-to-application-1 = [ ];
       switch-to-application-2 = [ ];
       switch-to-application-3 = [ ];
@@ -96,8 +94,8 @@
     };
     "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings = [
-        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
-        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+        "custom0"
+        "custom1"
       ];
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
@@ -134,9 +132,9 @@
 
       # UI elements
       show-workspace-indicator = false;
-      show-window-position-bar = true;
-      show-focus-mode-icon = true;
-      show-open-position-icon = true;
+      show-window-position-bar = false;
+      show-focus-mode-icon = false;
+      show-open-position-icon = false;
       topbar-mouse-scroll-enable = true;
 
       # Animation (disabled for instant window switching)
@@ -179,8 +177,7 @@
     };
 
     "org/gnome/shell/extensions/paperwm/keybindings" = {
-      # Terminal and basic actions
-      new-window = [ ]; # Disabled
+      new-window = [ ];
 
       # Window management (matching XMonad M-q)
       close-window = [ "<Super>q" ];
