@@ -251,8 +251,22 @@
       center-horizontally = [ "<Super>c" ];
 
       # Window positioning
-      switch-first = [ "<Super>Home" ];
-      switch-last = [ "<Super>End" ];
+      switch-first = [
+        "<Alt>1"
+        "<Alt>-"
+      ];
+      switch-second = [ "<Alt>2" ];
+      switch-third = [ "<Alt>3" ];
+      switch-fourth = [ "<Alt>4" ];
+      switch-fifth = [ "<Alt>5" ];
+      switch-sixth = [ "<Alt>6" ];
+      switch-seventh = [ "<Alt>7" ];
+      switch-eighth = [ "<Alt>8" ];
+      switch-ninth = [ "<Alt>9" ];
+      switch-tenth = [ "<Alt>0" ];
+      switch-last = [
+        "<Alt>="
+      ];
 
       # Take window (useful for moving windows around)
       take-window = [ "<Super>t" ];
