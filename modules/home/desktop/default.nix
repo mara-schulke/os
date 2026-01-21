@@ -42,7 +42,6 @@
       disable-user-extensions = false;
       enabled-extensions = [
         "paperwm@paperwm.github.com"
-        # "tilingshell@ferrarodomenico.com"
       ];
     };
     "org/gnome/gnome-system-monitor" = {
@@ -52,7 +51,7 @@
       enabled = true;
     };
     "org/gnome/desktop/interface" = {
-      enable-animations = false; # Reduced motion
+      enable-animations = false;
     };
     "org/gnome/desktop/wm/keybindings" = {
       switch-to-workspace-1 = [ "<Super>1" ];
@@ -75,15 +74,14 @@
       move-to-workspace-9 = [ "<Super><Shift>9" ];
     };
     "org/gnome/mutter" = {
-      overlay-key = ""; # Disable Super key opening overview
-      dynamic-workspaces = false; # Use static workspaces
+      overlay-key = "";
+      dynamic-workspaces = false;
     };
     "org/gnome/desktop/wm/preferences" = {
       num-workspaces = 9; # Match workspace keybindings (1-9)
     };
     "org/gnome/shell/keybindings" = {
-      toggle-overview = [ "<Super>space" ];
-      # Disable default app launcher shortcuts (Super+1-9)
+      #toggle-overview = [ "<Super>" ];
       switch-to-application-1 = [ ];
       switch-to-application-2 = [ ];
       switch-to-application-3 = [ ];
@@ -96,8 +94,8 @@
     };
     "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings = [
-        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
-        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1"
       ];
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
@@ -134,17 +132,17 @@
 
       # UI elements
       show-workspace-indicator = false;
-      show-window-position-bar = true;
-      show-focus-mode-icon = true;
-      show-open-position-icon = true;
+      show-window-position-bar = false;
+      show-focus-mode-icon = false;
+      show-open-position-icon = false;
       topbar-mouse-scroll-enable = true;
 
       # Animation (disabled for instant window switching)
       animation-time = 0.0;
 
       # Minimap settings
-      minimap-scale = 0.0;
-      minimap-shade-opacity = 127; # 50% opacity
+      minimap-scale = 0.15;
+      minimap-shade-opacity = 64; # 50% opacity
 
       # Gestures
       gesture-enabled = true;
@@ -179,8 +177,7 @@
     };
 
     "org/gnome/shell/extensions/paperwm/keybindings" = {
-      # Terminal and basic actions
-      new-window = [ ]; # Disabled
+      new-window = [ ];
 
       # Window management (matching XMonad M-q)
       close-window = [ "<Super>q" ];
@@ -210,16 +207,16 @@
       paper-toggle-fullscreen = [ "<Super><Shift>f" ];
 
       # Window cycling with wrap-around
-      switch-next-loop = [ "<Super>Tab" ];
-      switch-previous-loop = [ "<Super><Shift>Tab" ];
+      switch-next-loop = [ "<Alt>Tab" ];
+      switch-previous-loop = [ "<Alt><Shift>Tab" ];
 
       # Workspace switching (disabled - using GNOME keybindings instead)
-      previous-workspace = [ ];
-      previous-workspace-backward = [ ];
+      previous-workspace = [ "<Super>Tab" ];
+      previous-workspace-backward = [ "<Super><Shift>Tab" ];
 
       # Alt-Tab for window switching (matching XMonad Alt-Tab)
-      live-alt-tab = [ "<Alt>Tab" ];
-      live-alt-tab-backward = [ "<Alt><Shift>Tab" ];
+      #live-alt-tab = [ "<Alt>Tab" ];
+      #live-alt-tab-backward = [ "<Alt><Shift>Tab" ];
 
       # Scratch layer (similar to XMonad scratchpads)
       toggle-scratch-window = [ "<Super>grave" ]; # Super+` for scratch
@@ -254,8 +251,22 @@
       center-horizontally = [ "<Super>c" ];
 
       # Window positioning
-      switch-first = [ "<Super>Home" ];
-      switch-last = [ "<Super>End" ];
+      switch-first = [
+        "<Alt>1"
+        "<Alt>minus"
+      ];
+      switch-second = [ "<Alt>2" ];
+      switch-third = [ "<Alt>3" ];
+      switch-fourth = [ "<Alt>4" ];
+      switch-fifth = [ "<Alt>5" ];
+      switch-sixth = [ "<Alt>6" ];
+      switch-seventh = [ "<Alt>7" ];
+      switch-eighth = [ "<Alt>8" ];
+      switch-ninth = [ "<Alt>9" ];
+      switch-tenth = [ "<Alt>0" ];
+      switch-last = [
+        "<Alt>equal"
+      ];
 
       # Take window (useful for moving windows around)
       take-window = [ "<Super>t" ];
