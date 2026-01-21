@@ -253,7 +253,7 @@
       # Window positioning
       switch-first = [
         "<Alt>1"
-        "<Alt>-"
+        "<Alt>minus"
       ];
       switch-second = [ "<Alt>2" ];
       switch-third = [ "<Alt>3" ];
@@ -265,7 +265,7 @@
       switch-ninth = [ "<Alt>9" ];
       switch-tenth = [ "<Alt>0" ];
       switch-last = [
-        "<Alt>="
+        "<Alt>equal"
       ];
 
       # Take window (useful for moving windows around)
