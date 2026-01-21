@@ -77,7 +77,7 @@ in
       XDG_VIDEOS_DIR = "$HOME/videos";
 
       # general
-      EDITOR = "$(which nvim)";
+      EDITOR = "nvim";
       FZF_DEFAULT_COMMAND = "fd --type f --hidden --follow --exclude .git";
       GPG_TTY = "tty";
 
