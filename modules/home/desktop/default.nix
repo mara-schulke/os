@@ -81,7 +81,7 @@
       num-workspaces = 9; # Match workspace keybindings (1-9)
     };
     "org/gnome/shell/keybindings" = {
-      toggle-overview = [ "<Super>" ];
+      #toggle-overview = [ "<Super>" ];
       switch-to-application-1 = [ ];
       switch-to-application-2 = [ ];
       switch-to-application-3 = [ ];
@@ -141,8 +141,8 @@
       animation-time = 0.0;
 
       # Minimap settings
-      minimap-scale = 0.0;
-      minimap-shade-opacity = 127; # 50% opacity
+      minimap-scale = 0.15;
+      minimap-shade-opacity = 64; # 50% opacity
 
       # Gestures
       gesture-enabled = true;
@@ -207,16 +207,16 @@
       paper-toggle-fullscreen = [ "<Super><Shift>f" ];
 
       # Window cycling with wrap-around
-      switch-next-loop = [ "<Super>Tab" ];
-      switch-previous-loop = [ "<Super><Shift>Tab" ];
+      switch-next-loop = [ "<Alt>Tab" ];
+      switch-previous-loop = [ "<Alt><Shift>Tab" ];
 
       # Workspace switching (disabled - using GNOME keybindings instead)
-      previous-workspace = [ ];
-      previous-workspace-backward = [ ];
+      previous-workspace = [ "<Super>Tab" ];
+      previous-workspace-backward = [ "<Super><Shift>Tab" ];
 
       # Alt-Tab for window switching (matching XMonad Alt-Tab)
-      live-alt-tab = [ "<Alt>Tab" ];
-      live-alt-tab-backward = [ "<Alt><Shift>Tab" ];
+      #live-alt-tab = [ "<Alt>Tab" ];
+      #live-alt-tab-backward = [ "<Alt><Shift>Tab" ];
 
       # Scratch layer (similar to XMonad scratchpads)
       toggle-scratch-window = [ "<Super>grave" ]; # Super+` for scratch
