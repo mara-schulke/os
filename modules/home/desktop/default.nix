@@ -74,14 +74,14 @@
       move-to-workspace-9 = [ "<Super><Shift>9" ];
     };
     "org/gnome/mutter" = {
-      overlay-key = "";
+      overlay-key = "<Super>";
       dynamic-workspaces = false;
     };
     "org/gnome/desktop/wm/preferences" = {
       num-workspaces = 9; # Match workspace keybindings (1-9)
     };
     "org/gnome/shell/keybindings" = {
-      #toggle-overview = [ "<Super>" ];
+      toggle-overview = [ "<Super>" ];
       switch-to-application-1 = [ ];
       switch-to-application-2 = [ ];
       switch-to-application-3 = [ ];
