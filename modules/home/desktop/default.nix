@@ -255,7 +255,7 @@
         "<Alt>1"
         "<Alt>minus"
       ];
-      switch-second = [ "<Alt>2" ] f;
+      switch-second = [ "<Alt>2" ];
       switch-third = [ "<Alt>3" ];
       switch-fourth = [ "<Alt>4" ];
       switch-fifth = [ "<Alt>5" ];
