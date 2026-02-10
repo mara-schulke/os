@@ -74,7 +74,7 @@
       move-to-workspace-9 = [ "<Super><Shift>9" ];
     };
     "org/gnome/mutter" = {
-      overlay-key = "";
+      #overlay-key = "";
       dynamic-workspaces = false;
     };
     "org/gnome/desktop/wm/preferences" = {
@@ -142,7 +142,7 @@
 
       # Minimap settings
       minimap-scale = 0.15;
-      minimap-shade-opacity = 64; # 50% opacity
+      minimap-shade-opacity = 64;
 
       # Gestures
       gesture-enabled = true;
@@ -211,17 +211,17 @@
       switch-previous-loop = [ "<Alt><Shift>Tab" ];
 
       # Workspace switching (disabled - using GNOME keybindings instead)
-      previous-workspace = [ "<Super>Tab" ];
-      previous-workspace-backward = [ "<Super><Shift>Tab" ];
+      #previous-workspace = [ "<Super>Tab" ];
+      #previous-workspace-backward = [ "<Super><Shift>Tab" ];
 
       # Alt-Tab for window switching (matching XMonad Alt-Tab)
       #live-alt-tab = [ "<Alt>Tab" ];
       #live-alt-tab-backward = [ "<Alt><Shift>Tab" ];
 
       # Scratch layer (similar to XMonad scratchpads)
-      toggle-scratch-window = [ "<Super>grave" ]; # Super+` for scratch
-      toggle-scratch-layer = [ "<Super><Shift>grave" ];
-      toggle-scratch = [ "<Super><Ctrl>grave" ];
+      toggle-scratch-window = [ "<Super>Above_Tab" ]; # Super+` for scratch
+      toggle-scratch-layer = [ "<Super><Shift>Above_Tab" ];
+      toggle-scratch = [ "<Super><Ctrl>Above_Tab" ];
 
       # Window sizing (alt+hjkl for directional growth)
       resize-w-inc = [
@@ -255,7 +255,7 @@
         "<Alt>1"
         "<Alt>minus"
       ];
-      switch-second = [ "<Alt>2" ];
+      switch-second = [ "<Alt>2" ] f;
       switch-third = [ "<Alt>3" ];
       switch-fourth = [ "<Alt>4" ];
       switch-fifth = [ "<Alt>5" ];

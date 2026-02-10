@@ -32,7 +32,6 @@
         targets = [ "arm-unknown-linux-gnueabihf" ];
       })
 
-      nodejs_22
       protobuf
       nixfmt-rfc-style
     ];
