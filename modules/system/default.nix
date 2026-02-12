@@ -22,6 +22,7 @@
     overlays = [
       inputs.polar.overlays.default
       inputs.fonts.overlays.default
+      inputs.claude.overlays.default
     ];
 
     config = {

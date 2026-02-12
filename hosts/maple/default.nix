@@ -7,6 +7,7 @@ in
   imports = [
     inputs.home-manager.nixosModules.home-manager
     inputs.ocular.nixosModules.vpn
+
     ../../modules/system
     ./hardware-configuration.nix
     ./virt.nix
