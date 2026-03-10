@@ -14,6 +14,7 @@
     slack
     spotify
     steam
+    thunderbird
     vivaldi
   ];
 

@@ -74,14 +74,14 @@
       move-to-workspace-9 = [ "<Super><Shift>9" ];
     };
     "org/gnome/mutter" = {
-      #overlay-key = "";
+      overlay-key = "";
       dynamic-workspaces = false;
     };
     "org/gnome/desktop/wm/preferences" = {
-      num-workspaces = 9; # Match workspace keybindings (1-9)
+      num-workspaces = 9; # match workspace keybindings (1-9)
     };
     "org/gnome/shell/keybindings" = {
-      #toggle-overview = [ "<Super>" ];
+      toggle-overview = [ "<Super>Space" ];
       switch-to-application-1 = [ ];
       switch-to-application-2 = [ ];
       switch-to-application-3 = [ ];
@@ -94,18 +94,18 @@
     };
     "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings = [
-        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0"
-        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/900"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/910"
       ];
     };
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/900" = {
       name = "Launch Alacritty";
-      command = "alacritty";
+      command = "${pkgs.alacritty}/bin/alacritty";
       binding = "<Super>Return";
     };
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/910" = {
       name = "Launch Brave";
-      command = "brave";
+      command = "${pkgs.brave}/bin/brave";
       binding = "<Super>b";
     };
 
@@ -142,7 +142,7 @@
 
       # Minimap settings
       minimap-scale = 0.15;
-      minimap-shade-opacity = 64;
+      minimap-shade-opacity = 64; # 50% opacity
 
       # Gestures
       gesture-enabled = true;
@@ -211,8 +211,8 @@
       switch-previous-loop = [ "<Alt><Shift>Tab" ];
 
       # Workspace switching (disabled - using GNOME keybindings instead)
-      #previous-workspace = [ "<Super>Tab" ];
-      #previous-workspace-backward = [ "<Super><Shift>Tab" ];
+      previous-workspace = [ "<Super>Tab" ];
+      previous-workspace-backward = [ "<Super><Shift>Tab" ];
 
       # Alt-Tab for window switching (matching XMonad Alt-Tab)
       #live-alt-tab = [ "<Alt>Tab" ];

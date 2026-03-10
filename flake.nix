@@ -27,6 +27,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    claude = {
+      url = "git+ssh://git@github.com/mara-schulke/claude";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     ocular.url = "git+ssh://git@github.com/hemisphere-systems/ocular";
   };
 
