@@ -48,10 +48,10 @@
         modules = [ ./hosts/mac ];
         specialArgs = args;
       };
-      maple = nixpkgs.lib.nixosSystem {
+      prisma = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = args;
-        modules = [ ./hosts/maple ];
+        modules = [ ./hosts/prisma ];
       };
       moss = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -61,8 +61,8 @@
     in
     {
       nixosConfigurations = {
-        # nix run nix-darwin -- switch --flake .#maple
-        inherit maple;
+        # nix run nix-darwin -- switch --flake .#prisma
+        inherit prisma;
         # nix run nix-darwin -- switch --flake .#moss
         inherit moss;
       };

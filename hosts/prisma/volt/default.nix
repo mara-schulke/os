@@ -8,7 +8,7 @@
 with lib;
 
 let
-  cfg = config.maple.volt;
+  cfg = config.prisma.volt;
 
   kfrgb = pkgs.writeShellApplication {
     name = "kfrgb";
@@ -44,7 +44,7 @@ let
   };
 in
 {
-  options.maple.volt = {
+  options.prisma.volt = {
     enable = mkEnableOption "Enables volt";
   };
 

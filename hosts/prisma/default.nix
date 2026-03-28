@@ -14,7 +14,7 @@ in
     ./volt
   ];
 
-  networking.hostName = "maple";
+  networking.hostName = "prisma";
 
   home-manager.users."mara" = {
     imports = [ ../../modules/home ];
