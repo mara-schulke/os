@@ -32,7 +32,7 @@ in
   };
 
   ocular.vpn = {
-    enable = true;
+    enable = false;
     peer = vpn.peers.maple;
     privateKeyFile = "/root/wireguard/keys/private";
   };

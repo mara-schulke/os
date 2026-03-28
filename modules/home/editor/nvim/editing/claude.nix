@@ -8,7 +8,7 @@ let
       owner = "greggh";
       repo = "claude-code.nvim";
       rev = "main";
-      sha256 = "sha256-ZEIPutxhgyaAhq+fJw1lTO781IdjTXbjKy5yKgqSLjM=";
+      sha256 = "sha256-HBHlP2k4vUCbE+Sgm6vN5XE7UGnioFvj8CI6h5H+8x8=";
     };
   };
 in

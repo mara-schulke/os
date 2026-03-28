@@ -16,17 +16,17 @@
 
   maple.volt.enable = true;
 
-  boot.initrd.systemd.enable = true;
-  boot.initrd.luks.fido2Support = false;
+  #boot.initrd.systemd.enable = true;
+  #boot.initrd.luks.fido2Support = false;
   boot.initrd.availableKernelModules = [
     "nvme"
     "xhci_pci"
     "ahci"
     "thunderbolt"
     "usbhid"
+    "uas"
     "usb_storage"
     "sd_mod"
-    "btmtk"
   ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [
@@ -35,21 +35,21 @@
   ];
   boot.extraModulePackages = [ ];
 
+  fileSystems."/" = {
+    device = "/dev/mapper/cryptroot";
+    fsType = "ext4";
+  };
+
   boot.initrd.luks.devices."cryptroot" = {
-    device = "/dev/disk/by-uuid/99e362b4-1dd1-4296-a9ec-ea90df599970";
+    device = "/dev/disk/by-uuid/6b382078-4731-488f-b93e-2a6cf9ed5584";
     crypttabExtraOpts = [
       "fido2-device=auto"
       "token-timeout=15"
     ];
   };
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/7c8d4099-08fb-4034-8d11-a3f0f3bebd9c";
-    fsType = "ext4";
-  };
-
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/DECD-742B";
+    device = "/dev/disk/by-uuid/04B6-9361";
     fsType = "vfat";
     options = [
       "fmask=0022"
@@ -58,14 +58,6 @@
   };
 
   swapDevices = [ ];
-
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-  networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.eno1.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlp7s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
