@@ -49,7 +49,6 @@
     go
     jetbrains.clion
     jetbrains.datagrip
-    jetbrains.idea-ultimate
     kubectl
     lens
     libsodium
