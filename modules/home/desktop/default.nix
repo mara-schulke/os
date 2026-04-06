@@ -219,9 +219,9 @@
       #live-alt-tab-backward = [ "<Alt><Shift>Tab" ];
 
       # Scratch layer (similar to XMonad scratchpads)
-      toggle-scratch-window = [ "<Super>grave" ]; # Super+` for scratch
-      toggle-scratch-layer = [ "<Super><Shift>grave" ];
-      toggle-scratch = [ "<Super><Ctrl>grave" ];
+      toggle-scratch-window = [ "<Super>Above_Tab" ]; # Super+` for scratch
+      toggle-scratch-layer = [ "<Super><Shift>Above_Tab" ];
+      toggle-scratch = [ "<Super><Ctrl>Above_Tab" ];
 
       # Window sizing (alt+hjkl for directional growth)
       resize-w-inc = [
