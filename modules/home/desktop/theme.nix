@@ -76,11 +76,6 @@ in
           scheme = colorScheme;
         };
       };
-      font = {
-        name = font.name;
-        package = font.pkg;
-        size = font.size-small;
-      };
     };
 
     dconf.settings = {

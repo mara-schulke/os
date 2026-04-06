@@ -13,7 +13,7 @@ in
 {
   imports = [ ./i3status.nix ];
 }
-// lib.mkIf (config.desktop.windowManager == "sway") {
+// (lib.mkIf (config.desktop.windowManager == "sway") {
   home.packages = with pkgs; [
     swayidle
     wl-clipboard
@@ -244,4 +244,4 @@ in
       scaling = "fill";
     };
   };
-}
+})
