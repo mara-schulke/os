@@ -18,6 +18,11 @@ lib.mkIf (config.desktop.windowManager == "gnome") {
     "org/gnome/system/location" = {
       enabled = true;
     };
+    "org/gnome/desktop/background" = lib.mkIf (config.desktop.wallpaper != null) {
+      picture-uri = "file://${config.desktop.wallpaper}";
+      picture-uri-dark = "file://${config.desktop.wallpaper}";
+      picture-options = "zoom";
+    };
     "org/gnome/desktop/interface" = {
       enable-animations = false;
     };

@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "backgrounds": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1768904735,
+        "narHash": "sha256-wyKStvmMNVFX6o+zXyD8UyGJ7dcM4WFF3h95sRyxNXo=",
+        "ref": "refs/heads/main",
+        "rev": "73069fe9c069164bcd7bae447973e9981eaa91d8",
+        "revCount": 4,
+        "type": "git",
+        "url": "ssh://git@github.com/mara-schulke/backgrounds"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/mara-schulke/backgrounds"
+      }
+    },
     "base16-schemes": {
       "flake": false,
       "locked": {
@@ -704,6 +720,7 @@
     },
     "root": {
       "inputs": {
+        "backgrounds": "backgrounds",
         "claude": "claude",
         "darwin": "darwin",
         "deploy": "deploy",

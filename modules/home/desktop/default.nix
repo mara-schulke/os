@@ -7,6 +7,12 @@
     ./sway
   ];
 
+  options.desktop.wallpaper = lib.mkOption {
+    type = lib.types.nullOr lib.types.path;
+    default = null;
+    description = "Path to wallpaper image file. When null, falls back to solid color.";
+  };
+
   options.desktop.windowManager = lib.mkOption {
     type = lib.types.enum [
       "gnome"

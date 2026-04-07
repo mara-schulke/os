@@ -18,6 +18,10 @@ in
         usage.enable = mkEnableOption "CPU usage display";
       };
 
+      memory = {
+        enable = mkEnableOption "memory usage display";
+      };
+
       disk = {
         root.enable = mkEnableOption "root filesystem usage display";
       };
@@ -71,19 +75,19 @@ in
     colors = {
       good = mkOption {
         type = types.str;
-        default = config.colorScheme.palette.base0B or "00ff00";
+        default = assert config.colorScheme.palette ? base05; config.colorScheme.palette.base05;
         description = "Color for good status";
       };
 
       degraded = mkOption {
         type = types.str;
-        default = config.colorScheme.palette.base0A or "ffff00";
+        default = assert config.colorScheme.palette ? base0D; config.colorScheme.palette.base0D;
         description = "Color for degraded status";
       };
 
       bad = mkOption {
         type = types.str;
-        default = config.colorScheme.palette.base08 or "ff0000";
+        default = assert config.colorScheme.palette ? base08; config.colorScheme.palette.base08;
         description = "Color for bad status";
       };
     };
@@ -112,43 +116,61 @@ in
         (mkIf cfg.system.cpu.temperature.enable {
           "cpu_temperature 0" = {
             position = 1;
-            settings.format = "TEMP: %degrees°C";
+            settings.format = "%degrees°C";
           };
         })
 
         (mkIf cfg.system.cpu.usage.enable {
           "cpu_usage" = {
             position = 2;
-            settings.format = "CPU: %usage";
+            settings.format = "cpu %usage";
+          };
+        })
+
+        (mkIf cfg.system.memory.enable {
+          "memory" = {
+            position = 3;
+            settings = {
+              format = "mem %used";
+              threshold_degraded = "10%";
+              threshold_critical = "5%";
+            };
           };
         })
 
         (mkIf cfg.system.disk.root.enable {
           "disk /" = {
-            position = 3;
-            settings.format = "FREE: %free";
-          };
-        })
-
-        (mkIf cfg.time.date.enable {
-          "tztime date" = {
             position = 4;
-            settings.format = "DATE: %Y-%m-%d";
+            settings.format = "disk %free";
           };
         })
 
-        (mkIf cfg.time.clock.enable {
-          "tztime local2" = {
+        (mkIf cfg.network.wireless.enable {
+          "wireless ${cfg.network.wireless.interface}" = {
             position = 5;
-            settings.format = "TIME: %H:%M:%S";
+            settings = {
+              format_up = "%essid %quality";
+              format_down = "";
+            };
+          };
+        })
+
+        (mkIf cfg.network.ethernet.enable {
+          "ethernet ${cfg.network.ethernet.interface}" = {
+            position = 6;
+            settings = {
+              format_up = "eth %ip";
+              format_down = "";
+            };
           };
         })
 
         (mkIf cfg.audio.volume.enable {
           "volume master" = {
-            position = 6;
+            position = 7;
             settings = {
-              format = "VOL: %volume";
+              format = "vol %volume";
+              format_muted = "vol muted";
               device = "default";
               mixer = "Master";
               mixer_idx = 0;
@@ -158,9 +180,9 @@ in
 
         (mkIf cfg.power.battery.enable {
           "battery 0" = {
-            position = 7;
+            position = 8;
             settings = {
-              format = "BAT: %percentage %remaining";
+              format = "bat %percentage %remaining";
               format_down = "";
               last_full_capacity = true;
               integer_battery_capacity = true;
@@ -172,23 +194,17 @@ in
           };
         })
 
-        (mkIf cfg.network.wireless.enable {
-          "wireless ${cfg.network.wireless.interface}" = {
-            position = 8;
-            settings = {
-              format_up = "WLS:%quality at %essid, %ip";
-              format_down = "";
-            };
+        (mkIf cfg.time.date.enable {
+          "tztime date" = {
+            position = 9;
+            settings.format = "%Y-%m-%d";
           };
         })
 
-        (mkIf cfg.network.ethernet.enable {
-          "ethernet ${cfg.network.ethernet.interface}" = {
-            position = 9;
-            settings = {
-              format_up = "ETH: %ip";
-              format_down = "";
-            };
+        (mkIf cfg.time.clock.enable {
+          "tztime local2" = {
+            position = 10;
+            settings.format = "%H:%M";
           };
         })
       ];

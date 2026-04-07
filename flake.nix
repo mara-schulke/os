@@ -35,6 +35,11 @@
     ocular.url = "git+ssh://git@github.com/hemisphere-systems/ocular";
 
     nix-colors.url = "github:misterio77/nix-colors";
+
+    backgrounds = {
+      url = "git+ssh://git@github.com/mara-schulke/backgrounds";
+      flake = false;
+    };
   };
 
   outputs =
