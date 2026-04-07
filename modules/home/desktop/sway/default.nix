@@ -8,7 +8,7 @@
 
 let
   colorScheme = config.colorScheme.palette;
-  nixColorsLib = inputs.nix-colors.lib.contrib { inherit pkgs; };
+  nixColorsLib = inputs.colors.lib.contrib { inherit pkgs; };
 
   ws1 = "1:terminal";
   ws2 = "2:editor";
@@ -62,6 +62,12 @@ in
         default_border pixel 1
         default_floating_border pixel 1
         workspace_auto_back_and_forth yes
+        assign [app_id="brave-browser"] workspace ${ws3}
+        assign [class="Brave-browser"] workspace ${ws3}
+        assign [app_id="Slack"] workspace ${ws8}
+        assign [class="Slack"] workspace ${ws8}
+        assign [app_id="1password"] workspace ${ws9}
+        assign [class="1Password"] workspace ${ws9}
       '';
 
       config =
@@ -75,7 +81,11 @@ in
           defaultWorkspace = "workspace ${ws1}";
 
           startup = [
-            { command = "alacritty --command ssh-add"; }
+            { command = "swaymsg 'workspace ${ws1}; workspace ${ws2}; workspace ${ws3}; workspace ${ws4}; workspace ${ws5}; workspace ${ws6}; workspace ${ws7}; workspace ${ws8}; workspace ${ws9}; workspace ${ws0}; workspace ${ws1}'"; }
+            { command = "alacritty"; }
+            { command = "brave"; }
+            { command = "1password"; }
+            { command = "slack"; }
             {
               command = ''
                 swayidle -w \
@@ -100,9 +110,9 @@ in
             "${modifier}+q" = "kill";
 
             # Gaps (M-d/M-i/M-g like XMonad)
-            "${modifier}+d" = "gaps inner current minus 20";
-            "${modifier}+i" = "gaps inner current plus 20";
-            "${modifier}+g" = "gaps inner current toggle 20";
+            "${modifier}+d" = "gaps inner current minus 16";
+            "${modifier}+i" = "gaps inner current plus 16";
+            "${modifier}+g" = "gaps inner current toggle 16";
             "${modifier}+Shift+g" = "gaps inner current toggle 240";
 
             # Floating (M-t like XMonad)
@@ -182,9 +192,9 @@ in
           };
 
           gaps = {
-            smartBorders = "on";
+            smartBorders = "off";
             smartGaps = false;
-            inner = 20;
+            inner = 16;
           };
 
           colors = {

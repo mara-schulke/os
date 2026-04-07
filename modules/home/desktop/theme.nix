@@ -6,7 +6,7 @@
 }:
 
 let
-  nixColorsLib = inputs.nix-colors.lib.contrib { inherit pkgs; };
+  nixColorsLib = inputs.colors.lib.contrib { inherit pkgs; };
 
   font = {
     name = "BerkeleyMono Nerd Font";
@@ -43,7 +43,7 @@ let
 in
 {
   imports = [
-    inputs.nix-colors.homeManagerModules.default
+    inputs.colors.homeManagerModules.default
   ];
 
   options.fonts.systemFont.main = lib.mkOption {
