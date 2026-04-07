@@ -238,7 +238,7 @@ in
               trayOutput = "none";
 
               extraConfig = ''
-                strip_workspace_numbers yes
+                strip_workspace_numbers no
                 separator_symbol " :: "
               '';
 

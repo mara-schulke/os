@@ -10,35 +10,35 @@ let
 in
 {
   options.i3status = {
-    enable = mkEnableOption "i3status bar";
+    enable = (mkEnableOption "i3status bar") // { default = true; };
 
     system = {
       cpu = {
         temperature.enable = mkEnableOption "CPU temperature display";
-        usage.enable = mkEnableOption "CPU usage display";
+        usage.enable = (mkEnableOption "CPU usage display") // { default = true; };
       };
 
       memory = {
-        enable = mkEnableOption "memory usage display";
+        enable = (mkEnableOption "memory usage display") // { default = true; };
       };
 
       disk = {
-        root.enable = mkEnableOption "root filesystem usage display";
+        root.enable = (mkEnableOption "root filesystem usage display") // { default = true; };
       };
     };
 
     time = {
-      date.enable = mkEnableOption "date display";
-      clock.enable = mkEnableOption "time display";
+      date.enable = (mkEnableOption "date display") // { default = true; };
+      clock.enable = (mkEnableOption "time display") // { default = true; };
     };
 
     audio = {
-      volume.enable = mkEnableOption "volume display";
+      volume.enable = (mkEnableOption "volume display") // { default = true; };
     };
 
     power = {
       battery = {
-        enable = mkEnableOption "battery status display";
+        enable = (mkEnableOption "battery status display") // { default = true; };
         path = mkOption {
           type = types.str;
           default = "/sys/class/power_supply/BAT0/uevent";
@@ -75,7 +75,7 @@ in
     colors = {
       good = mkOption {
         type = types.str;
-        default = assert config.colorScheme.palette ? base05; config.colorScheme.palette.base05;
+        default = assert config.colorScheme.palette ? base0E; config.colorScheme.palette.base0E;
         description = "Color for good status";
       };
 
@@ -87,7 +87,7 @@ in
 
       bad = mkOption {
         type = types.str;
-        default = assert config.colorScheme.palette ? base08; config.colorScheme.palette.base08;
+        default = assert config.colorScheme.palette ? base0E; config.colorScheme.palette.base0E;
         description = "Color for bad status";
       };
     };
