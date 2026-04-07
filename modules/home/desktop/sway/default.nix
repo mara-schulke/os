@@ -66,8 +66,8 @@ in
         assign [class="Brave-browser"] workspace ${ws3}
         assign [app_id="Slack"] workspace ${ws8}
         assign [class="Slack"] workspace ${ws8}
-        assign [app_id="1password"] workspace ${ws9}
-        assign [class="1Password"] workspace ${ws9}
+        assign [app_id="1password"] workspace ${ws0}
+        assign [class="1Password"] workspace ${ws0}
       '';
 
       config =
