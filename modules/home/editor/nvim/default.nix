@@ -9,7 +9,7 @@ let
 in
 {
   imports = [
-    inputs.nixvim.homeManagerModules.nixvim
+    inputs.nixvim.homeModules.nixvim
 
     ./colorscheme
     ./editing
@@ -52,13 +52,11 @@ in
           backup = false; # creates a backup file
           cmdheight = 1; # space in the neovim command line for displaying messages
           colorcolumn = "80"; # fixes indentline for now
-          compatible = false;
           conceallevel = 0; # so that `` is visible in markdown files
           cursorcolumn = true;
           cursorline = true; # highlight the current line
           fileencoding = "utf-8"; # the encoding written to a file
           filetype = null;
-          hidden = true; # required to keep multiple buffers and open multiple buffers
           hlsearch = true; # highlight all matches on previous search pattern
           ignorecase = true; # ignore case in search patterns
           laststatus = 2;
@@ -114,7 +112,6 @@ in
       core // tabs // splits // search // theme;
     plugins = {
       autoclose.enable = true;
-      nix.enable = true;
       luasnip.enable = true;
       comment.enable = true;
       notify.enable = true;
@@ -122,11 +119,6 @@ in
     };
     extraPlugins = [ ];
     extraConfigLua = ''
-      vim.cmd([[
-        let $VIMHOME = $HOME."/.config/nvim/.vim"
-        set viminfo+=n$VIMHOME.".vim/viminfo"
-      ]])
-
       vim.opt.fillchars:append { diff = "╱" }
     '';
   };
