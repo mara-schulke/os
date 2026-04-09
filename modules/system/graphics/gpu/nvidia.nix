@@ -30,8 +30,18 @@ in
     hardware.graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages = with pkgs; [ nvidia-vaapi-driver ];
-      extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
+      extraPackages = with pkgs; [
+        nvidia-vaapi-driver
+        vulkan-loader
+        vulkan-validation-layers
+        vulkan-extension-layer
+      ];
+      extraPackages32 = with pkgs.pkgsi686Linux; [
+        libva
+        vulkan-loader
+        vulkan-validation-layers
+        vulkan-extension-layer
+      ];
     };
   };
 }
