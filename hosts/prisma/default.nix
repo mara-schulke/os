@@ -40,4 +40,11 @@ in
   };
 
   sphere.graphics.gpu.nvidia.enable = true;
+
+  swapDevices = [
+    {
+      device = "/swapfile";
+      size = 32768; # 32GB in MB
+    }
+  ];
 }
