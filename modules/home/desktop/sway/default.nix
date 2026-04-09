@@ -81,29 +81,32 @@ in
           defaultWorkspace = "workspace ${ws1}";
 
           startup = [
-            { command = "swaymsg 'workspace ${ws1}; workspace ${ws2}; workspace ${ws3}; workspace ${ws4}; workspace ${ws5}; workspace ${ws6}; workspace ${ws7}; workspace ${ws8}; workspace ${ws9}; workspace ${ws0}; workspace ${ws1}'"; }
+            {
+              command = "swaymsg 'workspace ${ws1}; workspace ${ws2}; workspace ${ws3}; workspace ${ws4}; workspace ${ws5}; workspace ${ws6}; workspace ${ws7}; workspace ${ws8}; workspace ${ws9}; workspace ${ws0}; workspace ${ws1}'";
+            }
             { command = "alacritty"; }
             { command = "brave"; }
             { command = "1password"; }
             { command = "slack"; }
             {
+              # timeout 600 'swaylock -f' \
+              # before-sleep 'swaylock -f'
               command = ''
                 swayidle -w \
-                  timeout 600 'swaylock -f' \
                   timeout 610 'swaymsg "output * power off"' \
-                  resume 'swaymsg "output * power on"' \
-                  before-sleep 'swaylock -f'
+                  resume 'swaymsg "output * power on"'
               '';
             }
           ];
 
           keybindings = lib.mkOptionDefault {
             # App launcher (M-Space like XMonad)
-            "${modifier}+space" = "exec dmenu-wl_run -fn '${config.fonts.systemFont.main.name}' -nb '#${colorScheme.base00}' -nf '#${colorScheme.base05}' -sb '#${colorScheme.base0E}' -sf '#${colorScheme.base00}'";
+            "${modifier}+space" =
+              "exec dmenu-wl_run -fn '${config.fonts.systemFont.main.name}' -nb '#${colorScheme.base00}' -nf '#${colorScheme.base05}' -sb '#${colorScheme.base0E}' -sf '#${colorScheme.base00}'";
 
             # Core applications
             "${modifier}+b" = "exec brave";
-            "Mod1+l" = "exec swaylock";
+            # TODO: "Mod1+l" = "exec swaylock";
             "${modifier}+Escape" = "exec swaylock";
 
             # Kill window (M-q like XMonad)
@@ -185,16 +188,18 @@ in
 
           output = {
             "*" = {
-              bg = if config.desktop.wallpaper != null
-                then "${config.desktop.wallpaper} fill"
-                else "#${colorScheme.base00} solid_color";
+              bg =
+                if config.desktop.wallpaper != null then
+                  "${config.desktop.wallpaper} fill"
+                else
+                  "#${colorScheme.base00} solid_color";
             };
           };
 
           gaps = {
             smartBorders = "off";
             smartGaps = false;
-            inner = 16;
+            inner = 0;
           };
 
           colors = {
@@ -308,7 +313,9 @@ in
     enable = true;
     settings = {
       default-timeout = 5000;
-      font = "${config.fonts.systemFont.main.name} ${toString config.fonts.systemFont.main.size-small}";
+      font = "${config.fonts.systemFont.main.name} ${
+        toString config.fonts.systemFont.main.size-small * 0.75
+      }";
       border-color = "#${colorScheme.base0E}";
       background-color = "#${colorScheme.base00}";
       text-color = "#${colorScheme.base05}";
