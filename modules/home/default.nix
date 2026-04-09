@@ -14,13 +14,7 @@
   ];
 
   programs.home-manager.enable = true;
-
-  programs.claude = {
-    enable = true;
-    settings = {
-      model = "sonnet";
-    };
-  };
+  programs.claude.enable = true;
 
   home.packages = with pkgs; [
     sqlite
@@ -44,7 +38,6 @@
       targets = [ "arm-unknown-linux-gnueabihf" ];
     })
 
-    nodejs_22
     protobuf
     nixfmt-rfc-style
   ];

@@ -19,6 +19,8 @@ in
   home-manager.users."mara" = {
     imports = [ ../../modules/home ];
 
+    desktop.windowManager = "gnome";
+
     home.homeDirectory = "/home/mara";
     home.username = "mara";
     home.stateVersion = "25.05";

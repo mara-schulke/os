@@ -2,7 +2,6 @@
 
 {
   environment.systemPackages = with pkgs; [
-    biber
     (texlive.combine {
       inherit (texlive)
         apa
@@ -50,7 +49,6 @@
     go
     jetbrains.clion
     jetbrains.datagrip
-    jetbrains.idea-ultimate
     kubectl
     lens
     libsodium

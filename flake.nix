@@ -18,7 +18,6 @@
 
     nixvim = {
       url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     polar.url = "github:hemisphere-systems/polar";
@@ -34,10 +33,17 @@
     };
 
     ocular.url = "git+ssh://git@github.com/hemisphere-systems/ocular";
+
+    colors.url = "github:misterio77/nix-colors";
+
+    artworks = {
+      url = "git+ssh://git@github.com/mara-schulke/artworks";
+      flake = false;
+    };
   };
 
   outputs =
-    { nixpkgs, darwin, ... }@inputs:
+    { nixpkgs, darwin, home-manager, ... }@inputs:
 
     let
       args = {
@@ -58,6 +64,26 @@
         specialArgs = args;
         modules = [ ./hosts/moss ];
       };
+      amber = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          system = "x86_64-linux";
+          overlays = [
+            inputs.polar.overlays.default
+            inputs.fonts.overlays.default
+            inputs.claude.overlays.default
+          ];
+          config = {
+            allowUnfree = true;
+            allowUnfreePredicate = _: true;
+          };
+        };
+        extraSpecialArgs = {
+          inherit inputs;
+          username = "mara";
+          realname = "Mara Schulke";
+        };
+        modules = [ ./hosts/amber ];
+      };
     in
     {
       nixosConfigurations = {
@@ -70,6 +96,11 @@
       # nix run nix-darwin -- switch --flake .#mac
       darwinConfigurations = {
         inherit mac;
+      };
+
+      # home-manager switch --flake .#amber
+      homeConfigurations = {
+        inherit amber;
       };
 
       nixosModules = {
