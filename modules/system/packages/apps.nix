@@ -5,7 +5,7 @@
     alacritty
     (chromium.override { enableWideVine = true; })
     brave
-    davinci-resolve
+    blender
     discord
     firefox
     libheif
