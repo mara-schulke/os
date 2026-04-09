@@ -314,7 +314,7 @@ in
     settings = {
       default-timeout = 5000;
       font = "${config.fonts.systemFont.main.name} ${
-        toString config.fonts.systemFont.main.size-small * 0.75
+        toString (config.fonts.systemFont.main.size-small * 0.75)
       }";
       border-color = "#${colorScheme.base0E}";
       background-color = "#${colorScheme.base00}";
