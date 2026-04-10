@@ -22,7 +22,10 @@ let
   ws0 = "10:misc";
 in
 {
-  imports = [ ./i3status.nix ];
+  imports = [
+    ./i3status.nix
+    ./kanshi.nix
+  ];
 }
 // (lib.mkIf (config.desktop.windowManager == "sway") {
   home.packages = with pkgs; [
