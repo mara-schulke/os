@@ -32,7 +32,8 @@
   environment.systemPackages = with pkgs; [
     blueman
     pavucontrol
-    asha-pipewire-sink
+    # Temporarily disabled - fails to build with newer nixpkgs
+    # asha-pipewire-sink
   ];
 
   #boot.extraModprobeConfig = ''

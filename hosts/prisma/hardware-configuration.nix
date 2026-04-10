@@ -16,8 +16,8 @@
 
   prisma.volt.enable = true;
 
-  #boot.initrd.systemd.enable = true;
-  #boot.initrd.luks.fido2Support = false;
+  boot.initrd.systemd.enable = true;
+  boot.initrd.luks.fido2Support = false;
   boot.initrd.availableKernelModules = [
     "nvme"
     "xhci_pci"
