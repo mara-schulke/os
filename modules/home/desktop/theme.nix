@@ -13,7 +13,7 @@ let
     size-small = 12;
     size-medium = 15;
     size-large = 20;
-    pkg = pkgs.berkeley-mono-nerd;
+    #pkg = pkgs.berkeley-mono-nerd;
   };
 
   colorScheme = {
@@ -56,7 +56,7 @@ in
     colorScheme = colorScheme;
 
     home.packages = [
-      font.pkg
+      #font.pkg
     ];
 
     home.pointerCursor = {

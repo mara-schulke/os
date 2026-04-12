@@ -21,8 +21,8 @@
   nixpkgs = {
     overlays = [
       inputs.polar.overlays.default
-      inputs.fonts.overlays.default
-      inputs.claude.overlays.default
+      #inputs.fonts.overlays.default
+      #inputs.claude.overlays.default
     ];
 
     config = {
@@ -31,6 +31,4 @@
       permittedInsecurePackages = [ "nix-2.16.2" ];
     };
   };
-
-  system.stateVersion = "25.05";
 }
