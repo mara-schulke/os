@@ -32,7 +32,7 @@
     #  inputs.nixpkgs.follows = "nixpkgs";
     #};
 
-    #ocular.url = "git+ssh://git@github.com/hemisphere-systems/ocular";
+    ocular.url = "git+ssh://git@github.com/hemisphere-systems/ocular";
 
     colors.url = "github:misterio77/nix-colors";
 
@@ -62,10 +62,10 @@
         modules = [ ./hosts/prisma ];
       };
 
-      halo = nixpkgs.lib.nixosSystem {
+      fury = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = args;
-        modules = [ ./hosts/halo ];
+        modules = [ ./hosts/fury ];
       };
 
       moss = nixpkgs.lib.nixosSystem {
@@ -99,8 +99,8 @@
       nixosConfigurations = {
         # nix run nix-darwin -- switch --flake .#prisma
         inherit prisma;
-        # nix run nix-darwin -- switch --flake .#halo
-        inherit halo;
+        # nixos-rebuild switch --flake .#fury
+        inherit fury;
         # nix run nix-darwin -- switch --flake .#moss
         inherit moss;
       };
