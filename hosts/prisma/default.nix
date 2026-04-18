@@ -19,7 +19,7 @@ in
   home-manager.users."mara" = {
     imports = [ ../../modules/home ];
 
-    desktop.windowManager = "sway";
+    desktop.windowManager = "gnome";
 
     home.homeDirectory = "/home/mara";
     home.username = "mara";
