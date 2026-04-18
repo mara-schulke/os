@@ -19,7 +19,7 @@ in
   home-manager.users."mara" = {
     imports = [ ../../modules/home ];
 
-    desktop.windowManager = "sway";
+    desktop.windowManager = "gnome";
 
     home.homeDirectory = "/home/mara";
     home.username = "mara";
@@ -40,4 +40,11 @@ in
   };
 
   sphere.graphics.gpu.nvidia.enable = true;
+
+  swapDevices = [
+    {
+      device = "/swapfile";
+      size = 32768; # 32GB in MB
+    }
+  ];
 }
