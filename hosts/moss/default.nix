@@ -35,4 +35,6 @@ in
     peer = vpn.peers.moss;
     privateKeyFile = "/root/wireguard/keys/private";
   };
+
+  system.stateVersion = "26.05";
 }

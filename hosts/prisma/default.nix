@@ -47,4 +47,6 @@ in
       size = 32768; # 32GB in MB
     }
   ];
+
+  system.stateVersion = "26.05";
 }

@@ -123,6 +123,14 @@
         default = import ./modules/home;
       };
 
+      deploy.nodes.fury = {
+        hostname = "fury";
+        profiles.system = {
+          user = "root";
+          path = inputs.deploy.lib.x86_64-linux.activate.nixos fury;
+        };
+      };
+
       darwinModules = {
         default = import ./modules/darwin;
       };

@@ -116,4 +116,6 @@ in
   ];
 
   hardware.steam-hardware.enable = true;
+
+  system.stateVersion = "26.05";
 }
