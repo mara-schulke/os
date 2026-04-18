@@ -2,7 +2,7 @@
 
 {
   imports = [
-    #inputs.claude.homeModules.default
+    inputs.claude.homeModules.default
 
     ./env
     ./ssh.nix
@@ -14,7 +14,7 @@
   ];
 
   programs.home-manager.enable = true;
-  #programs.claude.enable = true;
+  programs.claude.enable = true;
 
   home.packages = with pkgs; [
     sqlite

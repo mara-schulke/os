@@ -22,24 +22,24 @@
 
     polar.url = "github:hemisphere-systems/polar";
 
-    #fonts = {
-    #  url = "git+ssh://git@github.com/hemisphere-systems/fonts";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
+    fonts = {
+      url = "git+ssh://git@github.com/hemisphere-systems/fonts";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    #claude = {
-    #  url = "git+ssh://git@github.com/mara-schulke/claude";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
+    claude = {
+      url = "git+ssh://git@github.com/mara-schulke/claude";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     ocular.url = "git+ssh://git@github.com/hemisphere-systems/ocular";
 
     colors.url = "github:misterio77/nix-colors";
 
-    #artworks = {
-    #  url = "git+ssh://git@github.com/mara-schulke/artworks";
-    #  flake = false;
-    #};
+    artworks = {
+      url = "git+ssh://git@github.com/mara-schulke/artworks";
+      flake = false;
+    };
   };
 
   outputs =
@@ -79,8 +79,8 @@
           system = "x86_64-linux";
           overlays = [
             inputs.polar.overlays.default
-            #inputs.fonts.overlays.default
-            #inputs.claude.overlays.default
+            inputs.fonts.overlays.default
+            inputs.claude.overlays.default
           ];
           config = {
             allowUnfree = true;
