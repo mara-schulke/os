@@ -42,6 +42,7 @@ in
     brightnessctl
     pamixer
     playerctl
+    bluetui
   ];
 
   home.sessionVariables = {
@@ -120,6 +121,7 @@ in
             "${modifier}+i" = "gaps inner current plus 16";
             "${modifier}+g" = "gaps inner current toggle 16";
             "${modifier}+Shift+g" = "gaps inner current toggle 240";
+            "${modifier}+o" = "gaps outer current toggle 64";
 
             # Floating (M-t like XMonad)
             "${modifier}+t" = "floating toggle";
