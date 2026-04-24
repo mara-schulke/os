@@ -11,7 +11,6 @@ let
 in
 {
   home.packages = with pkgs; [
-    claude-code
     zed-editor
     tig
     onefetch
