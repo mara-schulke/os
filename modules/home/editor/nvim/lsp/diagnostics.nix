@@ -8,7 +8,7 @@ let
       owner = "artemave";
       repo = "workspace-diagnostics.nvim";
       rev = "main";
-      sha256 = "sha256-jSpKaKnGyip/nzqU52ypWLgoCtvccYN+qb5jzlwAnd4=";
+      sha256 = "sha256-aIrr2qxerRYSn5EkzLEkzeIVLlQJBSc8J06QLjgioY0=";
     };
   };
 in

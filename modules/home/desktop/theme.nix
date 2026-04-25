@@ -70,12 +70,13 @@ in
 
     gtk = {
       enable = true;
-      theme = {
-        name = colorScheme.slug;
-        package = nixColorsLib.gtkThemeFromScheme {
-          scheme = colorScheme;
-        };
-      };
+      # Disabled due to nix-colors using deprecated nodePackages.sass
+      # theme = {
+      #   name = colorScheme.slug;
+      #   package = nixColorsLib.gtkThemeFromScheme {
+      #     scheme = colorScheme;
+      #   };
+      # };
     };
 
     dconf.settings = {

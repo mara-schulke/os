@@ -47,8 +47,6 @@
     gcc
     ghc
     go
-    jetbrains.clion
-    jetbrains.datagrip
     kubectl
     lens
     libsodium
