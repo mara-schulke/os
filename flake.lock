@@ -92,11 +92,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1777285437,
-        "narHash": "sha256-ZaUjJIX948EvTJ843652Q2yjVYwIeHMD6WNrePJlGws=",
+        "lastModified": 1777286002,
+        "narHash": "sha256-X1T1cgEW3BqIBJQFpgk3DX+l2C2AbALQisxW/sg7SlQ=",
         "ref": "refs/heads/main",
-        "rev": "639d482b4cb2bb358d37a2fd301af923431789f6",
-        "revCount": 24,
+        "rev": "2a23728cfef3ceab34f65a7684491d4ac765de9c",
+        "revCount": 26,
         "type": "git",
         "url": "ssh://git@github.com/mara-schulke/claude"
       },
