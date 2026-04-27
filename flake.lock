@@ -92,11 +92,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1777027259,
-        "narHash": "sha256-s/2M8i7SasAqWGpXoMSZaQLcKNxIU4KIqf6ozy4vP/U=",
+        "lastModified": 1777285437,
+        "narHash": "sha256-ZaUjJIX948EvTJ843652Q2yjVYwIeHMD6WNrePJlGws=",
         "ref": "refs/heads/main",
-        "rev": "52abeecb578c5da72b7dc63e5a677ff8a96e3b58",
-        "revCount": 23,
+        "rev": "639d482b4cb2bb358d37a2fd301af923431789f6",
+        "revCount": 24,
         "type": "git",
         "url": "ssh://git@github.com/mara-schulke/claude"
       },
@@ -114,15 +114,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1776989649,
-        "narHash": "sha256-RxUGyCki67DZI+4MjOxUHTsTY8pWbcomDByx/TkKJcM=",
+        "lastModified": 1776726769,
+        "narHash": "sha256-1d/fvsvQLxIWKRFcknuu034e3LehWbP11TO94yT23UQ=",
         "owner": "sadjow",
         "repo": "claude-code-nix",
-        "rev": "f3eb770e763b685def35939621026433d31d0a18",
+        "rev": "b288b71477311a924785c43a04c4c0e25e02e6fe",
         "type": "github"
       },
       "original": {
         "owner": "sadjow",
+        "ref": "v2.1.116",
         "repo": "claude-code-nix",
         "type": "github"
       }
