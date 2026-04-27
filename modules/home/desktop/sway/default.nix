@@ -2,14 +2,10 @@
   pkgs,
   config,
   lib,
-  inputs,
   ...
 }:
 
 let
-  colorScheme = config.colorScheme.palette;
-  nixColorsLib = inputs.colors.lib.contrib { inherit pkgs; };
-
   ws1 = "1:terminal";
   ws2 = "2:editor";
   ws3 = "3:browser";
@@ -106,7 +102,7 @@ in
           keybindings = lib.mkOptionDefault {
             # App launcher (M-Space like XMonad)
             "${modifier}+space" =
-              "exec dmenu-wl_run -fn '${config.fonts.systemFont.main.name}' -nb '#${colorScheme.base00}' -nf '#${colorScheme.base05}' -sb '#${colorScheme.base0E}' -sf '#${colorScheme.base00}'";
+              "exec dmenu-wl_run -fn '${config.fonts.systemFont.main.name}' -nb '#${config.lib.stylix.colors.base00}' -nf '#${config.lib.stylix.colors.base05}' -sb '#${config.lib.stylix.colors.base0E}' -sf '#${config.lib.stylix.colors.base00}'";
 
             # Core applications
             "${modifier}+b" = "exec brave";
@@ -197,7 +193,7 @@ in
                 if config.desktop.wallpaper != null then
                   "${config.desktop.wallpaper} fill"
                 else
-                  "#${colorScheme.base00} solid_color";
+                  "#${config.lib.stylix.colors.base00} solid_color";
             };
           };
 
@@ -205,50 +201,6 @@ in
             smartBorders = "off";
             smartGaps = false;
             inner = 0;
-          };
-
-          colors = {
-            background = "#${colorScheme.base00}";
-
-            focused = {
-              background = "#${colorScheme.base0E}";
-              border = "#${colorScheme.base0E}";
-              childBorder = "#${colorScheme.base0E}";
-              indicator = "#${colorScheme.base0D}";
-              text = "#${colorScheme.base00}";
-            };
-
-            focusedInactive = {
-              background = "#${colorScheme.base01}";
-              border = "#${colorScheme.base01}";
-              childBorder = "#${colorScheme.base01}";
-              indicator = "#${colorScheme.base03}";
-              text = "#${colorScheme.base05}";
-            };
-
-            placeholder = {
-              background = "#${colorScheme.base01}";
-              border = "#${colorScheme.base01}";
-              childBorder = "#${colorScheme.base01}";
-              indicator = "#${colorScheme.base03}";
-              text = "#${colorScheme.base05}";
-            };
-
-            unfocused = {
-              background = "#${colorScheme.base01}";
-              border = "#${colorScheme.base01}";
-              childBorder = "#${colorScheme.base01}";
-              indicator = "#${colorScheme.base03}";
-              text = "#${colorScheme.base05}";
-            };
-
-            urgent = {
-              background = "#${colorScheme.base08}";
-              border = "#${colorScheme.base08}";
-              childBorder = "#${colorScheme.base08}";
-              indicator = "#${colorScheme.base09}";
-              text = "#${colorScheme.base07}";
-            };
           };
 
           bars = [
@@ -268,46 +220,6 @@ in
                 size = config.fonts.systemFont.main.size-small * 1.0;
               };
 
-              colors = {
-                background = "#${colorScheme.base00}";
-                focusedBackground = "#${colorScheme.base00}";
-
-                focusedStatusline = "#${colorScheme.base05}";
-                statusline = "#${colorScheme.base04}";
-
-                focusedSeparator = "#${colorScheme.base03}";
-                separator = "#${colorScheme.base03}";
-
-                urgentWorkspace = {
-                  background = "#${colorScheme.base08}";
-                  border = "#${colorScheme.base08}";
-                  text = "#${colorScheme.base00}";
-                };
-
-                focusedWorkspace = {
-                  background = "#${colorScheme.base0E}";
-                  border = "#${colorScheme.base0E}";
-                  text = "#${colorScheme.base00}";
-                };
-
-                activeWorkspace = {
-                  background = "#${colorScheme.base01}";
-                  border = "#${colorScheme.base01}";
-                  text = "#${colorScheme.base05}";
-                };
-
-                inactiveWorkspace = {
-                  background = "#${colorScheme.base00}";
-                  border = "#${colorScheme.base00}";
-                  text = "#${colorScheme.base04}";
-                };
-
-                bindingMode = {
-                  background = "#${colorScheme.base0E}";
-                  border = "#${colorScheme.base0E}";
-                  text = "#${colorScheme.base00}";
-                };
-              };
             }
           ];
         };
@@ -321,36 +233,11 @@ in
       font = "${config.fonts.systemFont.main.name} ${
         toString (config.fonts.systemFont.main.size-small * 0.75)
       }";
-      border-color = "#${colorScheme.base0E}";
-      background-color = "#${colorScheme.base00}";
-      text-color = "#${colorScheme.base05}";
       padding = 10;
     };
   };
 
   programs.swaylock = {
     enable = true;
-    settings = {
-      font = "${config.fonts.systemFont.main.name}";
-      size = config.fonts.systemFont.main.size-small;
-      color = "${colorScheme.base00}";
-      inside-color = "${colorScheme.base00}";
-      inside-clear-color = "${colorScheme.base05}";
-      inside-ver-color = "${colorScheme.base0D}";
-      inside-wrong-color = "${colorScheme.base08}";
-      separator-color = "${colorScheme.base0E}";
-      ring-color = "${colorScheme.base0E}";
-      text-color = "${colorScheme.base05}";
-      key-hl-color = "${colorScheme.base0E}";
-      bs-hl-color = "${colorScheme.base08}";
-      line-uses-inside = true;
-      image = "${nixColorsLib.nixWallpaperFromScheme {
-        scheme = config.colorScheme;
-        width = 3840;
-        height = 2160;
-        logoScale = 6.0;
-      }}";
-      scaling = "fill";
-    };
   };
 })

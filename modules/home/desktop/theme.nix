@@ -1,13 +1,12 @@
 {
   inputs,
   pkgs,
+  config,
   lib,
   ...
 }:
 
 let
-  nixColorsLib = inputs.colors.lib.contrib { inherit pkgs; };
-
   font = {
     name = "BerkeleyMono Nerd Font";
     size-small = 12;
@@ -15,35 +14,10 @@ let
     size-large = 20;
     pkg = pkgs.berkeley-mono-nerd;
   };
-
-  colorScheme = {
-    slug = "hemisphere-dark";
-    name = "hemisphere-dark";
-    author = "/";
-    variant = "dark";
-    palette = {
-      base00 = "040404"; # background
-      base01 = "2d262c"; # dark grey
-      base02 = "3a3135"; # mid-dark grey
-      base03 = "4d464c"; # bright black
-      base04 = "aaa7a7"; # light grey
-      base05 = "f5f0f1"; # foreground
-      base06 = "f5f0f1"; # light foreground
-      base07 = "ffffff"; # bright white
-      base08 = "aa6766"; # red
-      base09 = "f68b95"; # bright red / orange
-      base0A = "ab877c"; # yellow
-      base0B = "a59b80"; # green
-      base0C = "7c849f"; # cyan
-      base0D = "847aa4"; # blue
-      base0E = "a882a0"; # magenta
-      base0F = "ab877c"; # brown
-    };
-  };
 in
 {
   imports = [
-    inputs.colors.homeManagerModules.default
+    inputs.stylix.homeModules.stylix
   ];
 
   options.fonts.systemFont.main = lib.mkOption {
@@ -53,30 +27,43 @@ in
   };
 
   config = {
-    colorScheme = colorScheme;
-
-    home.packages = [
-      #font.pkg
-    ];
-
-    home.pointerCursor = {
+    stylix = {
       enable = true;
-      x11.enable = true;
-      gtk.enable = true;
-      size = 16;
-      name = "Adwaita";
-      package = pkgs.adwaita-icon-theme;
-    };
-
-    gtk = {
-      enable = true;
-      # Disabled due to nix-colors using deprecated nodePackages.sass
-      # theme = {
-      #   name = colorScheme.slug;
-      #   package = nixColorsLib.gtkThemeFromScheme {
-      #     scheme = colorScheme;
-      #   };
-      # };
+      polarity = "dark";
+      image = config.lib.stylix.pixel "base00";
+      base16Scheme = {
+        base00 = "040404";
+        base01 = "2d262c";
+        base02 = "3a3135";
+        base03 = "4d464c";
+        base04 = "aaa7a7";
+        base05 = "f5f0f1";
+        base06 = "f5f0f1";
+        base07 = "ffffff";
+        base08 = "aa6766";
+        base09 = "f68b95";
+        base0A = "ab877c";
+        base0B = "a59b80";
+        base0C = "7c849f";
+        base0D = "847aa4";
+        base0E = "a882a0";
+        base0F = "ab877c";
+      };
+      fonts = {
+        monospace = {
+          name = "BerkeleyMono Nerd Font";
+          package = pkgs.berkeley-mono-nerd;
+        };
+        sizes.terminal = 15;
+        sizes.applications = 12;
+        sizes.desktop = 12;
+      };
+      cursor = {
+        name = "Adwaita";
+        package = pkgs.adwaita-icon-theme;
+        size = 16;
+      };
+      targets.nixvim.enable = false;
     };
 
     dconf.settings = {

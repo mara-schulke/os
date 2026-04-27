@@ -1,7 +1,6 @@
 { pkgs, config, ... }:
 
 let
-  colorScheme = config.colorScheme.palette;
   font = config.fonts.systemFont.main;
 in
 {
@@ -36,37 +35,6 @@ in
       };
 
       selection.save_to_clipboard = true;
-
-      colors = {
-        draw_bold_text_with_bright_colors = false;
-
-        primary = {
-          background = "0x${colorScheme.base00}";
-          foreground = "0x${colorScheme.base07}";
-        };
-
-        normal = {
-          black = "0x${colorScheme.base00}";
-          red = "0x${colorScheme.base08}";
-          green = "0x${colorScheme.base0B}";
-          yellow = "0x${colorScheme.base0A}";
-          blue = "0x${colorScheme.base0D}";
-          magenta = "0x${colorScheme.base0E}";
-          cyan = "0x${colorScheme.base0C}";
-          white = "0x${colorScheme.base05}";
-        };
-
-        bright = {
-          black = "0x${colorScheme.base03}";
-          red = "0x${colorScheme.base08}";
-          green = "0x${colorScheme.base0B}";
-          yellow = "0x${colorScheme.base0A}";
-          blue = "0x${colorScheme.base0D}";
-          magenta = "0x${colorScheme.base0E}";
-          cyan = "0x${colorScheme.base0C}";
-          white = "0x${colorScheme.base07}";
-        };
-      };
     };
   };
 }

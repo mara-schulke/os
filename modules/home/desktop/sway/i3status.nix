@@ -75,19 +75,19 @@ in
     colors = {
       good = mkOption {
         type = types.str;
-        default = assert config.colorScheme.palette ? base0E; config.colorScheme.palette.base0E;
+        default = config.lib.stylix.colors.base0E;
         description = "Color for good status";
       };
 
       degraded = mkOption {
         type = types.str;
-        default = assert config.colorScheme.palette ? base0D; config.colorScheme.palette.base0D;
+        default = config.lib.stylix.colors.base0D;
         description = "Color for degraded status";
       };
 
       bad = mkOption {
         type = types.str;
-        default = assert config.colorScheme.palette ? base0E; config.colorScheme.palette.base0E;
+        default = config.lib.stylix.colors.base0E;
         description = "Color for bad status";
       };
     };
