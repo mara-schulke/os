@@ -189,11 +189,11 @@ in
 
           output = {
             "*" = {
-              bg =
+              bg = lib.mkForce (
                 if config.desktop.wallpaper != null then
                   "${config.desktop.wallpaper} fill"
                 else
-                  "#${config.lib.stylix.colors.base00} solid_color";
+                  "#${config.lib.stylix.colors.base00} solid_color");
             };
           };
 
