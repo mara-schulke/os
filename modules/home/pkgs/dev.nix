@@ -11,7 +11,6 @@ let
 in
 {
   home.packages = with pkgs; [
-    zed-editor
     tig
     onefetch
     lazygit
