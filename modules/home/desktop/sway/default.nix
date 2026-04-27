@@ -230,7 +230,7 @@ in
     enable = true;
     settings = {
       default-timeout = 5000;
-      font = "${config.fonts.systemFont.main.name} ${
+      font = lib.mkForce "${config.fonts.systemFont.main.name} ${
         toString (config.fonts.systemFont.main.size-small * 0.75)
       }";
       padding = 10;
