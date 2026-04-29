@@ -6,7 +6,6 @@
   nixpkgs.overlays = [
     inputs.polar.overlays.default
     inputs.fonts.overlays.default
-    inputs.claude.overlays.default
   ];
 
   home-manager.useGlobalPkgs = true;

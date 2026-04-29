@@ -1,5 +1,5 @@
 {
- description = "Mara's Nix Configuration";
+  description = "Mara's Nix Configuration";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -46,7 +46,12 @@
   };
 
   outputs =
-    { nixpkgs, darwin, home-manager, ... }@inputs:
+    {
+      nixpkgs,
+      darwin,
+      home-manager,
+      ...
+    }@inputs:
 
     let
       args = {
@@ -83,7 +88,6 @@
           overlays = [
             inputs.polar.overlays.default
             inputs.fonts.overlays.default
-            inputs.claude.overlays.default
           ];
           config = {
             allowUnfree = true;
