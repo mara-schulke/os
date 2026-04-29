@@ -2,6 +2,7 @@
 
 {
   services.dbus.enable = true;
+  services.dbus.implementation = "dbus";
   security.polkit.enable = true;
   security.rtkit.enable = true;
 

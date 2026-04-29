@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 
 let
   font = config.fonts.systemFont.main;
@@ -13,7 +13,7 @@ in
       terminal.shell.program = "zsh";
 
       font = {
-        size = font.size-medium * 1.0;
+        size = lib.mkForce (font.size-medium * 1.0);
         normal = {
           family = font.name;
           style = "Regular";

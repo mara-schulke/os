@@ -20,10 +20,28 @@ in
     inputs.stylix.homeModules.stylix
   ];
 
-  options.fonts.systemFont.main = lib.mkOption {
-    type = lib.types.attrs;
-    default = font;
-    description = "The main system font used across the system.";
+  options = {
+    fonts.systemFont.main = lib.mkOption {
+      type = lib.types.attrs;
+      default = font;
+      description = "The main system font used across the system.";
+    };
+
+    # Stylix's opencode module sets `programs.opencode.tui` and
+    # `programs.opencode.themes`, but the home-manager opencode module in
+    # nixpkgs does not declare those options. We declare them here as a
+    # freeform shim so module evaluation succeeds; the values are inert
+    # because `stylix.targets.opencode.enable = false` wraps them in mkIf false.
+    programs.opencode.tui = lib.mkOption {
+      type = lib.types.attrsOf lib.types.anything;
+      default = { };
+      visible = false;
+    };
+    programs.opencode.themes = lib.mkOption {
+      type = lib.types.attrsOf lib.types.anything;
+      default = { };
+      visible = false;
+    };
   };
 
   config = {
@@ -63,7 +81,7 @@ in
         package = pkgs.adwaita-icon-theme;
         size = 16;
       };
-      targets.nixvim.enable = false;
+      targets.opencode.enable = false;
     };
 
     dconf.settings = {
