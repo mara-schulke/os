@@ -43,6 +43,7 @@ in
   };
 
   sphere.graphics.gpu.nvidia.enable = true;
+  hardware.nvidia.package = lib.mkForce config.boot.kernelPackages.nvidiaPackages.beta;
 
   # ---------------------------------------------------------------------------
   # Override common desktop.nix (which unconditionally enables GNOME/GDM)
@@ -56,24 +57,20 @@ in
   # Gamescope + Steam Deck UI session via greetd (auto-login, no display manager)
   # ---------------------------------------------------------------------------
 
-  programs.steam.gamescopeSession = {
-    enable = true;
-    args = [
-      "--adaptive-sync"
-      "--steam"
-      "-f"
-    ];
-  };
+  programs.steam.gamescopeSession.enable = true;
 
   services.greetd = {
     enable = true;
     settings = {
       default_session = {
-        command = "${lib.getExe pkgs.gamescope} --steam -- steam -steamdeck -steamos3 -gamepadui";
+        command = "${lib.getExe pkgs.gamescope} -W 3840 -H 2160 -w 3840 -h 2160 --adaptive-sync -f --steam -- steam -steamdeck -steamos3 -gamepadui";
         user = "mara";
       };
     };
   };
+
+  # Suppress greetd/gamescope boot chatter from VT; errors still go to journal
+  systemd.services.greetd.serviceConfig.StandardOutput = "null";
 
   services.libinput.enable = true;
 
@@ -92,11 +89,6 @@ in
 
   boot.initrd.verbose = false;
   boot.consoleLogLevel = 0;
-
-  boot.plymouth = {
-    enable = true;
-    theme = "bgrt";
-  };
 
   # ---------------------------------------------------------------------------
   # Controller / gamepad support
