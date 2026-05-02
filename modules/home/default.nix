@@ -39,6 +39,6 @@
     })
 
     protobuf
-    nixfmt-rfc-style
+    nixfmt
   ];
 }

@@ -31,22 +31,11 @@
 
           nixd = {
             enable = true;
-            settings =
-              #let
-              #  flake = ''(builtins.getFlake "github:mara-schulke/os)""'';
-              #in
-              #  nixpkgs = {
-              #    expr = "import ${flake}.inputs.nixpkgs { }";
-              #  };
-              {
-                formatting = {
-                  command = [ "${lib.getExe pkgs.nixfmt-rfc-style}" ];
-                };
-                options = {
-                  #nixos.expr = ''${flake}.nixosConfigurations.default.options'';
-                  nixpkgs.expr = "import <nixpkgs> { }";
-                };
-              };
+            settings = {
+              nixpkgs.expr = ''import (builtins.getFlake "/etc/nixos").inputs.nixpkgs {}'';
+              formatting.command = [ "${lib.getExe pkgs.nixfmt}" ];
+              options.nixos.expr = ''(builtins.getFlake "/etc/nixos").nixosConfigurations.prisma.options'';
+            };
           };
 
           cssls.enable = true;

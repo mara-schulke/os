@@ -102,7 +102,7 @@ in
           keybindings = lib.mkOptionDefault {
             # App launcher (M-Space like XMonad)
             "${modifier}+space" =
-              "exec dmenu-wl_run -fn '${config.fonts.systemFont.main.name}' -nb '#${config.lib.stylix.colors.base00}' -nf '#${config.lib.stylix.colors.base05}' -sb '#${config.lib.stylix.colors.base0E}' -sf '#${config.lib.stylix.colors.base00}'";
+              "exec dmenu-wl_run -fn '${config.fonts.systemFont.main.name}' -nb '#040404' -nf '#f5f0f1' -sb '#a882a0' -sf '#040404'";
 
             # Core applications
             "${modifier}+b" = "exec brave";
@@ -193,7 +193,7 @@ in
                 if config.desktop.wallpaper != null then
                   "${config.desktop.wallpaper} fill"
                 else
-                  "#${config.lib.stylix.colors.base00} solid_color");
+                  "#040404 solid_color");
             };
           };
 

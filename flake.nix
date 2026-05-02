@@ -18,6 +18,7 @@
 
     nixvim = {
       url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     polar.url = "github:hemisphere-systems/polar";
@@ -33,11 +34,6 @@
     };
 
     ocular.url = "git+ssh://git@github.com/hemisphere-systems/ocular";
-
-    stylix = {
-      url = "github:nix-community/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     artworks = {
       url = "git+ssh://git@github.com/mara-schulke/artworks";
@@ -65,21 +61,27 @@
       };
 
       prisma = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
         specialArgs = args;
-        modules = [ ./hosts/prisma ];
+        modules = [
+          { nixpkgs.hostPlatform = "x86_64-linux"; }
+          ./hosts/prisma
+        ];
       };
 
       fury = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
         specialArgs = args;
-        modules = [ ./hosts/fury ];
+        modules = [
+          { nixpkgs.hostPlatform = "x86_64-linux"; }
+          ./hosts/fury
+        ];
       };
 
       moss = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
         specialArgs = args;
-        modules = [ ./hosts/moss ];
+        modules = [
+          { nixpkgs.hostPlatform = "x86_64-linux"; }
+          ./hosts/moss
+        ];
       };
 
       amber = home-manager.lib.homeManagerConfiguration {
@@ -146,7 +148,7 @@
         canBuild = mac.system;
       };
 
-      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
+      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt;
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
     };
 }
