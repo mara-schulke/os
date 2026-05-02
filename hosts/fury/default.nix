@@ -26,7 +26,7 @@ in
 
     home.homeDirectory = "/home/mara";
     home.username = "mara";
-    home.stateVersion = "25.11";
+    home.stateVersion = "26.05";
     home.packages = [ inputs.deploy.packages.x86_64-linux.default ];
   };
 

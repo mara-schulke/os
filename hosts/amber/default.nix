@@ -7,7 +7,7 @@
 
   home.username = "mara";
   home.homeDirectory = "/home/mara";
-  home.stateVersion = "25.05";
+  home.stateVersion = "26.05";
 
   i3status = {
     enable = true;
