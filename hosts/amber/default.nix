@@ -3,7 +3,7 @@
 {
   imports = [ ../../modules/home ];
 
-  desktop.windowManager = "sway";
+  desktop.windowManager = "gnome";
 
   home.username = "mara";
   home.homeDirectory = "/home/mara";

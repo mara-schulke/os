@@ -34,11 +34,6 @@
 
     ocular.url = "git+ssh://git@github.com/hemisphere-systems/ocular";
 
-    stylix = {
-      url = "github:nix-community/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     artworks = {
       url = "git+ssh://git@github.com/mara-schulke/artworks";
       flake = false;
