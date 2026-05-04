@@ -111,7 +111,6 @@ in
       in
       core // tabs // splits // search // theme;
     plugins = {
-      autoclose.enable = true;
       luasnip.enable = true;
       comment.enable = true;
       notify.enable = true;

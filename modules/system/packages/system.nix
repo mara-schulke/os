@@ -34,10 +34,10 @@
     xdotool
     xfontsel
     xlsfonts
-    xorg.xbacklight
-    xorg.xev
-    xorg.xmodmap
-    xorg.xset
+    xbacklight
+    xev
+    xmodmap
+    xset
     xscreensaver
     zsh
   ];

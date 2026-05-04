@@ -32,7 +32,7 @@
   home-manager.users.root = {
     home.homeDirectory = "/root";
     home.username = "root";
-    home.stateVersion = "25.05";
+    home.stateVersion = "26.05";
 
     home.file.".ssh/config".text = ''
       Host *

@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   lib,
   ...
@@ -48,6 +49,8 @@ in
   };
 
   config = {
+    desktop.wallpaper = inputs.artworks + "/Shapes/Waves/shockwave-2.jpg";
+
     dconf.settings = {
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";

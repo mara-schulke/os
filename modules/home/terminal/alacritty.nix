@@ -35,6 +35,33 @@ in
       };
 
       selection.save_to_clipboard = true;
+
+      colors = {
+        primary = {
+          background = "#040404";
+          foreground = "#f5f0f1";
+        };
+        normal = {
+          black = "#040404";
+          red = "#aa6766";
+          green = "#a59b80";
+          yellow = "#ab877c";
+          blue = "#847aa4";
+          magenta = "#a882a0";
+          cyan = "#7c849f";
+          white = "#aaa7a7";
+        };
+        bright = {
+          black = "#4d464c";
+          red = "#aa6766";
+          green = "#a59b80";
+          yellow = "#ab877c";
+          blue = "#847aa4";
+          magenta = "#a882a0";
+          cyan = "#7c849f";
+          white = "#f5f0f1";
+        };
+      };
     };
   };
 }

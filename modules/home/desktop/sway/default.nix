@@ -99,8 +99,8 @@ in
 
           keybindings = lib.mkOptionDefault {
             # App launcher (M-Space like XMonad)
-            "${modifier}+space" =
-              "exec dmenu-wl_run -fn '${config.fonts.systemFont.main.name}' -nb '#${config.theme.colors.base00}' -nf '#${config.theme.colors.base05}' -sb '#${config.theme.colors.base0E}' -sf '#${config.theme.colors.base00}'";
+            # "${modifier}+space" =
+            #   "exec dmenu-wl_run -fn '${config.fonts.systemFont.main.name}' -nb '#${config.theme.colors.base00}' -nf '#${config.theme.colors.base05}' -sb '#${config.theme.colors.base0E}' -sf '#${config.theme.colors.base00}'";
 
             # Core applications
             "${modifier}+b" = "exec brave";
