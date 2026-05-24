@@ -152,11 +152,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1769996383,
-        "narHash": "sha256-AnYjnFWgS49RlqX7LrC4uA+sCCDBj0Ry/WOJ5XWAsa0=",
+        "lastModified": 1775087534,
+        "narHash": "sha256-91qqW8lhL7TLwgQWijoGBbiD4t7/q75KTi8NxjVmSmA=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "57928607ea566b5db3ad13af0e57e921e6b12381",
+        "rev": "3107b77cd68437b9a76194f0f7f9c55f2329ca5b",
         "type": "github"
       },
       "original": {
@@ -245,11 +245,11 @@
         "utils": "utils_2"
       },
       "locked": {
-        "lastModified": 1754344627,
-        "narHash": "sha256-8fOHFNZI+QzLQHhJSeXiN/R26sxGZfTlLbl2SZ0kMLU=",
+        "lastModified": 1779640644,
+        "narHash": "sha256-bdtbo9mRZuamEdTL5zFgfLNvYh/gmq7ILWUgO8bq2p8=",
         "ref": "refs/heads/main",
-        "rev": "0433fef9acca974e7c95f38446700a79c79e8575",
-        "revCount": 6,
+        "rev": "5c6d88006e3db7bff2523e2ceaced07d25192615",
+        "revCount": 8,
         "type": "git",
         "url": "ssh://git@github.com/hemisphere-systems/fonts"
       },
@@ -317,11 +317,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1777268161,
-        "narHash": "sha256-bxrdOn8SCOv8tN4JbTF/TXq7kjo9ag4M+C8yzzIRYbE=",
+        "lastModified": 1779508470,
+        "narHash": "sha256-Ap9KJX+5xHIn3bPIpfNgT6MEXdAECECwo4/rmlQD74M=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "1c3fe55ad329cbcb28471bb30f05c9827f724c76",
+        "rev": "29916453413845e54a65b8a1cf996842300cd299",
         "type": "github"
       },
       "original": {

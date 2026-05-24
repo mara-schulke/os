@@ -43,6 +43,8 @@ in
 
   home.sessionVariables = {
     MOZ_ENABLE_WAYLAND = "1";
+    XDG_CURRENT_DESKTOP = "sway";
+    XDG_SESSION_TYPE = "wayland";
     NIXOS_OZONE_WL = "1";
   };
 
@@ -99,8 +101,8 @@ in
 
           keybindings = lib.mkOptionDefault {
             # App launcher (M-Space like XMonad)
-            # "${modifier}+space" =
-            #   "exec dmenu-wl_run -fn '${config.fonts.systemFont.main.name}' -nb '#${config.theme.colors.base00}' -nf '#${config.theme.colors.base05}' -sb '#${config.theme.colors.base0E}' -sf '#${config.theme.colors.base00}'";
+            "${modifier}+space" =
+              "exec dmenu-wl_run -fn '${config.fonts.systemFont.main.name}' -nb '#040404' -nf '#f5f0f1' -sb '#a882a0' -sf '#040404'";
 
             # Core applications
             "${modifier}+b" = "exec brave";
@@ -191,7 +193,7 @@ in
                 if config.desktop.wallpaper != null then
                   "${config.desktop.wallpaper} fill"
                 else
-                  "#${config.theme.colors.base00} solid_color");
+                  "#040404 solid_color");
             };
           };
 
