@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ lib, inputs, ... }:
 
 {
   imports = [
@@ -24,10 +24,7 @@
       inputs.fonts.overlays.default
     ];
 
-    config = {
-      allowUnfree = true;
-      allowUnfreePredicate = _: true;
-      permittedInsecurePackages = [ "nix-2.16.2" ];
-    };
+    config.allowUnfree = lib.mkForce true;
+    config.allowUnfreePredicate = lib.mkForce (_: true);
   };
 }

@@ -45,6 +45,9 @@
     bluetooth = {
       enable = true;
       settings = {
+        General = {
+          Experimental = true;
+        };
         LE = {
           #MinConnectionInterval = 16;
           #MaxConnectionInterval = 16;

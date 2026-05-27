@@ -14,7 +14,6 @@
     defaultSession = "gnome";
     gdm = {
       enable = true;
-      wayland = true;
     };
   };
 
@@ -26,6 +25,7 @@
   ];
 
   fonts.packages = with pkgs; [
+    matter
     berkeley-mono
     berkeley-mono-nerd
     noto-fonts
