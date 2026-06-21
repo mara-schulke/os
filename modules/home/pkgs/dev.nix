@@ -1,4 +1,9 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 let
   opSign =
@@ -7,7 +12,7 @@ let
     else if pkgs.stdenv.isLinux then
       "${lib.getExe' pkgs._1password-gui "op-ssh-sign"}"
     else
-      builtins.throw "Unsupported system target for 1password commit signing";
+      throw "Unsupported system target for 1password commit signing";
 in
 {
   home.packages = with pkgs; [
@@ -16,6 +21,7 @@ in
     lazygit
     delta
     bat
+    inputs.nix-fast-build.packages.${pkgs.system}.default
   ];
 
   programs.git = {
