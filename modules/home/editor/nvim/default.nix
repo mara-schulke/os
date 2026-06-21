@@ -28,6 +28,7 @@ in
   programs.nixvim = {
     enable = true;
     nixpkgs.source = inputs.nixpkgs;
+    nixpkgs.config.allowUnfree = true;
     package =
       if nightly then
         pkgs.neovim-unwrapped.overrideAttrs (oldAttrs: {

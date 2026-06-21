@@ -12,6 +12,7 @@
     libheif
     mgba
     lunar-client
+    prismlauncher
     slack
     spotify
     steam
