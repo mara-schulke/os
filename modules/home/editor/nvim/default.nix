@@ -27,7 +27,7 @@ in
 
   programs.nixvim = {
     enable = true;
-    nixpkgs.source = inputs.nixpkgs;
+    nixpkgs.useGlobalPackages = true;
     package =
       if nightly then
         pkgs.neovim-unwrapped.overrideAttrs (oldAttrs: {
