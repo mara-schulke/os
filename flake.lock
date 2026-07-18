@@ -23,11 +23,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783411917,
-        "narHash": "sha256-57qUIXSNlrKk1AahMLymi7ROnA7T6AQ0vabLhYjFaZ0=",
+        "lastModified": 1784362948,
+        "narHash": "sha256-X8+HEU8ls8cSdgj9Lg3QTleBjMtJR4lMUFgxjbdlq6I=",
         "ref": "refs/heads/main",
-        "rev": "afed69d298848cf2f63cd83e68f05f1ec17843f8",
-        "revCount": 33,
+        "rev": "dc1d229a1c818d093ecc5fc8ab27a6233543e1f4",
+        "revCount": 34,
         "type": "git",
         "url": "ssh://git@github.com/mara-schulke/claude"
       },
@@ -360,11 +360,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1783522502,
-        "narHash": "sha256-iffAls3iaNTyJC2faYcUXSI+Gp02cDjYl+MygxKl2GI=",
+        "lastModified": 1784120854,
+        "narHash": "sha256-KesHgItiZPgGX740axSiQLcIQ8D24MDqNpkKYWIek8k=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "0bb7ec54c8483066ec9d7720e780a5caa71f8612",
+        "rev": "753cc8a3a87467296ddd1fa93f0cc3e81120ee46",
         "type": "github"
       },
       "original": {
