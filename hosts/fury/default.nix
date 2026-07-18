@@ -52,6 +52,7 @@ in
 
   services.xserver.enable = lib.mkForce false;
   services.displayManager.gdm.enable = lib.mkForce false;
+  services.displayManager.defaultSession = lib.mkForce "steam";
   services.desktopManager.gnome.enable = lib.mkForce false;
 
   # ---------------------------------------------------------------------------
