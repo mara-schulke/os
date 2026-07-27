@@ -7,9 +7,26 @@
 
 let
   tmux = false;
+
+  mount-archive = pkgs.writeShellScriptBin "mount.archive" ''
+    set -euo pipefail
+
+    cipher_dir="''${ARCHIVE_CIPHER_DIR:-/home/mara/Workspace/archive/.cryptfs}"
+    mount_dir="''${ARCHIVE_MOUNT_DIR:-''${XDG_DOCUMENTS_DIR:-$HOME/documents}}"
+    op_ref="''${ARCHIVE_OP_REF:-op://Private/Archive/password}"
+
+    if ! ${pkgs._1password-cli}/bin/op account get >/dev/null 2>&1; then
+      eval "$(${pkgs._1password-cli}/bin/op signin)"
+    fi
+
+    ${pkgs._1password-cli}/bin/op read "$op_ref" \
+      | ${pkgs.gocryptfs}/bin/gocryptfs -i 1h -passfile /dev/stdin "$cipher_dir" "$mount_dir"
+
+    echo "archive mounted at $mount_dir"
+  '';
 in
 {
-  home.packages = with pkgs; [ oh-my-zsh ];
+  home.packages = with pkgs; [ oh-my-zsh ] ++ [ mount-archive ];
 
   programs.zsh = {
     enable = true;
@@ -98,10 +115,6 @@ in
 
     shellGlobalAliases = {
       reload = "source ~/.config/zsh/.zshrc";
-
-      # encrypted filesystems
-      "mount.archive" =
-        "gocryptfs -i 1h -passfile /etc/nixos/secrets/keys/archive /home/mara/workspace/writing/archive/.cryptfs $XDG_DOCUMENTS_DIR";
 
       # chrome
       "chromium-headless" = "chromium --kiosk --new-window";
