@@ -9,7 +9,6 @@
       cmp_luasnip.enable = true;
 
       cmp-cmdline.enable = true;
-      cmp-nvim-lua.enable = true;
       cmp-emoji.enable = true;
       cmp-calc.enable = true;
       cmp-treesitter.enable = true;
@@ -52,10 +51,6 @@
             {
               name = "path";
               priority = 300;
-            }
-            {
-              name = "nvim_lua";
-              priority = 400;
             }
             {
               name = "git";

@@ -31,22 +31,11 @@
 
           nixd = {
             enable = true;
-            settings =
-              #let
-              #  flake = ''(builtins.getFlake "github:mara-schulke/os)""'';
-              #in
-              #  nixpkgs = {
-              #    expr = "import ${flake}.inputs.nixpkgs { }";
-              #  };
-              {
-                formatting = {
-                  command = [ "${lib.getExe pkgs.nixfmt-rfc-style}" ];
-                };
-                options = {
-                  #nixos.expr = ''${flake}.nixosConfigurations.default.options'';
-                  nixpkgs.expr = "import <nixpkgs> { }";
-                };
-              };
+            settings = {
+              nixpkgs.expr = ''import (builtins.getFlake "/etc/nixos").inputs.nixpkgs {}'';
+              formatting.command = [ "${lib.getExe pkgs.nixfmt}" ];
+              options.nixos.expr = ''(builtins.getFlake "/etc/nixos").nixosConfigurations.prisma.options'';
+            };
           };
 
           cssls.enable = true;
@@ -77,7 +66,6 @@
       };
 
       lspkind.enable = true;
-      nix.enable = true;
       crates.enable = true;
       typescript-tools.enable = true;
       trouble.enable = true;
@@ -189,21 +177,21 @@
       {
         mode = "n";
         key = "gf";
-        action = "<cmd> lua vim.diagnostic.open_float(nil, {focusable=false, source='always', border='rounded'})<cr>";
+        action = "<cmd>lua vim.diagnostic.open_float(nil, {focusable=false, source=true, border='rounded'})<cr>";
       }
       {
         mode = "n";
         key = "gj";
-        action = "<cmd>lua vim.diagnostic.goto_next()<cr>";
+        action = "<cmd>lua vim.diagnostic.jump({ count = 1 })<cr>";
       }
       {
         mode = "n";
         key = "gk";
-        action = "<cmd>lua vim.diagnostic.goto_prev()<cr>";
+        action = "<cmd>lua vim.diagnostic.jump({ count = -1 })<cr>";
       }
       {
         mode = "n";
-        key = "gf";
+        key = "gR";
         action = "<cmd>lua require('telescope.builtin').lsp_references({})<cr>";
       }
       {

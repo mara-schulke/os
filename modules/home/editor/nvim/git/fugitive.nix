@@ -11,12 +11,11 @@
       {
         mode = "n";
         key = "<leader>g";
-        action = ''
+        action.__raw = ''
           function()
             vim.api.nvim_feedkeys(":Git ", "n", false)
           end
         '';
-        lua = true;
         options = {
           desc = "Git ...";
         };

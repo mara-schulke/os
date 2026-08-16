@@ -4,15 +4,6 @@
   programs.nixvim.plugins.telescope = {
     enable = true;
     extensions = {
-      project = {
-        enable = true;
-        settings = {
-          base_dirs = [ ];
-          order_by = "asc";
-          search_by = "title";
-          mappings = { };
-        };
-      };
       fzf-native = {
         enable = true;
         settings = {
@@ -78,10 +69,6 @@
       "<C-t>" = {
         action = "todo-comments";
         options.desc = "See Todos";
-      };
-      "<C-p>" = {
-        action = "project";
-        options.desc = "Projects";
       };
       "gd" = {
         action = "lsp_definitions";

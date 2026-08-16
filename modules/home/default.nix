@@ -1,39 +1,44 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
+    inputs.claude.homeModules.default
+
     ./env
     ./ssh.nix
     ./editor
     ./pkgs
     ./shell
     ./terminal
+    ./desktop
   ];
 
   programs.home-manager.enable = true;
+  programs.claude.enable = true;
 
-  home = {
-    packages = with pkgs; [
-      sqlite
-      sqlite.out
-      tmux
+  home.packages = with pkgs; [
+    sqlite
+    sqlite.out
+    tmux
 
-      poetry
-      openssl
-      zlib
-      perl
+    gh
+    glab
+    jj
 
-      (rust-bin.stable.latest.default.override {
-        extensions = [
-          "rust-src"
-          "rust-analyzer"
-        ];
-        targets = [ "arm-unknown-linux-gnueabihf" ];
-      })
+    poetry
+    openssl
+    zlib
+    perl
 
-      nodejs_22
-      protobuf
-      nixfmt-rfc-style
-    ];
-  };
+    (rust-bin.stable.latest.default.override {
+      extensions = [
+        "rust-src"
+        "rust-analyzer"
+      ];
+      targets = [ "arm-unknown-linux-gnueabihf" ];
+    })
+
+    protobuf
+    nixfmt
+  ];
 }

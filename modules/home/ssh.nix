@@ -3,9 +3,9 @@
 {
   programs.ssh = {
     enable = true;
-    extraConfig = ''
-      Host *
-          IdentityAgent ~/.1password/agent.sock
-    '';
+    enableDefaultConfig = false;
+    settings."*" = {
+      IdentityAgent = "~/.1password/agent.sock";
+    };
   };
 }

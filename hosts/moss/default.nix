@@ -16,9 +16,11 @@ in
   home-manager.users."mara" = {
     imports = [ ../../modules/home ];
 
+    desktop.windowManager = "gnome";
+
     home.homeDirectory = "/home/mara";
     home.username = "mara";
-    home.stateVersion = "25.05";
+    home.stateVersion = "26.05";
     home.packages = [ inputs.deploy.packages.x86_64-linux.default ];
   };
 
@@ -33,4 +35,6 @@ in
     peer = vpn.peers.moss;
     privateKeyFile = "/root/wireguard/keys/private";
   };
+
+  system.stateVersion = "26.05";
 }

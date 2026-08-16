@@ -113,42 +113,10 @@ in
 
     colorschemes = {
       base16.enable = true;
-      gruvbox = {
-        enable = false;
-        settings = {
-          contrast = "hard";
-          dim_inactive = false;
-          invert_selection = true;
-          invert_signs = false;
-          invert_tabline = false;
-          invert_intend_guides = false;
-          inverse = false; # invert background for search, diffs, statuslines and errors
-          italic = {
-            strings = false;
-            emphasis = false;
-            comments = false;
-            operators = false;
-            folds = false;
-          };
-          undercurl = true;
-          underline = true;
-          bold = true;
-          overrides = {
-            # Normal = { bg = "#000000"; };
-            Normal = {
-              bg = "#0E1011";
-            };
-            SignColumn = {
-              link = "LineNr";
-            };
-          };
-        };
-      };
     };
 
     extraConfigLuaPost = ''
       vim.cmd([[
-        set t_Co=256
         set termguicolors
         set background=dark
         let base16colorspace=256
@@ -158,7 +126,6 @@ in
         call Base16hi("CursorLine",     "",             g:base16_gui01, "",               g:base16_cterm01, "", "")
         call Base16hi("Comment",        g:base16_gui09, "",             g:base16_cterm09, "",               "", "")
         call Base16hi("LspInlayHint",   g:base16_gui03, "",             g:base16_cterm03, "",               "", "")
-        call Base16hi("CocHintSign",    g:base16_gui03, "",             g:base16_cterm03, "",               "", "")
         call Base16hi("NonText",        g:base16_gui01, "",             g:base16_cterm01, "",               "", "")
         call Base16hi("SpecialKey",     g:base16_gui01, "",             g:base16_cterm01, "",               "", "")
       ]])

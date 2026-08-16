@@ -21,6 +21,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-fast-build = {
+      url = "github:Mic92/nix-fast-build";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     polar.url = "github:hemisphere-systems/polar";
 
     fonts = {
@@ -28,36 +33,88 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    claude = {
+      url = "git+ssh://git@github.com/mara-schulke/claude";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     ocular.url = "git+ssh://git@github.com/hemisphere-systems/ocular";
+
+    artworks = {
+      url = "git+ssh://git@github.com/mara-schulke/artworks";
+      flake = false;
+    };
   };
 
   outputs =
-    { nixpkgs, darwin, ... }@inputs:
+    {
+      nixpkgs,
+      darwin,
+      home-manager,
+      ...
+    }@inputs:
 
     let
       args = {
         inherit inputs;
         darwin = null;
       };
+
       mac = darwin.lib.darwinSystem {
         modules = [ ./hosts/mac ];
         specialArgs = args;
       };
-      maple = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+
+      prisma = nixpkgs.lib.nixosSystem {
         specialArgs = args;
-        modules = [ ./hosts/maple ];
+        modules = [
+          { nixpkgs.hostPlatform = "x86_64-linux"; }
+          ./hosts/prisma
+        ];
       };
-      moss = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+
+      fury = nixpkgs.lib.nixosSystem {
         specialArgs = args;
-        modules = [ ./hosts/moss ];
+        modules = [
+          { nixpkgs.hostPlatform = "x86_64-linux"; }
+          ./hosts/fury
+        ];
+      };
+
+      moss = nixpkgs.lib.nixosSystem {
+        specialArgs = args;
+        modules = [
+          { nixpkgs.hostPlatform = "x86_64-linux"; }
+          ./hosts/moss
+        ];
+      };
+
+      amber = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          system = "x86_64-linux";
+          overlays = [
+            inputs.polar.overlays.default
+            inputs.fonts.overlays.default
+          ];
+          config = {
+            allowUnfree = true;
+            allowUnfreePredicate = _: true;
+          };
+        };
+        extraSpecialArgs = {
+          inherit inputs;
+          username = "mara";
+          realname = "Mara Schulke";
+        };
+        modules = [ ./hosts/amber ];
       };
     in
     {
       nixosConfigurations = {
-        # nix run nix-darwin -- switch --flake .#maple
-        inherit maple;
+        # nix run nix-darwin -- switch --flake .#prisma
+        inherit prisma;
+        # nixos-rebuild switch --flake .#fury
+        inherit fury;
         # nix run nix-darwin -- switch --flake .#moss
         inherit moss;
       };
@@ -65,6 +122,11 @@
       # nix run nix-darwin -- switch --flake .#mac
       darwinConfigurations = {
         inherit mac;
+      };
+
+      # home-manager switch --flake .#amber
+      homeConfigurations = {
+        inherit amber;
       };
 
       nixosModules = {
@@ -75,6 +137,14 @@
         default = import ./modules/home;
       };
 
+      deploy.nodes.fury = {
+        hostname = "fury";
+        profiles.system = {
+          user = "root";
+          path = inputs.deploy.lib.x86_64-linux.activate.nixos fury;
+        };
+      };
+
       darwinModules = {
         default = import ./modules/darwin;
       };
@@ -83,7 +153,7 @@
         canBuild = mac.system;
       };
 
-      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
+      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt;
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
     };
 }

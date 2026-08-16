@@ -2,6 +2,7 @@
 
 {
   services.dbus.enable = true;
+  services.dbus.implementation = "dbus";
   security.polkit.enable = true;
   security.rtkit.enable = true;
 
@@ -32,7 +33,8 @@
   environment.systemPackages = with pkgs; [
     blueman
     pavucontrol
-    asha-pipewire-sink
+    # Temporarily disabled - fails to build with newer nixpkgs
+    # asha-pipewire-sink
   ];
 
   #boot.extraModprobeConfig = ''
@@ -43,6 +45,9 @@
     bluetooth = {
       enable = true;
       settings = {
+        General = {
+          Experimental = true;
+        };
         LE = {
           #MinConnectionInterval = 16;
           #MaxConnectionInterval = 16;

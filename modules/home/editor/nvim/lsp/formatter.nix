@@ -4,7 +4,7 @@
   programs.nixvim = {
     extraPackages = with pkgs; [
       biome
-      nixfmt-rfc-style
+      nixfmt
       prettierd
       rustfmt
       shfmt
@@ -24,8 +24,8 @@
 
       settings = {
         format_on_save = {
-          lspFallback = true;
-          timeoutMs = 500;
+          lsp_format = "fallback";
+          timeout_ms = 500;
         };
 
         notify_on_error = true;

@@ -3,17 +3,20 @@
 {
   environment.systemPackages = with pkgs; [
     alacritty
-    (chromium.override { enableWideVine = true; })
+    # (chromium.override { enableWideVine = true; })
     brave
-    davinci-resolve
+    blender
+    # davinci-resolve
     discord
     firefox
     libheif
     mgba
     lunar-client
+    prismlauncher
     slack
     spotify
     steam
+    thunderbird
     vivaldi
   ];
 
@@ -21,6 +24,18 @@
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
+
+    extraCompatPackages = with pkgs; [
+      proton-ge-bin
+    ];
+
+    # Force Steam to use NVIDIA GPU
+    gamescopeSession.env = {
+      DRI_PRIME = "0";
+      __NV_PRIME_RENDER_OFFLOAD = "1";
+      __VK_LAYER_NV_optimus = "NVIDIA_only";
+      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    };
   };
 
   programs._1password.enable = true;

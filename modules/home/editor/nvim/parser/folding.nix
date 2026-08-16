@@ -4,7 +4,7 @@
   programs.nixvim = {
     opts = {
       foldenable = false;
-      foldexpr = "nvim_treesitter#foldexpr()";
+      foldexpr = "v:lua.vim.treesitter.foldexpr()";
       foldlevel = 5;
       foldlevelstart = 5;
       foldmethod = "expr";
