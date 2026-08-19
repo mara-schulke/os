@@ -2,6 +2,7 @@
 # and may be overwritten by future invocations.  Please make changes
 # to /etc/nixos/configuration.nix instead.
 {
+  inputs,
   config,
   lib,
   modulesPath,
@@ -11,6 +12,7 @@
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
+    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t490
   ];
 
   boot.initrd.availableKernelModules = [
@@ -21,8 +23,15 @@
     "sdhci_pci"
   ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [
+    "kvm-intel"
+    "iwlwifi"
+  ];
   boot.extraModulePackages = [ ];
+  boot.extraModprobeConfig = ''
+    options iwlwifi power_save=0
+    options iwlmvn power_scheme=1
+  '';
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/ca183839-b2f6-4a22-9cd5-6f03f9464368";
@@ -50,5 +59,7 @@
   # networking.interfaces.wwp0s20f0u7.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+
+  hardware.enableRedistributableFirmware = lib.mkForce true;
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

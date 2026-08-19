@@ -1,4 +1,9 @@
-{ inputs, ... }:
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   vpn = inputs.ocular.lib.vpn;
@@ -10,6 +15,8 @@ in
     ../../modules/system
     ./hardware-configuration.nix
   ];
+
+  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_12;
 
   networking.hostName = "moss";
 
@@ -31,9 +38,22 @@ in
   };
 
   ocular.vpn = {
-    enable = true;
+    # enable = true;
     peer = vpn.peers.moss;
     privateKeyFile = "/root/wireguard/keys/private";
+  };
+
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql_17;
+    enableTCPIP = true;
+    authentication = pkgs.lib.mkOverride 10 ''
+      local all all trust
+    '';
+    initialScript = pkgs.writeText "init-postgres.sql" ''
+      CREATE USER gamma WITH PASSWORD 'gamma' CREATEDB;
+      CREATE DATABASE gamma OWNER gamma;
+    '';
   };
 
   system.stateVersion = "26.05";
