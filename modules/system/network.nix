@@ -8,7 +8,7 @@
     openFirewall = true;
   };
 
-  networking.wireless.enable = lib.mkForce false;
+  networking.wireless.enable = lib.mkForce true;
   networking.networkmanager.enable = true;
   programs.nm-applet.enable = true;
 
