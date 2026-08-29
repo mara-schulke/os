@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ ... }:
 
 {
   services.sunshine = {
@@ -8,7 +8,6 @@
     openFirewall = true;
   };
 
-  networking.wireless.enable = lib.mkForce true;
   networking.networkmanager.enable = true;
   programs.nm-applet.enable = true;
 

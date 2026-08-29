@@ -80,7 +80,7 @@ in
 
     sessionVariables = {
       # nix
-      PATH = "$PATH:$HOME/.local/share/npm-global/bin";
+      PATH = "$PATH:$HOME/.local/share/npm-global/bin:$HOME/.npm-global/bin";
       DARWIN_FLAKE = "$HOME/Documents/Helsing/nix";
 
       # xdg
@@ -145,6 +145,7 @@ in
       export PATH="/opt/local/bin:$PATH"
       export PATH="/opt/local/sbin:$PATH"
       export PATH="$HOME/.npm/bin:$PATH"
+      export PATH="$HOME/.npm-global/bin:$PATH"
       export PATH="$HOME/bin:$PATH"
       export PATH="$HOME/go/bin:$PATH"
       export PATH="$HOME/.cargo/bin:$PATH"

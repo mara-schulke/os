@@ -23,6 +23,11 @@ in
   home-manager.users."mara" = {
     imports = [ ../../modules/home ];
 
+    programs.claude.settings = {
+      model = "sonnet";
+      enableRelentlessMode = false;
+    };
+
     desktop.windowManager = "gnome";
 
     home.homeDirectory = "/home/mara";
@@ -49,10 +54,14 @@ in
     enableTCPIP = true;
     authentication = pkgs.lib.mkOverride 10 ''
       local all all trust
+      host  all all 127.0.0.1/32 trust
+      host  all all ::1/128      trust
     '';
     initialScript = pkgs.writeText "init-postgres.sql" ''
       CREATE USER gamma WITH PASSWORD 'gamma' CREATEDB;
       CREATE DATABASE gamma OWNER gamma;
+      CREATE ROLE mara WITH LOGIN SUPERUSER;
+      CREATE DATABASE mara OWNER mara;
     '';
   };
 
