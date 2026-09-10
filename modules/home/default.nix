@@ -14,7 +14,13 @@
   ];
 
   programs.home-manager.enable = true;
-  programs.claude.enable = true;
+  programs.claude = {
+    enable = true;
+    settings = {
+      model = "sonnet[1m]";
+      effortLevel = "medium";
+    };
+  };
 
   home.packages = with pkgs; [
     sqlite
